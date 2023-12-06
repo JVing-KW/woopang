@@ -41,10 +41,5 @@ public class HomeController {
 	public void hihi(){
 		System.out.println("hihi");
 	}
-
-	@GetMapping("/hihi2")
-	public void hihi2(){
-		System.out.println("hihi2");
-	}
-
+	
 }
