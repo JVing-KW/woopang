@@ -326,7 +326,7 @@
         console.log("data run");
         // boardInfoData();
     });
-    document.getElementById("detailInfo03").addEventListener("click", boardNumData);
+    document.getElementById("detailInfo3").addEventListener("click", boardNumData);
 
     function boardNumData() {
         // div를 클릭했을 때의 이벤트 핸들러
