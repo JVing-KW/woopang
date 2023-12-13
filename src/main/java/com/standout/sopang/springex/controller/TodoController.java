@@ -52,6 +52,7 @@ public class TodoController {
     ) {
 
         log.info("POST todo register.......");
+
         log.info("goods_id : " + goods_id);
 
         model.addAttribute("totalModel", goods_id);
@@ -66,15 +67,14 @@ public class TodoController {
         return "redirect:/goods/goodsDetail?goods_id="+goodsIdValue;
     }
 
-    @GetMapping({"/read", "/modify"})
+    @PostMapping({"/read", "/modify"})
     public void read(Long tno, Model model) {
 
         TodoDTO todoDTO = todoService.getOne(tno);
-        log.info("todoDTO : "+ todoDTO);
+        log.info(todoDTO);
 
         model.addAttribute("dto", todoDTO);
     }
-
 
     @PostMapping("/remove")
     public String remove(Long tno, PageRequestDTO pageRequestDTO, RedirectAttributes redirectAttributes) {
@@ -101,13 +101,13 @@ public class TodoController {
             return "redirect:/todo/modify";
         }
 
-        log.info("todoDTO :"+todoDTO);
+        log.info(todoDTO);
 
         todoService.modify(todoDTO);
 
         redirectAttributes.addAttribute("tno", todoDTO.getTno());
 
-        return "redirect:";
+        return "redirect:#";
     }
 
     //    @ResponseBody
