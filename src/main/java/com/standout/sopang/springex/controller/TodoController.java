@@ -26,12 +26,13 @@ public class TodoController {
     private final TodoService todoService;
 
     @GetMapping("/register")
-    public void registerGET() {
+    public void register() {
+
         log.info("GET todo register.......");
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerPost(@Valid TodoDTO todoDTO,
+    public String register(@Valid TodoDTO todoDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
 
