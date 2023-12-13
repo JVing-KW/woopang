@@ -6,7 +6,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="goods" value="${goodsMap.goodsDTO}"/>
+<%--model.addAttribute("goodsMap", goodsMap);--%>
 <c:set var="imageList" value="${goodsMap.imageList }"/>
+<%--<c:set var="dto" value="${TodoDTO.dto}"/>--%>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -155,181 +157,15 @@
     <%--<script src="${contextPath}/resources/js/goodsboard.js"></script>--%>
 
     <script>
+        $(document).ready(function () {
+
+        })
         document.getElementById("detailInfo3").addEventListener("click", boardNumData);
 
-<<<<<<< HEAD
-<script>
-    // let responseDTO;
-    // let dtoList;
-    $(document).ready(function() {
-        console.log("data run");
-        // boardInfoData();
-    });
-    document.getElementById("detailInfo3").addEventListener("click", boardNumData);
-
-    function boardNumData() {
-        // div를 클릭했을 때의 이벤트 핸들러
-        console.log('클릭함');
-        // Ajax를 사용하여 서버에 데이터 요청
-        $.ajax({
-            type: "GET",
-            url: "${contextPath}/todo/list", //  URL을 지정
-            // data: responseDTO,
-            dataType: "JSON",
-            success: function(data) {
-                let numData = data;
-                console.log('numData :' + numData.Name);
-                console.log('데이터(data) 전송 성공(success)!');
-                // 테이블 데이터 출력
-                let boardData = document.getElementById("boardData");
-                boardData.innerHTML = ""; // 기존 데이터 초기화
-                let dtoListData = numData.dtoList;
-                dtoListData.forEach(function(dto) {
-                    let row = document.createElement("tr");
-
-                    let tnoCell = document.createElement("td");
-                    tnoCell.textContent = dto.tno;
-                    row.appendChild(tnoCell);
-
-                    let titleCell = document.createElement("td");
-                    let titleLink = document.createElement("a");
-                    titleLink.href = "/todo/read?tno=" + dto.tno;
-                    titleLink.textContent = dto.title;
-                    titleCell.appendChild(titleLink);
-                    row.appendChild(titleCell);
-
-                    let writerCell = document.createElement("td");
-                    writerCell.textContent = dto.writer;
-                    row.appendChild(writerCell);
-
-                    let dueDateCell = document.createElement("td");
-                    dueDateCell.textContent = dto.dueDate;
-                    row.appendChild(dueDateCell);
-
-                    let finishedCell = document.createElement("td");
-                    finishedCell.textContent = dto.finished;
-                    row.appendChild(finishedCell);
-
-                    boardData.appendChild(row);
-                });
-
-                // 페이징 데이터 출력 (responseDTO의 데이터 활용)
-                let pagination = document.querySelector(".pagination");
-                pagination.innerHTML = ""; // 기존 데이터 초기화
-
-                responseDTO = numData.pageRequestDTO;
-                // 페이징 처리 로직 추가
-                // responseDTO에서 start, end, page 등을 활용하여 페이지 번호를 동적으로 생성
-                for (let num = responseDTO.start; num <= responseDTO.end; num++) {
-                    let li = document.createElement("li");
-                    li.className = "page-item " + (responseDTO.page == num ? "active" : "");
-
-                    let a = document.createElement("a");
-                    a.className = "page-link";
-                    a.textContent = num;
-                    a.setAttribute("data-num", num);
-
-                    li.appendChild(a);
-                    pagination.appendChild(li);
-                }
-            },
-            // 서버로부터 받은 데이터를 처리
-            error: function (xhr, status, error) {
-                console.error("Error loading data. Status: " + status + ", Error: " + error);
-            }
-        });
-    };
-    <%--function boardInfoData() {--%>
-    <%--    // div를 클릭했을 때의 이벤트 핸들러--%>
-    <%--    console.log('클릭함');--%>
-    <%--    // Ajax를 사용하여 서버에 데이터 요청--%>
-    <%--    $.ajax({--%>
-    <%--        type: "GET",--%>
-    <%--        url: "${contextPath}/todo/list", //  URL을 지정--%>
-    <%--        // data:dtoList,--%>
-    <%--        dataType: "JSON",--%>
-    <%--        success: function(data) {--%>
-    <%--            let infoData = data;--%>
-    <%--            console.log('infoData :' + infoData);--%>
-    <%--            console.log('데이터(data) 전송 성공(success)!');--%>
-    <%--            // setAttributes(infoData);--%>
-    <%--        },--%>
-    <%--        // 서버로부터 받은 데이터를 처리--%>
-    <%--        error: function (xhr, status, error) {--%>
-    <%--            console.error("Error loading data. Status: " + status + ", Error: " + error);--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--};--%>
-
-    //장바구니 추가, goods_id정보를 넘겨줌.
-    function add_cart(goods_id) {
-        $.ajax({
-            type: "post",
-            async: true,
-            url: "${contextPath}/cart/addGoodsInCart",
-            data: {goods_id: goods_id},
-            success: function (data, textStatus) {
-                if (data.trim() == 'add_success') {
-                    alert("장바구니에 추가되엇습니다.");
-                } else if (data.trim() == 'already_existed') {
-                    alert("이미 카트에 등록된 상품입니다.");
-                }
-            },
-            error: function (data, textStatus) {
-                // alert("data :" + data);
-                alert("로그인 후 추가하실 수 있습니다!");
-            },
-            complete: function (data, textStatus) {
-            }
-        });
-    }
-
-
-    //바로 주문하기
-    function fn_order_each_goods(goods_id, goods_title, goods_sales_price, fileName) {
-        var total_price, final_total_price;
-        var order_goods_qty = document.getElementById("order_goods_qty");
-        var formObj = document.createElement("form");
-        var i_goods_id = document.createElement("input");
-        var i_goods_title = document.createElement("input");
-        var i_goods_sales_price = document.createElement("input");
-        var i_fileName = document.createElement("input");
-        var i_order_goods_qty = document.createElement("input");
-
-        let memberName = "${memberInfo.member_name }";
-
-        if (memberName == "") {
-            alert("로그인 후 구매하실 수 있습니다!");
-        }/* 로그인상태가 아닌경우 안내함. */
-        else {
-            i_goods_id.name = "goods_id";
-            i_goods_title.name = "goods_title";
-            i_goods_sales_price.name = "goods_sales_price";
-            i_fileName.name = "goods_fileName";
-            i_order_goods_qty.name = "order_goods_qty";
-            i_goods_id.value = goods_id;
-            i_order_goods_qty.value = 1;//i_order_goods_qty 1로 고정
-            i_goods_title.value = goods_title;
-            i_goods_sales_price.value = goods_sales_price;
-            i_fileName.value = fileName;
-
-//formObj에 해당 상품 정보를 할당해 orderEachGoods로 action
-            formObj.appendChild(i_goods_id);
-            formObj.appendChild(i_goods_title);
-            formObj.appendChild(i_goods_sales_price);
-            formObj.appendChild(i_fileName);
-            formObj.appendChild(i_order_goods_qty);
-            document.body.appendChild(formObj);
-
-            formObj.method = "post";
-            formObj.action = "${contextPath}/order/orderEachGoods";
-            formObj.submit();
-=======
-        let elements = document.getElementsByClassName("viewRead");
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].addEventListener("click", viewread);
->>>>>>> cb4ee7f0ed251da652fe8bd836b4354215bb4afb
-        }
+        // let elements = document.getElementsByClassName("viewRead");
+        // for (let i = 0; i < elements.length; i++) {
+        //     elements[i].addEventListener("click", viewread);
+        // }
 
         function boardNumData() {
             // div를 클릭했을 때의 이벤트 핸들러
@@ -345,13 +181,17 @@
                     boardList();
                     document.getElementById("boardDataNum").addEventListener("click", function (event) {
                         movePageing(event);
-                        document.getElementById("viewRegister").addEventListener("click", function (event) {
-                            register(event);
-                        });
                     });
-                    error: function e(xhr, status, error) {
-                        console.error("Error loading data. Status: " + status + ", Error: " + error);
-                    }
+                    document.getElementById("viewReg_Mod").addEventListener("click", function (event) {
+                        viewReg_Mod(event);
+                    });
+                    // document.getElementById("modify").addEventListener("click", function (event) {
+                    //     modify(event);
+                    // });
+                },
+
+                error: function e(xhr, status, error) {
+                    console.error("Error loading data. Status: " + status + ", Error: " + error);
                 }
             });
         }
@@ -373,16 +213,19 @@
             });
         }
 
-        function viewread() {
+        function viewread(event) {
             // div를 클릭했을 때의 이벤트 핸들러
-            console.log('json클릭함');
+            console.log('viewread 클릭함');
+            let tno = event.target.getAttribute('name');
+            console.log("tno : " + tno);
             // Ajax를 사용하여 서버에 데이터 요청
             $.ajax({
-                type: "POST",
-                url: "${contextPath}/todo/read?tno=" + dto.tno, //  URL을 지정
+                type: "GET",
+                url: "${contextPath}/todo/read?tno=" + tno, //  URL을 지정
                 dataType: "html",
                 success: function (data) {
-                    // updatePage(data);
+                    let htmlLocation = document.getElementById("detailInfo03");
+                    htmlLocation.innerHTML = data;
                     error: function e(xhr, status, error) {
                         console.error("Error loading data. Status: " + status + ", Error: " + error);
                     }
@@ -446,9 +289,10 @@
                 //제목
                 let titleCell = document.createElement("td");
                 let titleLink = document.createElement("a");
-                titleLink.href = "/todo/read?tno=" + dto.tno;
+                // titleLink.href = "/todo/read?tno=" + dto.tno;
                 titleLink.textContent = dto.title;
-                titleLink.setAttribute("class", "viewRead");
+                titleLink.setAttribute("onclick", "viewread(event)");
+                titleLink.setAttribute("name", dto.tno);
                 titleCell.appendChild(titleLink);
                 row.appendChild(titleCell);
                 //내용
@@ -494,6 +338,56 @@
             }
         }
 
+        function viewReg_Mod(event) {
+            console.log("viewReg_Mod 진입");
+            urlData = window.location.href;
+            let url = new URL(urlData);
+            let goods_id = url.searchParams.get("goods_id");
+            console.log("goods_id : " + goods_id);
+            let select = event.target.getAttribute('name');
+            console.log("select :" +select);
+            if (select === "register") {
+                console.log("register 진입")
+                $.ajax({
+                    type: "post",
+                    url: "${contextPath}/todo/register",
+                    data: {"goods_id": goods_id},
+                    dataType: "html",
+                    success: function (data) {
+                        console.log("register 로딩 성공");
+                        detailInfo03.innerHTML = data;
+                    },
+                    error: function e(xhr, status, error) {
+                        console.error("Error loading data. Status: " + status + ", Error: " + error);
+                    }
+                })
+            }
+        }
+
+        function modify() {
+
+            console.log("modify 진입 : tno :");
+            // urlData = window.location.href;
+            // let url = new URL(urlData);
+            let tno = url.searchParams.get("tno");
+            // console.log("goods_id : " + goods_id);
+            // let select = event.target.getAttribute('name');
+            // console.log("select : "+ select);
+            $.ajax({
+                type: "get",
+                url: "${contextPath}/todo/modify ",
+                // data: {"data": data},
+                dataType: "html",
+                success: function (data) {
+                    console.log("성공 : " + data);
+                    detailInfo03.innerHTML = data;
+                },
+                error: function e(xhr, status, error) {
+                    console.error("Error loading data. Status: " + status + ", Error: " + error);
+                }
+            })
+        }
+
         //장바구니 추가, goods_id정보를 넘겨줌.
         function add_cart(goods_id) {
             $.ajax({
@@ -515,7 +409,6 @@
                 }
             });
         }
-
 
         //바로 주문하기
         function fn_order_each_goods(goods_id, goods_title, goods_sales_price, fileName) {
@@ -558,22 +451,21 @@
                 formObj.submit();
             }
         }
-
-        function register(event) {
-            console.log("register 진입")
-            $.ajax({
-                type: "POST",
-                url: "${contextPath}/todo/register",
-                data: "HTML",
-                success: function (data) {
-                    console.log("성공 : " + data);
-                    detailInfo03.innerHTML = data;
-                },
-                error: function e(xhr, status, error) {
-                    console.error("Error loading data. Status: " + status + ", Error: " + error);
-                }
-            })
-        }
+        <%--function read(event) {--%>
+        <%--    console.log("read 진입")--%>
+        <%--    $.ajax({--%>
+        <%--        type: "POST",--%>
+        <%--        url: "${contextPath}/todo/read?tno=",--%>
+        <%--        data: "HTML",--%>
+        <%--        success: function (data) {--%>
+        <%--            console.log("성공 : " + data);--%>
+        <%--            detailInfo03.innerHTML = data;--%>
+        <%--        },--%>
+        <%--        error: function e(xhr, status, error) {--%>
+        <%--            console.error("Error loading data. Status: " + status + ", Error: " + error);--%>
+        <%--        }--%>
+        <%--    })--%>
+        <%--}--%>
     </script>
 
 
