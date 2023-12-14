@@ -39,7 +39,6 @@
         </div>
         <!-- header end -->
         <!-- 기존의 <h1>Header</h1>끝 -->
-
         <div class="row content">
             <div class="col">
                 <div class="card">
@@ -59,7 +58,6 @@
                                 <input type="text" name="title" class="form-control"
                                        value=<c:out value="${dto.title}"></c:out> >
                             </div>
-
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate</span>
                                 <input type="date" name="dueDate" class="form-control"
@@ -108,17 +106,6 @@
 
                         const formObj = document.querySelector("form")
 
-                        // document.querySelector(".btn-danger").addEventListener("click",function(e) {
-                        //
-                        //     e.preventDefault()
-                        //     e.stopPropagation()
-                        //
-                        //     formObj.action ="/todo/remove"
-                        //     formObj.method ="post"
-                        //
-                        //     formObj.submit()
-                        //
-                        // },false);
 
                         document.querySelector(".btn-danger").addEventListener("click",function(e) {
 
@@ -145,14 +132,6 @@
 
                         },false);
 
-                        /*document.querySelector(".btn-secondary").addEventListener("click",function(e) {
-
-                            e.preventDefault()
-                            e.stopPropagation()
-
-                            self.location = "/todo/list";
-
-                        },false);*/
 
                         document.querySelector(".btn-secondary").addEventListener("click",function(e) {
 

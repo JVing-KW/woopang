@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-
 <div class="container">
 	<div class="row ms-5 ps-5">
 		<div class="mt-5 p-0 ps-5 align-items-center">

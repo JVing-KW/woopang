@@ -31,7 +31,6 @@ public class TodoServiceImpl implements TodoService{
 
         TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class );
 
-
         todoMapper.insert(todoVO);
 
     }

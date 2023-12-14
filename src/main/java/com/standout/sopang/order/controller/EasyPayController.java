@@ -170,9 +170,7 @@ public class EasyPayController {
 
 		response.setContentType("text/html;charset=UTF-8");
 
-//		ModelAndView mav = new ModelAndView();
 		System.out.println(map.toString());
-		System.out.println("1소팡페이 진입1");
 
 		//주문정보를 가져온다.
 		HttpSession session = request.getSession();
