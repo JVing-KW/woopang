@@ -8,7 +8,7 @@
 	<div class="row ms-5 ps-5">
 		<div class="mt-5 p-0 ps-5 align-items-center">
 			<div class="ps-4">
-	<H1>1.최종 주문 내역서</H1>
+				<p class="fs-3 fw-bold">최종 주문 내역서</p>
 	<TABLE class="table border-top mb-0 small fw-light" >
 		<TBODY align-center>
 			<tr style="background: #82bce2">
@@ -50,7 +50,7 @@
 <form  name="form_order">
 	<br>
 	<br>
-	<H1>2.배송지 정보</H1>
+	<p class="fs-3 fw-bold">배송지 정보</p>
 	<DIV class="detail_table">
 
 		<TABLE class="table border-top mb-0 small fw-light">
@@ -126,9 +126,9 @@
 	<br>
 	<br>
 	<br>
-	<H1>3.결제정보</H1>
+	<p class="fs-3 fw-bold">결제 정보</p>
 	<DIV class="detail_table">
-		<table>
+		<TABLE class="table border-top mb-0 small fw-light" >
 			<TBODY>
 				<TR class="dot_line">
 					<TD class="fixed_join">결제방법</TD>
