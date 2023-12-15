@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 public class OrderDTO {
-    private int order_seq_num;
     private int order_id;
     private int goods_id;
 

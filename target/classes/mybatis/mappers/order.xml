@@ -6,7 +6,6 @@
 <mapper namespace="mapper.order">
 	<!-- 리절트 맵 정의 -->
 	<resultMap id="orderGoodsResult" type="OrderVO">
-		<result property="order_seq_num" column="order_seq_num" />
 		<result property="order_id" column="order_id" />
 		<result property="goods_id" column="goods_id" />
 		<result property="goods_title" column="goods_title" />
@@ -25,7 +24,7 @@
 		<result property="pay_method" column="pay_method" />
 		<result property="card_com_name" column="card_com_name" />
 		<result property="pay_orderer_hp_num"
-			column="pay_orderer_hp_num" />
+					column="pay_orderer_hp_num" />
 		<result property="card_pay_month" column="card_pay_month" />
 		<result property="pay_order_time" column="pay_order_time" />
 	</resultMap>
@@ -34,47 +33,51 @@
 
 	<!-- 주문하기 -->
 	<insert id="insertNewOrder" parameterType="orderVO">
-		<selectKey resultType="int" keyProperty="order_seq_num"
-			order="BEFORE">
-			select order_seq_num from order by order_seq_num desc limit 1
+		<selectKey resultType="java.lang.Integer" keyProperty="order_id" order="BEFORE">
+			SELECT LAST_INSERT_ID() AS order_id
 		</selectKey>
-	    <![CDATA[
-			insert into t_shopping_order(order_seq_num,
-			                            order_id,
-									    goods_id,
-									    goods_title,
-									    goods_sales_price,
-									    goods_fileName,
-									    order_goods_qty,
-										member_id,
-						                orderer_hp,
-									    receiver_name,
-									    receiver_hp1,
-					                    delivery_address,
-					                    pay_method,
-						                card_com_name,
-						                card_pay_month,
-						                pay_orderer_hp_num,
-			                             creDate)
-							     values(#{order_seq_num},
-							            #{order_id},
-									    #{goods_id},
-									    #{goods_title},
-									    #{goods_sales_price},
-									    #{goods_fileName},
-									    #{order_goods_qty},
-									    #{member_id},
-						                #{orderer_hp},
-						                #{receiver_name},
-						                #{receiver_hp1},
-					                    #{delivery_address},
-					                    #{pay_method},
-						                #{card_com_name},
-						                #{card_pay_month},
-						                #{pay_orderer_hp_num},
-							         	NOW())
-    	]]>
+		<![CDATA[
+        insert into t_shopping_order(
+            order_id,
+            goods_id,
+            goods_title,
+            goods_sales_price,
+            goods_fileName,
+            order_goods_qty,
+            member_id,
+            orderer_hp,
+            receiver_name,
+            receiver_hp1,
+            delivery_address,
+            pay_method,
+            card_com_name,
+            card_pay_month,
+            pay_order_time,
+            pay_orderer_hp_num,
+            creDate
+        )
+        values(
+            0,
+            #{goods_id},
+            #{goods_title},
+            #{goods_sales_price},
+            #{goods_fileName},
+            #{order_goods_qty},
+            #{member_id},
+            #{orderer_hp},
+            #{receiver_name},
+            #{receiver_hp1},
+            #{delivery_address},
+            #{pay_method},
+            #{card_com_name},
+            #{card_pay_month},
+            #{pay_order_time},
+            #{pay_orderer_hp_num},
+            NOW()
+        )
+    ]]>
 	</insert>
+
 	<select id="selectMyOrderList"
 			resultMap="orderGoodsResult" parameterType="java.util.Map">
 	    <![CDATA[
@@ -92,7 +95,7 @@
 	<!-- 주문번호 시퀀스를 생성하여 결과값을 반환한다. -->
 
 	<select id="selectOrderID" resultType="int">
-		SELECT LAST_INSERT_ID() AS order_id;
+		SELECT LAST_INSERT_ID() AS order_id
 	</select>
 	
 	

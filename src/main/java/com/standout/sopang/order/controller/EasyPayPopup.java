@@ -48,7 +48,7 @@ public class EasyPayPopup {
 			}else if(myOrderList.size() > 1){
 				itemName = orderDTO.getGoods_title() +"외 " + i + "건";
 			}
-			orderNumber = String.valueOf(orderDTO.getOrder_seq_num());
+			orderNumber = String.valueOf(orderDTO.getOrder_id());
 		}
 
 		String userAgent = "WP";
@@ -111,7 +111,7 @@ public class EasyPayPopup {
 			}else if(myOrderList.size() > 1){
 				itemName = orderDTO.getGoods_title() +"외 " + i + "건";
 			}
-			orderNumber = String.valueOf(orderDTO.getOrder_seq_num());
+			orderNumber = String.valueOf(orderDTO.getOrder_id());
 		}
 		String userAgent = "WP";
 		String merchantId = "himedia";

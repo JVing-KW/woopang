@@ -227,8 +227,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 							HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
 
 		response.setContentType("text/html;charset=UTF-8");
-
-
+		log.info("sopangPay");
 		//주문정보를 가져온다.
 		HttpSession session = request.getSession();
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("orderer");
@@ -245,7 +244,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			orderDTO.setReceiver_name(map.get("receiver_name"));
 			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
 			orderDTO.setDelivery_address(map.get("delivery_address"));
-			orderDTO.setOrder_seq_num(orderDTO.getOrder_seq_num());
+
 
 			//추후 결제시 필요할 수 있으니 주석으로 남겨둔다.
 			orderDTO.setPay_method(map.get("pay_method"));
@@ -261,18 +260,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		log.info(myOrderList.toString());
 
 		orderService.addNewOrder(myOrderList);
-		log.info(map.get("res_cd"));
-		log.info(map.get("res_msg"));
 
 		return "/order/orderResult";
 	}
 
 
-//	@Override
-//	@RequestMapping(value="orderResult")
-//	public String orderResult(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		return "/order/orderResult";
-//	}
+
 
 	@Override
 	public String payFail(HttpServletRequest request, HttpServletResponse response) throws Exception {

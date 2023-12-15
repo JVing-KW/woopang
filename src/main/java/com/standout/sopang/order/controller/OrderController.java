@@ -22,5 +22,4 @@ public interface OrderController {
 
 	public String payFail(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-//	public String orderResult(HttpServletRequest request, HttpServletResponse response)throws Exception;
 }
