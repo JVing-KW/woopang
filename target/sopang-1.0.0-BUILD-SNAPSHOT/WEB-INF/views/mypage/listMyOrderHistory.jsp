@@ -48,7 +48,6 @@
 				<div class="border-top border-main border-2 mt-2">
 
 					<c:choose>
-					
 						<c:when test="${empty myOrderHistList }">
 							<!-- 주문상품이 없을때 -->
 							<div class="shadow-sm p-4 mt-3 rounded border border-light">

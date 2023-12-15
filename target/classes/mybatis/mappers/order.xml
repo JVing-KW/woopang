@@ -75,17 +75,22 @@
 							         	NOW())
     	]]>
 	</insert>
-	
-	
+	<select id="selectMyOrderList"
+			resultMap="orderGoodsResult" parameterType="java.util.Map">
+	    <![CDATA[
+		SELECT *
+		FROM t_shopping_order
+		WHERE member_id = #{member_id}
+		  AND DATE_FORMAT(pay_order_time, '%Y-%m-%d') BETWEEN #{beginDate} AND #{endDate}
+		ORDER BY pay_order_time DESC
+		]]>
+	</select>
+
+
 
 	<!-- 주문번호 시퀀스를 생성 -->
 	<!-- 주문번호 시퀀스를 생성하여 결과값을 반환한다. -->
-<!--오라클용-->
-<!--	<select id="selectOrderID" resultType="int">-->
-<!--	    <![CDATA[-->
-<!--        # select seq_order_id.nextval from dual-->
-<!--        ]]>-->
-<!--	</select>-->
+
 	<select id="selectOrderID" resultType="int">
 		SELECT LAST_INSERT_ID() AS order_id;
 	</select>

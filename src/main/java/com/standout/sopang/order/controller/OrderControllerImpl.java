@@ -222,12 +222,57 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 
         return member_id;
     }
+	@RequestMapping(value = "/orderResult", method = {RequestMethod.GET} )
+	public String sopangPay(@RequestParam Map<String, String> map, HttpServletRequest request,
+							HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
 
-	@Override
-	@RequestMapping(value="orderResult")
-	public String orderResult(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=UTF-8");
+
+
+		//주문정보를 가져온다.
+		HttpSession session = request.getSession();
+		MemberDTO memberDTO = (MemberDTO) session.getAttribute("orderer");
+		String member_id = memberDTO.getMember_id();
+		String orderer_name = memberDTO.getMember_name();
+		String orderer_hp = memberDTO.getHp1();
+		List<OrderDTO> myOrderList = (List<OrderDTO>) session.getAttribute("myOrderList");
+
+		//주문정보를 for로 돌리며 myOrderList에 수령자정보를 담는다.
+		for (int i = 0; i < myOrderList.size(); i++) {
+			OrderDTO orderDTO = (OrderDTO) myOrderList.get(i);
+
+			orderDTO.setMember_id(member_id);
+			orderDTO.setReceiver_name(map.get("receiver_name"));
+			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
+			orderDTO.setDelivery_address(map.get("delivery_address"));
+			orderDTO.setOrder_seq_num(orderDTO.getOrder_seq_num());
+
+			//추후 결제시 필요할 수 있으니 주석으로 남겨둔다.
+			orderDTO.setPay_method(map.get("pay_method"));
+			orderDTO.setCard_com_name(map.get("card_com_name"));
+			orderDTO.setCard_pay_month(map.get("card_pay_month"));
+			orderDTO.setPay_orderer_hp_num(map.get("pay_orderer_hp_num"));
+			orderDTO.setOrderer_hp(orderer_hp);
+
+			myOrderList.set(i, orderDTO);
+
+		}
+		model.addAttribute(myOrderList);
+		log.info(myOrderList.toString());
+
+		orderService.addNewOrder(myOrderList);
+		log.info(map.get("res_cd"));
+		log.info(map.get("res_msg"));
+
 		return "/order/orderResult";
 	}
+
+
+//	@Override
+//	@RequestMapping(value="orderResult")
+//	public String orderResult(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		return "/order/orderResult";
+//	}
 
 	@Override
 	public String payFail(HttpServletRequest request, HttpServletResponse response) throws Exception {

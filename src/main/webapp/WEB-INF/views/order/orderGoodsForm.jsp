@@ -395,7 +395,7 @@
 
 
                     <!-- 결제하기-->
-                    <a name="btn_process_pay_order" onClick="fn_process_pay_order()"
+                    <a name="btn_process_pay_order" onClick="fn_process_pay_order()"  href="${contextPath}/order/orderResult"
                        class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>
 
                     <!-- 결제하기-->
@@ -411,7 +411,7 @@
 </div>
 
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
-      action="${contextPath}/test/sopangPay">
+      action="${contextPath}/order/orderResult">
     <input type="hidden" name="ordr_idxx" value="${ordr_idxx }">
     <input type="hidden" name="cart_goods_qty" value="${cart_goods_qty }">
     <input type="hidden" name="good_name" value="${ good_name }">

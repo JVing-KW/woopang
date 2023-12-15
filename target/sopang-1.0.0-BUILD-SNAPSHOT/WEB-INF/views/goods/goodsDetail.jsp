@@ -185,9 +185,7 @@
                     document.getElementById("viewReg_Mod").addEventListener("click", function (event) {
                         viewReg_Mod(event);
                     });
-                    // document.getElementById("modify").addEventListener("click", function (event) {
-                    //     modify(event);
-                    // });
+
                 },
 
                 error: function e(xhr, status, error) {

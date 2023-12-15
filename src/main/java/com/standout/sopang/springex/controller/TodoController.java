@@ -28,19 +28,11 @@ public class TodoController {
 
     String goodsIdValue;
 
+
     @GetMapping("/register")
     public void register() {
         log.info("GET todo register.......");
-//        log.info("goods_id : " + goods_id);
-//        goods_id1 = goods_id.toString();
-//
-//        String[] parts = goods_id1.split("=");
-//        String goods_id1 = parts[1];
-//        String[] parts1 = goods_id1.split("}");
-//        goods_id1 = parts1[0];
-//        log.info("goods_id1 :" + goods_id1);
-//
-//        model.addAttribute("goods_id", goods_id1);
+
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -112,8 +104,12 @@ public class TodoController {
 
     //    @ResponseBody
     @RequestMapping(value = "/list", method = {RequestMethod.GET})
-    public void list() {
+    public void list( @RequestParam Map<String, Object> goods_id, Model model) {
         log.info("list get 호출");
+        model.addAttribute("totalModel", goods_id);
+        log.info("goods_id :" + goods_id);
+        goodsIdValue = (String) goods_id.get("goods_id");
+        log.info("goodsIdValue :"+ goodsIdValue);
     }
 
     @ResponseBody
