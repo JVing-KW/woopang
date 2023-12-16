@@ -58,7 +58,6 @@ public class MyPageServiceImpl  implements MyPageService{
 	
 	//³»Á¤º¸
 	public MemberDTO myDetailInfo(String member_id) throws Exception{
-//		return myPageDAO.selectMyDetailInfo(member_id);
 		return modelMapper.map(myPageDAO.selectMyDetailInfo(member_id),MemberDTO.class);
 	}
 	
@@ -66,7 +65,6 @@ public class MyPageServiceImpl  implements MyPageService{
 	public MemberDTO modifyMyInfo(Map memberMap) throws Exception{
 		 String member_id=(String)memberMap.get("member_id");
 		 myPageDAO.updateMyInfo(memberMap);
-//		return myPageDAO.selectMyDetailInfo(member_id);
 		 return modelMapper.map(myPageDAO.selectMyDetailInfo(member_id),MemberDTO.class);
 	}
 	

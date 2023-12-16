@@ -8,7 +8,6 @@ function execDaumPostcode() {
         }
     }).open();
 }
-
 function checkLength(inputElement, maxLength) {
     var inputValue = inputElement.value;
 

@@ -3,13 +3,14 @@ package com.standout.sopang.order.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.standout.sopang.order.vo.OrderVO;
-
+@Log4j2
 @Repository("orderDAO")
 public class OrderDAOImpl implements OrderDAO {
 	@Autowired
@@ -19,9 +20,13 @@ public class OrderDAOImpl implements OrderDAO {
 	public void insertNewOrder(List<OrderVO> myOrderList) throws DataAccessException{
 		//리턴된 주문번호와 함께 주문 table에 주문정보를 insert한다.
 
-			sqlSession.insert("mapper.order.insertNewOrder");
+		for(int i=0; i<myOrderList.size();i++){
+			OrderVO orderVO =(OrderVO)myOrderList.get(i);
+			sqlSession.insert("mapper.order.insertNewOrder",orderVO);
+		}
+	}
 
-	}	
+
 	
 	public int selectOrderID() throws DataAccessException{
 		//주문번호 시퀀스를 생성하여 결과값을 반환한다.

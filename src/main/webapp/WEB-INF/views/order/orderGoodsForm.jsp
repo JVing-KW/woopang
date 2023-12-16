@@ -233,19 +233,6 @@
                                       </label>
                                     </div>
 
-                                    <!-- <div class="form-check col-3">
-                                      <input class="form-check-input" type="radio" name="pay_method" id="pay3" value="실시간 계좌이체">
-                                      <label class="form-check-label" for="pay3">
-                                        실시간 계좌이체
-                                      </label>
-                                    </div> -->
-
-                                    <!-- <div class="form-check col-3">
-                                      <input class="form-check-input" type="radio" name="pay_method" id="pay4" value="무통장 입금">
-                                      <label class="form-check-label" for="pay4">
-                                        무통장 입금
-                                      </label>
-                                    </div> -->
 
                                     <div class="form-check col-3">
                                         <input class="form-check-input" type="radio" name="pay_method" id="pay5"
@@ -278,14 +265,6 @@
                                             네이버페이(포인트)
                                         </label>
                                     </div>
-
-
-                                    <!--  <div class="form-check col-3">
-                                       <input class="form-check-input" type="radio" name="pay_method" id="pay9" value="직접입금">
-                                       <label class="form-check-label" for="pay9">
-                                         직접입금
-                                       </label>
-                                     </div> -->
 
                                 </div>
                             </td>
@@ -398,7 +377,6 @@
                         </tr>
                         <!-- 카드결제 form -->
 
-
                         <!-- 휴대폰결제 form -->
                         <tr class="whenSelected_Phone d-none">
                             <td class="table-light ps-4 align-middle" style="width: 200px;">휴대폰 번호</td>
@@ -417,7 +395,7 @@
 
 
                     <!-- 결제하기-->
-                    <a name="btn_process_pay_order" onClick="fn_process_pay_order()"
+                    <a name="btn_process_pay_order" onClick="fn_process_pay_order()"  href="${contextPath}/order/orderResult"
                        class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>
 
                     <!-- 결제하기-->
@@ -433,11 +411,10 @@
 </div>
 
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
-      action="${contextPath}/test/sopangPay">
-
-
+      action="${contextPath}/order/orderResult">
     <input type="hidden" name="ordr_idxx" value="${ordr_idxx }">
     <input type="hidden" name="cart_goods_qty" value="${cart_goods_qty }">
+    <input type="hidden" name="good_id" value="${item.goods_id}">
     <input type="hidden" name="good_name" value="${ good_name }">
     <input type="hidden" name="good_mny" value="${ good_mny }">
     <input type="hidden" name="buyr_name" value="${ buyr_name }">
@@ -464,7 +441,6 @@
     <!-- ※ 필 수
     필수 항목 : 표준웹에서 값을 설정하는 부분으로 반드시 포함되어야 합니다
     값을 설정하지 마십시오 -->
-
     <input type="hidden" name="res_cd" value=""/>
     <input type="hidden" name="res_msg" value=""/>
     <input type="hidden" name="enc_info" value=""/>
@@ -476,7 +452,6 @@
 
     <input type="submit" value="결제">
 </form>
-
 <%--<script type="text/javascript" src="https://pay.kcp.co.kr/plugin/payplus_web.jsp"></script>--%>
 <script type="text/javascript" src="${contextPath}/resources/js/order.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>

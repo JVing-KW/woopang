@@ -2,16 +2,14 @@
 	pageEncoding="utf-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="container">
 	<div class="row ms-5 ps-5">
 		<div class="mt-5 p-0 ps-5 align-items-center">
 			<div class="ps-4">
-
 				<p class="fs-5 fw-bold mb-2">주문목록</p>
 				<form method="post">
-
 					<!-- 검색 - 오늘 -->
 					<a href="javascript:search_order_history('today')"
 						class="badge rounded-pill btn mb-2 rounded-0 border-main samll ">오늘</a>
@@ -50,7 +48,6 @@
 				<div class="border-top border-main border-2 mt-2">
 
 					<c:choose>
-					
 						<c:when test="${empty myOrderHistList }">
 							<!-- 주문상품이 없을때 -->
 							<div class="shadow-sm p-4 mt-3 rounded border border-light">

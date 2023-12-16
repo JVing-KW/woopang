@@ -42,14 +42,14 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	@RequestMapping(value = "/orderEachGoods", method = RequestMethod.POST)
 	public String orderEachGoods(@ModelAttribute("orderDTO") OrderDTO _orderDTO, HttpServletRequest request,
 								 HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
-
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		session = request.getSession();
-
 		// 로그인 여부 체크
 		Boolean isLogOn = (Boolean) session.getAttribute("isLogOn");
 		String action = (String) session.getAttribute("action");
+
+		log.info("Goods_id : " + _orderDTO.getGoods_id());
 
 		// 이전에 로그인 상태인 경우는 주문과정 진행
 		if (isLogOn == null || isLogOn == false) {
@@ -78,8 +78,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 
 		return "/order/orderEachGoods";
 	}
-
-
 	// 다중주문
 	@RequestMapping(value = "/orderAllCartGoods", method = {RequestMethod.POST})
 	public String orderAllCartGoods(@RequestParam("cart_goods_qty") String[] cart_goods_qty,
@@ -130,8 +128,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		session.setAttribute("orderer", memberDTO);
 		return "/order/orderAllCartGoods";
 	}
-
-
 	@Override
 	@RequestMapping(value = "/payToOrderGoods", method = {RequestMethod.POST})
 	public String payToOrderGoods(Map<String, String> receiverMap, HttpServletRequest request,
@@ -142,14 +138,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		HttpSession session = request.getSession();
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("orderer");
 		MemberDTO memberDTO_at = (MemberDTO) session.getAttribute("order_info");
-		log.info("memberDTO_at : " + memberDTO_at);
 		String member_id = memberDTO.getMember_id();
 		String orderer_name = memberDTO.getMember_name();
 		String orderer_hp = memberDTO.getHp1();
 
 		//주문정보를 가져온다.
 		List<OrderDTO> myOrderList = (List<OrderDTO>) session.getAttribute("myOrderList");
-
 
 		//결제성공여부
 		String responseCode = "";
@@ -172,19 +166,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			orderDTO.setPay_orderer_hp_num(receiverMap.get("pay_orderer_hp_num"));
 			orderDTO.setOrderer_hp(orderer_hp);
 
-
-//		payup form 추가
-//			if(myOrderList.size() == 1) {
-//				itemName = orderDTO.getGoods_title();
-//			}else if(myOrderList.size() > 1){
-//				itemName = orderDTO.getGoods_title() +" 외 " + i + "건";
-//			}
-//			orderNumber += String.valueOf(orderDTO.getOrder_seq_num());
-//			amount += orderDTO.getGoods_sales_price();
-//
-//         amount = String.valueOf(orderDTO.getGoods_sales_price());
-//			myOrderList.set(i, orderDTO);
-//		}
 
 			String merchantId = "himedia";
 			String expireMonth = receiverMap.get("expireMonth");
@@ -221,30 +202,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			returnMap = apiService01.restApi(map, url);
 			System.out.println("db확인" + returnMap.toString());
 
-//		페이업 거래번호
-//		String transactionId = (String) returnMap.get("transactionId");
-//
-//		responseCode = (String) returnMap.get("responseCode");
-//		responseMsg = (String) returnMap.get("responseMsg");
-//	}
-
-//		if("0000".equals(responseCode)) {
-//		if("0000".equals(responseCode)) {
-//			System.out.println("성공했습니다.");
-//
-//			//수령자정보, 주문정보를 주문테이블에 반영한다.
-//			orderService.addNewOrder(myOrderList);
-//			session.setAttribute("returnMap", returnMap);
-//
-//			//완료 후 listMyOrderHistory로 리턴.
-//			return "redirect:/mypage/listMyOrderHistory.do";
-//		}else {
-//			System.out.println("실패했습니다.");
-//
-//			model.addAttribute("responseMsg", responseMsg);
-//			//실패시 다시 주문페이지로 이동
-//			return "/order/payFail";
-//		}
 
 
 			//결제실패
@@ -264,6 +221,51 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 
         return member_id;
     }
+	@RequestMapping(value = "/orderResult", method = {RequestMethod.GET} )
+	public String sopangPay(@RequestParam Map<String, String> map, HttpServletRequest request,
+							HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
+
+		response.setContentType("text/html;charset=UTF-8");
+		log.info("sopangPay");
+		//주문정보를 가져온다.
+		HttpSession session = request.getSession();
+		MemberDTO memberDTO = (MemberDTO) session.getAttribute("orderer");
+		String member_id = memberDTO.getMember_id();
+		String orderer_name = memberDTO.getMember_name();
+		String orderer_hp = memberDTO.getHp1();
+		int goods_id =orderDTO.getGoods_id();
+		List<OrderDTO> myOrderList = (List<OrderDTO>) session.getAttribute("myOrderList");
+
+		//주문정보를 for로 돌리며 myOrderList에 수령자정보를 담는다.
+		for (int i = 0; i < myOrderList.size(); i++) {
+			OrderDTO orderDTO = (OrderDTO) myOrderList.get(i);
+
+			orderDTO.setMember_id(member_id);
+			orderDTO.setGoods_id(goods_id);
+			orderDTO.setReceiver_name(map.get("receiver_name"));
+			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
+			orderDTO.setDelivery_address(map.get("delivery_address"));
+
+
+			//추후 결제시 필요할 수 있으니 주석으로 남겨둔다.
+			orderDTO.setPay_method(map.get("pay_method"));
+			orderDTO.setCard_com_name(map.get("card_com_name"));
+			orderDTO.setCard_pay_month(map.get("card_pay_month"));
+			orderDTO.setPay_orderer_hp_num(map.get("pay_orderer_hp_num"));
+			orderDTO.setOrderer_hp(orderer_hp);
+
+			myOrderList.set(i, orderDTO);
+
+		}
+		model.addAttribute(myOrderList);
+		log.info(myOrderList.toString());
+
+		orderService.addNewOrder(myOrderList);
+
+		return "/order/orderResult";
+	}
+
+
 
 
 	@Override
