@@ -414,6 +414,7 @@
       action="${contextPath}/order/orderResult">
     <input type="hidden" name="ordr_idxx" value="${ordr_idxx }">
     <input type="hidden" name="cart_goods_qty" value="${cart_goods_qty }">
+    <input type="hidden" name="good_id" value="${item.goods_id}">
     <input type="hidden" name="good_name" value="${ good_name }">
     <input type="hidden" name="good_mny" value="${ good_mny }">
     <input type="hidden" name="buyr_name" value="${ buyr_name }">

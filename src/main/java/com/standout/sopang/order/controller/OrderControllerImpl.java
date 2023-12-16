@@ -42,13 +42,14 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	@RequestMapping(value = "/orderEachGoods", method = RequestMethod.POST)
 	public String orderEachGoods(@ModelAttribute("orderDTO") OrderDTO _orderDTO, HttpServletRequest request,
 								 HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
-
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		session = request.getSession();
 		// 로그인 여부 체크
 		Boolean isLogOn = (Boolean) session.getAttribute("isLogOn");
 		String action = (String) session.getAttribute("action");
+
+		log.info("Goods_id : " + _orderDTO.getGoods_id());
 
 		// 이전에 로그인 상태인 경우는 주문과정 진행
 		if (isLogOn == null || isLogOn == false) {
@@ -137,14 +138,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		HttpSession session = request.getSession();
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("orderer");
 		MemberDTO memberDTO_at = (MemberDTO) session.getAttribute("order_info");
-		log.info("memberDTO_at : " + memberDTO_at);
 		String member_id = memberDTO.getMember_id();
 		String orderer_name = memberDTO.getMember_name();
 		String orderer_hp = memberDTO.getHp1();
 
 		//주문정보를 가져온다.
 		List<OrderDTO> myOrderList = (List<OrderDTO>) session.getAttribute("myOrderList");
-
 
 		//결제성공여부
 		String responseCode = "";
@@ -234,6 +233,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		String member_id = memberDTO.getMember_id();
 		String orderer_name = memberDTO.getMember_name();
 		String orderer_hp = memberDTO.getHp1();
+		int goods_id =orderDTO.getGoods_id();
 		List<OrderDTO> myOrderList = (List<OrderDTO>) session.getAttribute("myOrderList");
 
 		//주문정보를 for로 돌리며 myOrderList에 수령자정보를 담는다.
@@ -241,6 +241,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			OrderDTO orderDTO = (OrderDTO) myOrderList.get(i);
 
 			orderDTO.setMember_id(member_id);
+			orderDTO.setGoods_id(goods_id);
 			orderDTO.setReceiver_name(map.get("receiver_name"));
 			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
 			orderDTO.setDelivery_address(map.get("delivery_address"));
