@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.standout.sopang.member.dto.MemberDTO;
+import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.standout.sopang.member.vo.MemberVO;
-
+@Log4j2
 public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 
-	//count¸¦ °£´ÜÈ÷ ºÒ·¯¿À±â À§ÇØ intercrptor¿¡ sqlSessionÃß°¡.
+	//countï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ intercrptorï¿½ï¿½ sqlSessionï¿½ß°ï¿½.
 	@Autowired
 	private SqlSession sqlSession;
 
-	//ÀÏ¹Ý»ç¿ëÀÚÀÎÁö, °ü¸®ÀÚÀÎÁö¸¦ ±¸¹®ÇÏ±â À§ÇØ memberVO ºóÀ» »ç¿ëÇÑ´Ù.
+	//ï¿½Ï¹Ý»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ memberVO ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	@Autowired
 	private MemberDTO memberDTO;
 
@@ -29,11 +30,8 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 
 		try {
-			//»ç¿ëÀÚÈ®ÀÎ
 			memberDTO=(MemberDTO) session.getAttribute("memberInfo");
 			String  member_id=memberDTO.getMember_id();
-
-			//°øÅë, Ä«Æ®°¹¼ö, ÁÖ¹®°¹¼ö, ¼ÒÆÎ¸Ó´Ï Ãâ·Â
 			int cartCount = 0;
 			cartCount=sqlSession.selectOne("mapper.sopang.counts.cartLen",member_id);
 			session.setAttribute("cartCount", cartCount);
@@ -45,8 +43,8 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 			Long sopang_money = 0L;
 			sopang_money=(Long)sqlSession.selectOne("mapper.sopang.counts.sopang_money",member_id);
 			session.setAttribute("sopang_money", sopang_money);
-
-			//°ü¸®ÀÚÀÏ°æ¿ì, »óÇ°°¹¼ö, ÁÖ¹®°Ç¼ö, ÃÑ¸ÅÃâ Ãâ·Â.
+	log.info("session InterCepter" + cartCount);
+			log.info("session InterCepter" + deliveringCount);
 			//System.out.println(member_id);
 			if(member_id.equals("1111") == true) {
 				int goodsLen = 0;
@@ -63,46 +61,9 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 			}
 
 		}catch (Exception e) {
-			//System.out.println("·Î±×ÀÎÇÏÁö¾Ê¾Ò°Å³ª ¿¹»óÇÏ±â ¾î·Á¿î ¿¹¿Ü°¡ ¹ß»ýÇß½À´Ï´Ù.");
 		}
 
 		return true;
 	}
-
-	//¿äÃ»½Ã ¿äÃ» url¿¡¼­ viewNameÀ» ÃßÃâÇÒ getViewName ¸Þ¼Òµå, fileName return
-//	private String getViewName(HttpServletRequest request) throws Exception {
-//		String contextPath = request.getContextPath();
-//		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
-//		if (uri == null || uri.trim().equals("")) {
-//			uri = request.getRequestURI();
-//		}
-//
-//		int begin = 0;
-//		if (!((contextPath == null) || ("".equals(contextPath)))) {
-//			begin = contextPath.length();
-//		}
-//
-//		int end;
-//
-//		//ÆÄ¶ó¹ÌÅÍ°¡ ÀÖÀ»°æ¿ì
-//		if (uri.indexOf(";") != -1) {
-//			end = uri.indexOf(";");
-//		} else if (uri.indexOf("?") != -1) {
-//			end = uri.indexOf("?");
-//		} else {
-//			end = uri.length();
-//		}
-//
-//		//°æ·Î¾È¿¡ ÆÄÀÏµîÀÌ ÀÖÀ»°æ¿ì
-//		String fileName = uri.substring(begin, end);
-//		if (fileName.indexOf(".") != -1) {
-//			fileName = fileName.substring(0, fileName.lastIndexOf("."));
-//		}
-//		if (fileName.lastIndexOf("/") != -1) {
-//			fileName = fileName.substring(fileName.lastIndexOf("/", 1), fileName.length());
-//		}
-//
-//		return fileName;
-//	}
 
 }

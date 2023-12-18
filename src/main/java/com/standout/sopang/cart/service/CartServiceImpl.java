@@ -27,20 +27,19 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	ConvertList convertList;
 
-	// Àå¹Ù±¸´Ï
 	public Map<String, List> myCartList(CartDTO cartDTO) throws Exception {
 		Map<String, List> cartMap = new HashMap<String, List>();
 
 
 
-		//Àå¹Ù±¸´Ï Á¤º¸ °¡Á®¿Í list¿¡ ÀúÀå
+		//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		List<CartVO> myCartList = cartDAO.selectCartList(cartDTO);
 		List<CartDTO>	myCartDTOList	 = carConvertDTO.convertDTO(myCartList);
 
-		//¸®½ºÆ®°¡ ¾ø´Â °æ¿ì return null
+		//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ return null
 		if (myCartList.size() == 0) {return null;}
 		
-		//Àå¹Ù±¸´Ï ¸®½ºÆ®¿¡ ¸Â´Â goodList¸¦ cartMap¿¡ put ÇØ ¸®ÅÏ. 
+		//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Â´ï¿½ goodListï¿½ï¿½ cartMapï¿½ï¿½ put ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
 		List<GoodsVO> myGoodsList = cartDAO.selectGoodsList(myCartDTOList);
 		List<GoodsDTO> myGoodsDTOList=convertList.goodsConvertDTO(myGoodsList);
 		try {
@@ -51,7 +50,7 @@ public class CartServiceImpl implements CartService {
 		return cartMap;
 	}
 
-	// Àå¹Ù±¸´Ï Ãß°¡, Áßº¹¿©ºÎ È®ÀÎ ÈÄ Ãß°¡ÇÑ´Ù.
+	// ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ß°ï¿½, ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
 	public boolean findCartGoods(CartDTO cartDTO) throws Exception {
 		return cartDAO.selectCountInCart(cartDTO);
 	}
@@ -59,12 +58,12 @@ public class CartServiceImpl implements CartService {
 		cartDAO.insertGoodsInCart(cartDTO);
 	}
 
-	// Àå¹Ù±¸´Ï »èÁ¦
+	// ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void removeCartGoods(int cart_id) throws Exception {
 		cartDAO.deleteCartGoods(cart_id);
 	}
 
-	// Àå¹Ù±¸´Ï ¼öÁ¤
+	// ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean modifyCartQty(CartDTO cartDTO) throws Exception {
 		boolean result = true;
 		cartDAO.updateCartGoodsQty(cartDTO);

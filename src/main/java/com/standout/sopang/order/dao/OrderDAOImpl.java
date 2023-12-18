@@ -20,6 +20,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public void insertNewOrder(List<OrderVO> myOrderList) throws DataAccessException{
 		//리턴된 주문번호와 함께 주문 table에 주문정보를 insert한다.
 
+		log.info(myOrderList.toString());
 		for(int i=0; i<myOrderList.size();i++){
 			OrderVO orderVO =(OrderVO)myOrderList.get(i);
 			sqlSession.insert("mapper.order.insertNewOrder",orderVO);

@@ -10,16 +10,16 @@ import com.standout.sopang.cart.vo.CartVO;
 import com.standout.sopang.goods.vo.GoodsVO;
 
 public interface CartService {
-	//Àå¹Ù±¸´Ï
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½
 	public Map<String ,List> myCartList(CartDTO cartDTO) throws Exception;
 	
-	//Àå¹Ù±¸´Ï Ãß°¡
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	boolean findCartGoods(CartDTO cartDTO) throws Exception;
 	public void addGoodsInCart(CartDTO cartDTO) throws Exception;
 	
-	//Àå¹Ù±¸´Ï »èÁ¦
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void removeCartGoods(int cart_id) throws Exception;
 	
-	//Àå¹Ù±¸´Ï ¼öÁ¤
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean modifyCartQty(CartDTO cartDTO) throws Exception;
 }

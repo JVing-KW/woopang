@@ -33,44 +33,41 @@ public class GoodsServiceImpl implements GoodsService {
 	List<GoodsDTO> dtoList;
 	List<ImageFileDTO> imageListDto;
 
-//	¸ÞÀÎÆäÀÌÁö - ÁöÁ¤ statusº°, ¸Þ´ºº°
 
 	public Map<String, List<GoodsDTO>> listGoods() throws Exception {
 		Map<String, List <GoodsDTO>> goodsMap = new HashMap<String, List<GoodsDTO>>();
 
-		//bestseller ÀúÀå
+		//bestseller ï¿½ï¿½ï¿½ï¿½
 		List<GoodsVO> goodsList = goodsDAO.selectGoodsList("bestseller");
 		dtoList =convertList.goodsConvertDTO(goodsList);
 		goodsMap.put("bestseller", dtoList);
 
-		//µðÁöÅÐ »óÇ° ÀúÀå
-		goodsList = goodsDAO.selectMenusList("µðÁöÅÐ");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+		goodsList = goodsDAO.selectMenusList("cate_digital");
 		dtoList =convertList.goodsConvertDTO(goodsList);
 		goodsMap.put("cate_digital", dtoList);
 
-		//µµ¼­ »óÇ° ÀúÀå
-		goodsList = goodsDAO.selectMenusList("µµ¼­");
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+		goodsList = goodsDAO.selectMenusList("cate_book");
 		dtoList =convertList.goodsConvertDTO(goodsList);
 		goodsMap.put("cate_book", dtoList);
 
-		//°Ç°­±â´É½ÄÇ° »óÇ° ÀúÀå
-		goodsList = goodsDAO.selectMenusList("°Ç°­±â´É½ÄÇ°");
+		//ï¿½Ç°ï¿½ï¿½ï¿½É½ï¿½Ç° ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+		goodsList = goodsDAO.selectMenusList("cate_health");
 		dtoList =convertList.goodsConvertDTO(goodsList);
 		goodsMap.put("cate_health", dtoList);
 
-		//»ýÈ°¿ëÇ° »óÇ° ÀúÀå
-		goodsList = goodsDAO.selectMenusList("»ýÈ°¿ëÇ°");
+		//ï¿½ï¿½È°ï¿½ï¿½Ç° ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+		goodsList = goodsDAO.selectMenusList("cate_daily");
 		dtoList =convertList.goodsConvertDTO(goodsList);
 		goodsMap.put("cate_daily", dtoList);
 
 
-		//À§ Á¤º¸¸¦ ´ãÀº Map return
 		return goodsMap;
 	}
-//goodsList¸¦ dtoList·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö¸¦ ¼³Á¤
 
 
-	//header Ä«Å×°í¸®º°
+	//header Ä«ï¿½×°ï¿½ï¿½ï¿½
 	@Override
 	public List<GoodsDTO> menuGoods(String menuGoods) throws Exception {
 
@@ -79,14 +76,14 @@ public class GoodsServiceImpl implements GoodsService {
 		return dtoList;
 	}
 
-	//ÃßÃµÅ°¿öµå
+	//ï¿½ï¿½ÃµÅ°ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public List<String> keywordSearch(String keyword) throws Exception {
 		List<String> list = goodsDAO.selectKeywordSearch(keyword);
 		return list;
 	}
 
-	//°Ë»ö
+	//ï¿½Ë»ï¿½
 	@Override
 	public List<GoodsDTO> searchGoods(String searchWord) throws Exception {
 		List goodsList = goodsDAO.selectGoodsBySearchWord(searchWord);
@@ -95,20 +92,18 @@ public class GoodsServiceImpl implements GoodsService {
 		return dtoList;
 	}
 
-	//»óÇ°»ó¼¼
+	//ï¿½ï¿½Ç°ï¿½ï¿½
 	public Map goodsDetail(String _goods_id) throws Exception {
 		Map goodsMap = new HashMap();
-		//»óÇ°»ó¼¼Á¤º¸ ÃßÃâ
+
 		GoodsVO goodsVO = goodsDAO.selectGoodsDetail(_goods_id);
 		GoodsDTO goodsDTO =modelMapper.map(goodsVO,GoodsDTO.class);
 		goodsMap.put("goodsDTO", goodsDTO);
 
-		//»óÇ° »ó¼¼ÀÌ¹ÌÁö ÃßÃâ
 		List<ImageFileVO> imageList = goodsDAO.selectGoodsDetailImage(_goods_id);
 		imageListDto =convertList.imgageConvertDTO(imageList);
 		goodsMap.put("imageList", imageListDto);
 
-		//À§ Á¤º¸¸¦ ´ãÀº Map return
 		return goodsMap;
 	}
 

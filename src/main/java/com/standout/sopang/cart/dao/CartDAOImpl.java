@@ -17,7 +17,6 @@ public class CartDAOImpl  implements  CartDAO{
 	private SqlSession sqlSession;
 
 
-	//Àå¹Ù±¸´Ï
 	public List<CartVO> selectCartList(CartDTO cartDTO) throws DataAccessException {
 		List<CartVO> cartList =sqlSession.selectList("mapper.cart.selectCartList",cartDTO);
 		return cartList;
@@ -30,7 +29,7 @@ public class CartDAOImpl  implements  CartDAO{
 	}
 
 
-	//Àå¹Ù±¸´Ï Ãß°¡
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	public boolean selectCountInCart(CartDTO cartDTO) throws DataAccessException {
 		String  result =sqlSession.selectOne("mapper.cart.selectCountInCart",cartDTO);
 		return Boolean.parseBoolean(result);
@@ -47,12 +46,10 @@ public class CartDAOImpl  implements  CartDAO{
 		return cart_id;
 	}
 
-	//Àå¹Ù±¸´Ï »èÁ¦
 	public void deleteCartGoods(int cart_id) throws DataAccessException{
 		sqlSession.delete("mapper.cart.deleteCartGoods",cart_id);
 	}
 
-	//Àå¹Ù±¸´Ï ¼öÁ¤
 	public void updateCartGoodsQty(CartDTO cartDTO) throws DataAccessException{
 		sqlSession.insert("mapper.cart.updateCartGoodsQty",cartDTO);
 	}

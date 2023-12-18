@@ -3,6 +3,7 @@ package com.standout.sopang.order.dto;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+@ToString
 @Component
 @Getter
 @Setter

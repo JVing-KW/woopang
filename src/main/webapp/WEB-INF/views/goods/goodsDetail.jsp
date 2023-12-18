@@ -95,7 +95,6 @@
 
         </div>
 
-
         <!-- 하단 상품상세정보 -->
         <div class="mt-5 border-top border-secondary border-3 p-0">
             <!-- tab Caller -->
@@ -449,21 +448,7 @@
                 formObj.submit();
             }
         }
-        <%--function read(event) {--%>
-        <%--    console.log("read 진입")--%>
-        <%--    $.ajax({--%>
-        <%--        type: "POST",--%>
-        <%--        url: "${contextPath}/todo/read?tno=",--%>
-        <%--        data: "HTML",--%>
-        <%--        success: function (data) {--%>
-        <%--            console.log("성공 : " + data);--%>
-        <%--            detailInfo03.innerHTML = data;--%>
-        <%--        },--%>
-        <%--        error: function e(xhr, status, error) {--%>
-        <%--            console.error("Error loading data. Status: " + status + ", Error: " + error);--%>
-        <%--        }--%>
-        <%--    })--%>
-        <%--}--%>
+
     </script>
 
 

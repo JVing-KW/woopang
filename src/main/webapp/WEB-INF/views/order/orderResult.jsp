@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"
-	isELIgnored="false"%> 
+		 pageEncoding="utf-8"
+		 isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 
@@ -160,98 +160,97 @@
 			<div class="ps-4">
 
 
-	<DIV class="clear"></DIV>
-<form  name="form_order">
-	<br>
-	<br>
-	<p class="fs-3 fw-bold">배송지 정보</p>
-	<DIV class="detail_table">
+				<DIV class="clear"></DIV>
+				<form  name="form_order">
+					<br>
+					<br>
+					<p class="fs-3 fw-bold">배송지 정보</p>
+					<DIV class="detail_table">
 
-		<TABLE class="table border-top mb-0 small fw-light">
-			<TBODY>
-				<TR class="dot_line">
-					<TD class="fixed_join">받으실 분</TD>
-					<TD>
-					${myOrderInfo.receiver_name }
-					</TD>
-				</TR>
-				<TR class="dot_line">
-					<TD class="fixed_join">연락처</TD>
-					<TD>
-					  ${myOrderInfo.receiver_hp1}-${myOrderInfo.receiver_hp2}-${myOrderInfo.receiver_hp3}</TD>
-				  </TR>
+						<TABLE class="table border-top mb-0 small fw-light">
+							<TBODY>
+							<TR class="dot_line">
+								<TD class="fixed_join">받으실 분</TD>
+								<TD>
+									${myOrderInfo.receiver_name }
+								</TD>
+							</TR>
+							<TR class="dot_line">
+								<TD class="fixed_join">연락처</TD>
+								<TD>
+									${myOrderInfo.receiver_hp1}-${myOrderInfo.receiver_hp2}-${myOrderInfo.receiver_hp3}</TD>
+							</TR>
 
 
-				<TR class="dot_line">
-					<TD class="fixed_join">받는주소</TD>
-					<td>
-					   ${myOrderInfo.delivery_address}
-					</td>>
-				</TR>
-				<TR class="dot_line">
-					<TD class="fixed_join">배송요청사항</TD>
-					<TD>
-					${myOrderInfo.delivery_message}
-					</TD>
-				</TR>
-			</TBODY>
-		</TABLE>
-		
-	</DIV>
+							<TR class="dot_line">
+								<TD class="fixed_join">받는주소</TD>
+								<td>
+									${myOrderInfo.delivery_address}
+								</td>>
+							</TR>
+							<TR class="dot_line">
+								<TD class="fixed_join">배송요청사항</TD>
+								<TD>
+									${myOrderInfo.delivery_message}
+								</TD>
+							</TR>
+							</TBODY>
+						</TABLE>
 
-	<DIV class="clear"></DIV>
-	<br>
-	<br>
-	<br>
-	<p class="fs-3 fw-bold">결제 정보</p>
-	<DIV class="detail_table">
-		<TABLE class="table border-top mb-0 small fw-light" >
-			<TBODY>
-				<TR class="dot_line">
-					<TD class="fixed_join">결제방법</TD>
-					<TD>
-					   ${myOrderInfo.pay_method }
-				    </TD>
-				</TR>
-				<TR class="dot_line">
-					<TD class="fixed_join">결제카드</TD>
-					<TD>
-					   ${myOrderInfo.card_com_name}
-				    </TD>
-				</TR>
-				<TR class="dot_line">
-					<TD class="fixed_join">할부기간</TD>
-					<TD>
-					   ${myOrderInfo.card_pay_month }
-				    </TD>
-				</TR>
-				<TR class="dot_line">
-					<TD class="fixed_join">결제금액</TD>
-					<TD>
-						${myOrderInfo }
-					</TD>
-				</TR>
-			</TBODY>
-		</table>
-	</DIV>
-</form>
-    <DIV class="clear"></DIV>
-	<br>
-	<br>
-	<br>
-		<a href="${contextPath}/main/main">
-			<IMG width="75" alt="" src="${contextPath}/resources/image/btn_shoping_continue.png">
-		</a>
-		</div>
+					</DIV>
+
+					<DIV class="clear"></DIV>
+					<br>
+					<br>
+					<br>
+					<p class="fs-3 fw-bold">결제 정보</p>
+					<DIV class="detail_table">
+						<TABLE class="table border-top mb-0 small fw-light" >
+							<TBODY>
+							<TR class="dot_line">
+								<TD class="fixed_join">결제방법</TD>
+								<TD>
+									${myOrderInfo.pay_method }
+								</TD>
+							</TR>
+							<TR class="dot_line">
+								<TD class="fixed_join">결제카드</TD>
+								<TD>
+									${myOrderInfo.card_com_name}
+								</TD>
+							</TR>
+							<TR class="dot_line">
+								<TD class="fixed_join">할부기간</TD>
+								<TD>
+									${myOrderInfo.card_pay_month }
+								</TD>
+							</TR>
+							<TR class="dot_line">
+								<TD class="fixed_join">결제금액</TD>
+								<TD>
+									${myOrderInfo }
+								</TD>
+							</TR>
+							</TBODY>
+						</table>
+					</DIV>
+				</form>
+				<DIV class="clear"></DIV>
+				<br>
+				<br>
+				<br>
+				<a href="${contextPath}/main/main">
+					<IMG width="75" alt="" src="${contextPath}/resources/image/btn_shoping_continue.png">
+				</a>
+			</div>
 		</div>
 	</div>
-	</div>
+</div>
 </div>
 <br>
 <br>
 <DIV class="clear"></DIV>
 
-	
-			
-			
-			
+
+
+

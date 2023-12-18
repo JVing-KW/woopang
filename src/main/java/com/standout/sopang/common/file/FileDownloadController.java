@@ -43,7 +43,6 @@ public class FileDownloadController {
 		out.close();
 	}
 	
-	//���ε�/�μ�Ʈ �� ���� ����Ϸ� �ҷ�����, goods_id�� fileName���� �޾� Ǯ���Ѵ�.
 	@RequestMapping("/thumbnails")
 	protected void thumbnails(@RequestParam("fileName") String fileName,
                             	@RequestParam("goods_id") String goods_id,

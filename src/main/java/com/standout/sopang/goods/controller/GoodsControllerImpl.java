@@ -33,7 +33,7 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 	@Autowired
 	private GoodsService goodsService;
 	
-	//¸®½ºÆ®ÆäÀÌÁö
+	//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	@Override
 	@RequestMapping(value="menuGoods" ,method = RequestMethod.GET)
@@ -41,16 +41,13 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 							HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		List<GoodsDTO> goodsList=goodsService.menuGoods(menuGoods);
-		//ÃßÃâÇÑ µ¥ÀÌÅÍ¿Í Ä«Å×°í¸®¸íÀ» ¸ÅÇÎÇÏ¿© return.
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ Ä«ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ return.
 		model.addAttribute("goodsList", goodsList);
 		model.addAttribute("menuGoods", menuGoods);
 		return "/goods/menuGoods";
 	}
 
 
-	//ÃßÃµÅ°¿öµå
-	// jsp¿¡¼­ ajax¸¦ »ç¿ëÇÏ±â À§ÇØ µ¥ÀÌÅÍ¿¡ ´ëÇÑ °ªÀ» json ÇüÅÂ(ÀÚ¹Ù°´Ã¼) ÇüÅÂ·Î ¹Ş±âÀ§ÇØ
-	//@Requestbody¸¦ »ç¿ëÇØ ¿äÃ» ÇÔ
 
 	@Override
 	@RequestMapping(value="/keywordSearch",method = RequestMethod.GET,produces = "application/text; charset=utf8")
@@ -58,19 +55,18 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 
-		//keyword°¡ nullÀÎ°æ¿ì´Â ¾Æ¹«°Íµµ returnÇÏÁö¾Ê´Â´Ù.
 		if(keyword == null || keyword.equals(""))
 			return null ;
-		//´ë¼Ò¹®ÀÚ¸¦ ±¸ºĞÇÏÁö¾Ê°í °Ë»öÇÏµµ·Ï ÇÑ´Ù.
 		keyword = keyword.toUpperCase();
 		List<String> keywordList =goodsService.keywordSearch(keyword);
 
-		//°á°ú°ª »êÃâ
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("keyword", keywordList);
 		String jsonInfo = jsonObject.toString();
 
-		//º¯È¯ÇÑ string jsonObject, jsonInfo ¸®ÅÏ
+		log.info(jsonInfo);
+		log.info(jsonInfo.toString());
+
 		return jsonInfo;
 	}
 
@@ -81,30 +77,22 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 		List<GoodsDTO> goodsList=goodsService.searchGoods(searchWord);
 		model.addAttribute("goodsList",goodsList);
 		log.info(searchWord);
-		log.info(goodsList);
+		log.info(goodsList.toString());
 		return "/goods/searchGoods";
 	}
 
-	//°Ë»ö
 
 	@Override
 	@RequestMapping(value="/goodsDetail" ,method = RequestMethod.GET)
 	public String goodsDetail(@RequestParam("goods_id") String goods_id, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session=request.getSession();
-
-//
-//		//goods_id°ª¿¡ ¸Â´Â »ó¼¼Á¤º¸ °¡Á®¿Í goodsMap ÇÒ´ç
+		//ê²€ìƒ‰ëœ êµ¿ì¦ˆ ì•„ì´ë””ë¥¼ ì´ìš©í•´  ì´ë¯¸ì§€ì™€ íŒŒì´ì„ ë§µ í˜•íƒœë¡œ ì €ì¥ í›„ ë³´ë‚´ì¤€ë‹¤.
 		Map goodsMap=goodsService.goodsDetail(goods_id);
 		model.addAttribute("goodsMap", goodsMap);
-		log.info(goodsMap);
+		log.info("goodsMap"+goodsMap);
 
-//		//goodsMapÀ» goodsVO °´Ã¼¿¡ ´ëÀÔ
 		GoodsDTO goodsDTO=(GoodsDTO)goodsMap.get("goodsDTO");
-//
-//		//Äü¸Ş´º¿¡ ¹æ¹®ÇÑ ÇØ´ç »óÇ°Á¤º¸¸¦ Ãß°¡
 		addGoodsInQuick(goods_id,goodsDTO,session);
-//
-//		//ºä + »óÇ°»ó¼¼ Á¤º¸ ¸®ÅÏ
 	return "/goods/goodsDetail";
 	}
 
@@ -112,48 +100,48 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 	
 	
 	
-	//Äü¸Ş´º
+	//ï¿½ï¿½ï¿½Ş´ï¿½
 	private void addGoodsInQuick(String goods_id,GoodsDTO goodsDTO,HttpSession session){
-		//Áßº¹Ã¼Å©¸¦ À§ÇÑ º¯¼ö ÃÊ±âÈ­
+		//ï¿½ßºï¿½Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 		boolean already_existed=false;
 		
-		//±âÁ¸ Äü¸Ş´º ¸®½ºÆ® quickGoodsList ÇÒ´ç
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® quickGoodsList ï¿½Ò´ï¿½
 		List<GoodsDTO> quickGoodsList;
 		quickGoodsList=(ArrayList<GoodsDTO>)session.getAttribute("quickGoodsList");
 		
-		//Äü¸Ş´º¿¡ ¸®½ºÆ®°¡ ÀÖÀ»¶§
+		//ï¿½ï¿½ï¿½Ş´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(quickGoodsList!=null){
 			
-			//Äü¸Ş´º ¸®½ºÆ®¿¡´Â 3°³ÀÇ ¸®½ºÆ®¸¸ Ç¥½ÃÇÒ°ÍÀÓ.
+			//ï¿½ï¿½ï¿½Ş´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½.
 			if(quickGoodsList.size() < 3){
 				for(int i=0; i<quickGoodsList.size();i++){
 					String _goodsBean=String.valueOf(quickGoodsList.get(i).getGoods_id());
-					//»óÇ°id, goods_id°¡ µ¿ÀÏÇÏ´Ù¸é already_existed=true, ÄÚµåÁ¾·á.
+					//ï¿½ï¿½Ç°id, goods_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù¸ï¿½ already_existed=true, ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½.
 					if(goods_id.equals(_goodsBean)){
 						already_existed=true;
 						break;
 					}
 				}
-				//already_existedÀÌ false, Áßº¹µÇÁö¾Ê´Â »õ·Î¿î »óÇ°ÀÏ °æ¿ì add
+				//already_existedï¿½ï¿½ false, ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ add
 				if(already_existed==false){
 					quickGoodsList.add(goodsDTO);
 				}
 
-			//Äü¸Ş´º ¸®½ºÆ®°¡ 3°³¸¦ ³Ñ¾î°¡°Ô µÉ°æ¿ì
+			//ï¿½ï¿½ï¿½Ş´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½É°ï¿½ï¿½
 			}else {
-				//Ã¹¹øÀç »óÇ°À» ¾ø¾Ö°í »õ·Î¿î »óÇ°À» Ãß°¡.
+				//Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ß°ï¿½.
 				quickGoodsList.remove(0);
 				quickGoodsList.add(goodsDTO);
 			}
 		
 		
-		//Äü¸Ş´º¿¡ ¸®½ºÆ®°¡ ¾øÀ» °æ¿ì »õ ArrayList»ı¼º ¹× Ãß°¡ add
+		//ï¿½ï¿½ï¿½Ş´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ArrayListï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ add
 		}else{
 			quickGoodsList =new ArrayList<GoodsDTO>();
 			quickGoodsList.add(goodsDTO);
 		}
 		
-		//À§ ÀÛ¾÷À» ¿Ï·á ÇÑ µÚ ¼¼¼Ç¿¡ ÀúÀå.
+		//ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		session.setAttribute("quickGoodsList",quickGoodsList);
 		session.setAttribute("quickGoodsListNum", quickGoodsList.size());
 	}

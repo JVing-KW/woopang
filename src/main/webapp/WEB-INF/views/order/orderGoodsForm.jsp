@@ -111,12 +111,12 @@
                             <!-- 주문상품 총 금액 계산 -->
                             <p
                                     class="bg-light border text-end p-3 text-secondary d-flex justify-content-end align-items-center mt-4">
-								<span> 
-								
-								<!-- 총 상품가격 --> 
+								<span>
+
+								<!-- 총 상품가격 -->
 								<span>총 상품가격 <span id="p_totalPrice">
 								<fmt:formatNumber value="${total_order_price}" pattern="#,###"/>
-								</span>원</span> 
+								</span>원</span>
 								<input id="h_totalPrice" type="hidden" value="${total_order_price}"/>
                                     <!-- 총 상품가격 -->
 
@@ -128,7 +128,7 @@
 									<span>=</span> 총 주문금액</span> <span class="text-black fw-bold fs-5 ms-3">
 									<span id="p_final_totalPrice">
 									<fmt:formatNumber value="${final_total_order_price }" pattern="#,###"/>
-									
+
 									</span>원</span>
                                 <input id="h_final_total_Price" type="hidden" value="${final_total_order_price}"/>
                                 <!-- 총 주문금액 -->
@@ -226,11 +226,11 @@
                                         </label>
                                     </div>
 
-                                     <div class="form-check col-3">
-                                      <input class="form-check-input" type="radio" name="pay_method" id="pay2" value="소팡페이">
-                                      <label class="form-check-label" for="pay2">
-                                        소팡페이
-                                      </label>
+                                    <div class="form-check col-3">
+                                        <input class="form-check-input" type="radio" name="pay_method" id="pay2" value="소팡페이">
+                                        <label class="form-check-label" for="pay2">
+                                            소팡페이
+                                        </label>
                                     </div>
 
 
@@ -457,9 +457,9 @@
 <script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>
 <script>
     function fn_process_pay_order() {
-    window.onload = function () {
-        document.getElementById('active').submit();
+        window.onload = function () {
+            document.getElementById('active').submit();
 
+        }
     }
-}
 </script>
