@@ -14,17 +14,16 @@
 				<div class="border-top border-main border-2 mt-2">
 
 					<c:choose>
-						<c:when test="${empty myOrderHistList }">
+						<c:when test="${empty myOrderList }">
 							<!-- 주문상품이 없을때 -->
 							<div class="shadow-sm p-4 mt-3 rounded border border-light">
-								<p class="my-5 text-center">주문한 상품이 없습니다.</p>
 							</div>
 							<!-- 주문상품이 없을때 -->
 						</c:when>
 
 						<c:otherwise>
 							<!-- 주문상품이 있을때 for문 -->
-							<c:forEach var="item" items="${myOrderHistList }" varStatus="i">
+							<c:forEach var="item" items="${myOrderList }" varStatus="i">
 
 								<!-- 주문상품 -->
 								<c:choose>
@@ -53,9 +52,9 @@
 														</c:choose>
 														<!-- 배송정보에 따른 표시 -->
 													</p>
-													<c:forEach var="item2" items="${myOrderHistList}"
+													<c:forEach var="item2" items="${myOrderList}"
 															   varStatus="j">
-														<c:if test="${item.order_id ==item2.order_id}">
+														<c:if test="${item.order_id == item2.order_id}">
 															<div class="d-flex">
 																<!-- 상품이미지 -->
 																<img

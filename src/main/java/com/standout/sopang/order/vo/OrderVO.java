@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @ToString
 @Component("orderVO")
 public class OrderVO {
-//	private int order_seq_num;
 	private int order_id;
 	private int goods_id;
 

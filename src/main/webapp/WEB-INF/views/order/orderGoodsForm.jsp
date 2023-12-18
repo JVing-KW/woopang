@@ -395,7 +395,7 @@
 
 
                     <!-- 결제하기-->
-                    <a name="btn_process_pay_order" onClick="fn_process_pay_order()"  href="${contextPath}/order/orderResult"
+                    <a name="btn_process_pay_order" onclick="fn_process_pay_order()"  href="${contextPath}/order/orderResult"
                        class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>
 
                     <!-- 결제하기-->
@@ -411,8 +411,10 @@
 </div>
 
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
-      action="${contextPath}/order/orderResult">
+      action="/order/orderResult">
+
     <input type="hidden" name="ordr_idxx" value="${ordr_idxx }">
+    <input type="hidden" name="resever_name" value="${orderer.member_name }">
     <input type="hidden" name="cart_goods_qty" value="${cart_goods_qty }">
     <input type="hidden" name="good_id" value="${item.goods_id}">
     <input type="hidden" name="good_name" value="${ good_name }">
@@ -448,18 +450,19 @@
     <input type="hidden" name="ret_pay_method" value=""/>
     <input type="hidden" name="tran_cd" value=""/>
     <input type="hidden" name="use_pay_method" value=""/>
-    <input type="hidden" name="card_pay_method" value=""/>
+    <input type="hidden" name="card_pay_method" value="active"/>
 
-    <input type="submit" value="결제">
 </form>
-<%--<script type="text/javascript" src="https://pay.kcp.co.kr/plugin/payplus_web.jsp"></script>--%>
+<script type="text/javascript" src="https://pay.kcp.co.kr/plugin/payplus_web.jsp"></script>
+
 <script type="text/javascript" src="${contextPath}/resources/js/order.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>
 <script>
-    function fn_process_pay_order() {
-        window.onload = function () {
+    function   fn_process_pay_order(){
+        let confirm_result = confirm("결제 하시겠습니까?");
+        if (confirm_result) {
             document.getElementById('active').submit();
-
         }
-    }
-</script>
+
+}</script>
+

@@ -17,10 +17,15 @@ function checkLength(inputElement, maxLength) {
     }
 }
 
-// function fn_process_pay_order() {
-//         let confirm_result = confirm("결제 하시겠습니까?");
-//
-//     if (confirm_result) {
-//         document.getElementById('active').submit();
-//     }
-// }
+ window.onload = function (){
+
+  function   fn_process_pay_order(){
+         let confirm_result = confirm("결제 하시겠습니까?");
+
+         if (confirm_result) {
+             document.getElementById('active').submit();
+     }
+
+
+    }
+}

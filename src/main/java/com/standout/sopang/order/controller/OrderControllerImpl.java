@@ -48,7 +48,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		// 로그인 여부 체크
 		Boolean isLogOn = (Boolean) session.getAttribute("isLogOn");
 		String action = (String) session.getAttribute("action");
-
 		log.info("Goods_id : " + _orderDTO.getGoods_id());
 
 		// 이전에 로그인 상태인 경우는 주문과정 진행
@@ -71,10 +70,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		List myOrderList = new ArrayList<OrderDTO>();
 		myOrderList.add(orderDTO);
 		session.setAttribute("myOrderList", myOrderList);
+		log.info("폼태그로 전송하는 정보"+myOrderList.toString());
 
 		// + 회원정보와 함께 리다이렉트.
 		MemberDTO memberInfo = (MemberDTO) session.getAttribute("memberInfo");
 		session.setAttribute("orderer", memberInfo);
+		log.info("폼태그로 전송하는 정보"+memberInfo.toString());
 
 		return "/order/orderEachGoods";
 	}
@@ -198,26 +199,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			map.put("signature", signature);
 			map.put("timestamp", timestamp);
 
-			System.out.println("보내는값 = " + map.toString());
 			returnMap = apiService01.restApi(map, url);
-			System.out.println("db확인" + returnMap.toString());
 
 
-
-			//결제실패
-//	@Override
-//	@RequestMapping(value="/payFail",method = RequestMethod.POST)
-//	public String payFail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		return "/order/payFail";
-//	}
-//			orderService.addNewOrder(myOrderList);
 			return "redirect:/mypage/listMyOrderHistory";
 		}
 
-//	@Override
-//	public String payFail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		return null;
-//	}
 
 		return member_id;
 	}
@@ -246,7 +233,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
 			orderDTO.setDelivery_address(map.get("delivery_address"));
 
-
 			//추후 결제시 필요할 수 있으니 주석으로 남겨둔다.
 			orderDTO.setPay_method(map.get("pay_method"));
 			orderDTO.setCard_com_name(map.get("card_com_name"));
@@ -257,8 +243,10 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			myOrderList.set(i, orderDTO);
 
 		}
-		model.addAttribute(myOrderList);
-		log.info(myOrderList.toString());
+		model.addAttribute("myOrderList",myOrderList);
+		log.info("모델 : " + myOrderList.toString());
+		log.info("getReceiver_hp1"+orderDTO.getReceiver_hp1());
+		log.info("getReceiver_name"+orderDTO.getReceiver_name());
 
 		orderService.addNewOrder(myOrderList);
 
