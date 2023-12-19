@@ -9,26 +9,26 @@ import com.standout.sopang.member.vo.MemberVO;
 import com.standout.sopang.order.vo.OrderVO;
 
 public interface MyPageDAO {
-
-	//ÁÖ¹®¸ñ·Ï
+	public List<OrderVO> selectMyOrderGoodsList(String member_id) throws DataAccessException;
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public List<OrderVO> selectMyOrderHistoryList(Map dateMap) throws DataAccessException;
 
-	//ÁÖ¹®Ãë¼Ò
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public void updateMyOrderCancel(String order_id) throws DataAccessException;
 	
-	//¹ÝÇ°
+	//ï¿½ï¿½Ç°
 	public void updateMyOrderReturn(String order_id) throws DataAccessException;
 	
-	//±³È¯
+	//ï¿½ï¿½È¯
 	public void updateMyOrderExchange(String order_id) throws DataAccessException;
 	
-	//³»Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public MemberVO selectMyDetailInfo(String member_id) throws DataAccessException;
 	
-	//³» Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void updateMyInfo(Map memberMap) throws DataAccessException;
 	
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	public void deleteMember(String member_id) throws DataAccessException;
 	
 }

@@ -12,25 +12,25 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public interface MyPageController {
-
-	//ÁÖ¹®¸ñ·Ï
+	public String myPageMain(@RequestParam(required = false,value="message")  String message,HttpServletRequest request, HttpServletResponse response,Model model)  throws Exception ;
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public String listMyOrderHistory(@RequestParam Map<String, String> dateMap, Model model, RedirectAttributes redirectAttributes,
 									 HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//ÁÖ¹®Ãë¼Ò
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public String cancelMyOrder(@RequestParam("order_id")  String order_id,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//¹ÝÇ°
+	//ï¿½ï¿½Ç°
 	public String returnMyOrder(@RequestParam("order_id")  String order_id,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//±³È¯
+	//ï¿½ï¿½È¯
 	public String exchangeMyOrder(@RequestParam("order_id")  String order_id,
 								  Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//³»Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String myDetailInfo(HttpServletRequest request, Model model,HttpServletResponse response)  throws Exception;
 	
-	//³» Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public ResponseEntity modifyMyInfo(@RequestParam("member_pw")  String member_pw,
 			@RequestParam("hp1")  String hp1,
 			@RequestParam("zipcode")  String zipcode,
@@ -38,6 +38,6 @@ public interface MyPageController {
 			@RequestParam("subaddress")  String subaddress,
 					            HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	public ResponseEntity deleteMember(@RequestParam("member_id")  String member_id,  HttpServletRequest request, HttpServletResponse response)  throws Exception;
 }

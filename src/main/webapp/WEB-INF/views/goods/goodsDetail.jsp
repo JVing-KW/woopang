@@ -364,12 +364,9 @@
         function modify() {
 
             console.log("modify 진입 : tno :");
-            // urlData = window.location.href;
-            // let url = new URL(urlData);
+
             let tno = url.searchParams.get("tno");
-            // console.log("goods_id : " + goods_id);
-            // let select = event.target.getAttribute('name');
-            // console.log("select : "+ select);
+
             $.ajax({
                 type: "get",
                 url: "${contextPath}/todo/modify ",

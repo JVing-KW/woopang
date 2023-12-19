@@ -208,11 +208,12 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 
 		return member_id;
 	}
-	@RequestMapping(value = "/orderResult", method = {RequestMethod.GET} )
+	@RequestMapping(value = "/orderResult", method = {RequestMethod.POST} )
 	public String sopangPay(@RequestParam Map<String, String> map, HttpServletRequest request,
 							HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) throws Exception {
-
 		response.setContentType("text/html;charset=UTF-8");
+
+		log.info("post form 진입");
 		log.info("sopangPay");
 		//주문정보를 가져온다.
 		HttpSession session = request.getSession();
@@ -232,7 +233,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			orderDTO.setReceiver_name(map.get("receiver_name"));
 			orderDTO.setReceiver_hp1(map.get("receiver_hp1"));
 			orderDTO.setDelivery_address(map.get("delivery_address"));
-
 			//추후 결제시 필요할 수 있으니 주석으로 남겨둔다.
 			orderDTO.setPay_method(map.get("pay_method"));
 			orderDTO.setCard_com_name(map.get("card_com_name"));
@@ -243,10 +243,14 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			myOrderList.set(i, orderDTO);
 
 		}
+		log.info("receiver_hp1"+map.get("receiver_hp1"));
+		if (map.get("card_pay_month").equals("0")){
+			map.replace("card_pay_month","일시불");
+		}
+		model.addAttribute("myOrderInfo",map);
 		model.addAttribute("myOrderList",myOrderList);
 		log.info("모델 : " + myOrderList.toString());
-		log.info("getReceiver_hp1"+orderDTO.getReceiver_hp1());
-		log.info("getReceiver_name"+orderDTO.getReceiver_name());
+		log.info("receiver_name" +orderDTO.getReceiver_name());
 
 		orderService.addNewOrder(myOrderList);
 

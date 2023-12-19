@@ -5,7 +5,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 
-//³ªÁß¿¡ @Setter ¤¸¿ì±â
+//ï¿½ï¿½ï¿½ß¿ï¿½ @Setter ï¿½ï¿½ï¿½ï¿½ï¿½
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,23 +18,5 @@ public class MyPageVO {
 	private String endDate;
 
 
-	public String getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
-	}
-	public String getBeginDate() {
-		return beginDate;
-	}
-	public void setBeginDate(String beginDate) {
-		this.beginDate = beginDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
 
 }

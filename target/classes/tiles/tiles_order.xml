@@ -13,11 +13,7 @@
        <put-attribute name="mypage" value="/WEB-INF/views/mypage/layout.jsp" />
        <put-attribute name="body" value="/WEB-INF/views/order/orderGoodsForm.jsp" />
     </definition>
-<!--      <definition name="/order/payFail" extends="baseLayout">-->
-<!--       <put-attribute name="title" value="상품 결제 실패 페이지" />-->
-<!--       <put-attribute name="mypage" value="/WEB-INF/views/mypage/layout.jsp" />-->
-<!--       <put-attribute name="body" value="/WEB-INF/views/order/orderGoodsFail.jsp" />-->
-<!--    </definition>-->
+
     <definition name="/order/orderResult" extends="baseLayout">
         <put-attribute name="title" value="상품 결제 완료 페이지" />
         <put-attribute name="mypage" value="/WEB-INF/views/mypage/layout.jsp"/>

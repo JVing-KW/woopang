@@ -37,6 +37,19 @@
         <result property="pay_order_time" column="pay_order_time"/>
 
     </resultMap>
+    <select id="selectMyOrderGoodsList" resultMap="orderGoodsResult"  parameterType="String"  >
+	    <![CDATA[
+        select * from t_shopping_order
+        where member_id=#{member_id}
+        order by pay_order_time desc
+        ]]>
+	</select>
+    <select id="selectMyOrderInfo" resultMap="orderGoodsResult"   parameterType="String"  >
+	    <![CDATA[
+        select * from t_shopping_order
+        where order_id=#{order_id}
+        ]]>
+	</select>
 
 
     <!--주문목록 -->

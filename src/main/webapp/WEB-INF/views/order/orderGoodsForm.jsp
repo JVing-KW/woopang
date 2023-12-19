@@ -3,29 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<!-- 주문자 휴대폰 번호 -->
-<c:set var="orderer_hp" value=""/>
-<!-- 최종 결제 금액 -->
-<c:set var="final_total_order_price" value="0"/>
 
-<!-- 총주문 금액 -->
-<c:set var="total_order_price" value="0"/>
-<!-- 총 상품수 -->
-<c:set var="total_order_goods_qty" value="0"/>
-<!-- 총할인금액 -->
-<c:set var="total_discount_price" value="0"/>
-<!-- 총 배송비 -->
-<c:set var="total_delivery_price" value="0"/>
 <head>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 </head>
+<form id="active" name="order_info" method="post" accept-charset="UTF-8"
+      action="/order/orderResult" >
 
 <div class="container">
     <div class="row ms-5 ps-5">
         <div class="mt-5 p-0 ps-5 align-items-center">
             <form name="form_order">
-                <div class="ps-4">
                     <p class="fs-5 fw-bold mb-3">주문하기</p>
                     <div class="border-top border-main border-2 mt-2">
                         <div class="shadow-sm p-4 pt-2 mt-3 rounded border border-light">
@@ -117,7 +106,7 @@
 								<span>총 상품가격 <span id="p_totalPrice">
 								<fmt:formatNumber value="${total_order_price}" pattern="#,###"/>
 								</span>원</span>
-								<input id="h_totalPrice" type="hidden" value="${total_order_price}"/>
+								<input id="h_totalPrice" name="total_order_price" type="hidden" value="${total_order_price}"/>
                                     <!-- 총 상품가격 -->
 
                                     <!-- 총 배송비 -->
@@ -126,11 +115,11 @@
 
                                     <!-- 총 주문금액 -->
 									<span>=</span> 총 주문금액</span> <span class="text-black fw-bold fs-5 ms-3">
-									<span id="p_final_totalPrice">
-									<fmt:formatNumber value="${final_total_order_price }" pattern="#,###"/>
+									<span id="p_final_totalPrice" >
+									<fmt:formatNumber value="${final_total_order_price}" pattern="#,###"/>
 
 									</span>원</span>
-                                <input id="h_final_total_Price" type="hidden" value="${final_total_order_price}"/>
+                                <input id="h_final_total_Price" name="h_final_total_Price" type="hidden" value="${final_total_order_price}"/>
                                 <!-- 총 주문금액 -->
 
                             </p>
@@ -153,10 +142,10 @@
                                                         id="receiver_name" name="receiver_name" type="text" size="40"
                                                         value="${orderer.member_name}" style="width: 300px;">
                                     <input type="hidden" id="h_orderer_name" name="h_orderer_name"
-                                           value="${orderer.member_name}"/> <input type="hidden"
+                                           value="${receiver_name}"/> <input type="hidden"
                                                                                    id="h_receiver_name"
                                                                                    name="h_receiver_name"
-                                                                                   value="${orderer.member_name}"/></td>
+                                                                                   value="${receiver_name}"/></td>
                             </tr>
                             <!-- 이름 -->
 
@@ -166,7 +155,7 @@
                                     번호
                                 </td>
                                 <td class="px-4"><input class="form-control rounded-0" required
-                                                        type="text" id="hp1" name="hp1" value="${orderer.hp1}"
+                                                        type="text" id="receiver_hp1" name="receiver_hp1" value="${orderer.hp1}"
                                                         style="width: 300px;"> <input type="hidden" id="h_hp1"
                                                                                       name="h_hp1"
                                                                                       value="${orderer.hp1}"/> <c:set
@@ -186,7 +175,7 @@
                                            type="button" id="button-addon2" onClick="execDaumPostcode()">우편번호 검색</a>
                                     </div>
                                     <input class="form-control rounded-0 mb-2" type="text"
-                                           id="address" name="address" size="50"
+                                           id="delivery_address" name="delivery_address" size="50"
                                            value="${orderer.address}" required> <input
                                         class="form-control rounded-0" type="text" id="subaddress"
                                         name="subaddress" size="50" value="${orderer.subaddress}" required>
@@ -199,6 +188,14 @@
                                         id="h_subaddress" name="h_zipcode"
                                         value="${orderer.subaddress}"/>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="table-light ps-4 align-middle" style="width: 200px;">배송요청사항
+
+                                </td>
+                                <td class="px-4"><input class="form-control rounded-0"
+                                                        type="text" id="delivery_content" name="delivery_content" placeholder="요청 사항을 적어주세요"
+                                                        style="width: 780px;">
                             </tr>
                             <!-- 배송지 -->
                         </table>
@@ -395,8 +392,9 @@
 
 
                     <!-- 결제하기-->
-                    <a name="btn_process_pay_order" onclick="fn_process_pay_order()"  href="${contextPath}/order/orderResult"
-                       class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>
+                    <input class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2" value="결제하기" onclick="fn_process_pay_order()"/>
+<%--                    <a name="btn_process_pay_order" onclick="fn_process_pay_order()"--%>
+<%--                       class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>--%>
 
                     <!-- 결제하기-->
 
@@ -410,35 +408,36 @@
     </div>
 </div>
 
-<form id="active" name="order_info" method="post" accept-charset="UTF-8"
-      action="/order/orderResult">
 
-    <input type="hidden" name="ordr_idxx" value="${ordr_idxx }">
-    <input type="hidden" name="resever_name" value="${orderer.member_name }">
-    <input type="hidden" name="cart_goods_qty" value="${cart_goods_qty }">
-    <input type="hidden" name="good_id" value="${item.goods_id}">
-    <input type="hidden" name="good_name" value="${ good_name }">
-    <input type="hidden" name="good_mny" value="${ good_mny }">
-    <input type="hidden" name="buyr_name" value="${ buyr_name }">
-    <input type="hidden" name="site_cd" value="${ site_cd }">
+
+<%--    <input type="hidden" name="ordr_idxx" value="${ordr_idxx }"/>--%>
+<%--    <input type="hidden" name="receiver_name" value="${orderer.member_name}"/>--%>
+<%--    <input type="hidden" name="receiver_hp1" value="${receiver_hp1}"/>--%>
+<%--    <input type="hidden" name="order_goods_qty" value="${order_goods_qty }"/>--%>
+<%--    <input type="hidden" name="delivery_state" value="${delivery_state }"/>--%>
+<%--    <input type="hidden" name="good_id" value="${item.goods_id}"/>--%>
+<%--    <input type="hidden" name="good_name" value="${good_name }"/>--%>
+<%--    <input type="hidden" name="good_mny" value="${ good_mny }"/>--%>
+<%--    <input type="hidden" name="buyr_name" value="${ buyr_name }"/>--%>
+<%--    <input type="hidden" name="site_cd" value="${ site_cd }"/>--%>
     <!-- 고정값 -->
-    <input type="hidden" name="req_tx" value="pay">
-    <input type="hidden" name="pay_method" value="100000000000"/>
-    <input type="hidden" name="currency" value="410">
+    <input type="hidden" name="req_tx" value="pay"/>
+    <input type="hidden" name="pay_method" value="100"/>
+    <input type="hidden" name="currency" value="410"/>
 
     <!-- 결제수단 값  -->
-    <input type="hidden" name="kakaopay_direct" value="" class="easyPayment_method">
-    <input type="hidden" name="naverpay_direct" value="" class="easyPayment_method">
-    <input type="hidden" name="naverpay_point_direct" value="" class="easyPayment_method">
+    <input type="hidden" name="kakaopay_direct" value="" class="easyPayment_method"/>
+    <input type="hidden" name="naverpay_direct" value="" class="easyPayment_method"/>
+    <input type="hidden" name="naverpay_point_direct" value="" class="easyPayment_method"/>
     <!-- 결제수단 값  -->
 
     <input type="hidden" name="module_type" value="01"/>
     <!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다 -->
     <input type="hidden" name="ordr_chk" value=""/>
     <!-- 추가파라미터(가맹점에서 별도의 값 전달시 param_opt를 사용하여 값 전달 -->
-    <input type="hidden" name="param_opt_1" value="">
-    <input type="hidden" name="param_opt_2" value="">
-    <input type="hidden" name="param_opt_3" value="">
+    <input type="hidden" name="param_opt_1" value=""/>
+    <input type="hidden" name="param_opt_2" value=""/>
+    <input type="hidden" name="param_opt_3" value=""/>
 
     <!-- ※ 필 수
     필수 항목 : 표준웹에서 값을 설정하는 부분으로 반드시 포함되어야 합니다
@@ -459,10 +458,15 @@
 <script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>
 <script>
     function   fn_process_pay_order(){
-        let confirm_result = confirm("결제 하시겠습니까?");
-        if (confirm_result) {
-            document.getElementById('active').submit();
+        // let confirm_result = confirm("결제 하시겠습니까?");
+        confirm("결제 하시겠습니까?");
+        document.getElementById('active').submit();
         }
 
-}</script>
+            // if (confirm_result) {
+            // }
+            // else {
+            //     document.getElementById('active').submit()// }
+
+</script>
 

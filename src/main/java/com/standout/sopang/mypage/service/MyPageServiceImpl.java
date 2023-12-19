@@ -34,41 +34,48 @@ public class MyPageServiceImpl  implements MyPageService{
 
 
 	// Map<String, String> dateMap,
-	//ÁÖ¹®¸ñ·Ï
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public List<OrderDTO> listMyOrderHistory(Map dateMap) throws Exception{
 		List<OrderVO> myOrderHistoryList = myPageDAO.selectMyOrderHistoryList(dateMap);
 		List<OrderDTO>  myOrderHistoryDTOList	= convertDTO.convertList(myOrderHistoryList);
 		return myOrderHistoryDTOList;
 	}
-	
-	//ÁÖ¹®Ãë¼Ò
+
+
+	public List<OrderDTO> listMyOrderGoods(String member_id) throws Exception{
+		List<OrderVO> myOrderList =	myPageDAO.selectMyOrderGoodsList(member_id);
+		List<OrderDTO>  myOrderDTOList =	convertDTO.convertList(myOrderList);
+		return myOrderDTOList;
+	}
+
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public void cancelOrder(String order_id) throws Exception{
 		myPageDAO.updateMyOrderCancel(order_id);
 	}
 	
-	//¹ÝÇ°
+	//ï¿½ï¿½Ç°
 	public void returnOrder(String order_id) throws Exception{
 		myPageDAO.updateMyOrderReturn(order_id);
 	}
 	
-	//±³È¯
+	//ï¿½ï¿½È¯
 	public void exchangeOrder(String order_id) throws Exception{
 		myPageDAO.updateMyOrderExchange(order_id);
 	}
 	
-	//³»Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public MemberDTO myDetailInfo(String member_id) throws Exception{
 		return modelMapper.map(myPageDAO.selectMyDetailInfo(member_id),MemberDTO.class);
 	}
 	
-	//³» Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public MemberDTO modifyMyInfo(Map memberMap) throws Exception{
 		 String member_id=(String)memberMap.get("member_id");
 		 myPageDAO.updateMyInfo(memberMap);
 		 return modelMapper.map(myPageDAO.selectMyDetailInfo(member_id),MemberDTO.class);
 	}
 	
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	public void deleteMember(String member_id) throws Exception{
 		myPageDAO.deleteMember(member_id);
 	}

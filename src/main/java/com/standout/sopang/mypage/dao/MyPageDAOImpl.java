@@ -16,41 +16,45 @@ import com.standout.sopang.order.vo.OrderVO;
 public class MyPageDAOImpl implements MyPageDAO{
 	@Autowired
 	private SqlSession sqlSession;
+	public List<OrderVO> selectMyOrderGoodsList(String member_id) throws DataAccessException{
+		List<OrderVO> orderGoodsList=(List)sqlSession.selectList("mapper.mypage.selectMyOrderGoodsList",member_id);
+		return orderGoodsList;
+	}
 
-	//ÁÖ¹®¸ñ·Ï
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public List<OrderVO> selectMyOrderHistoryList(Map dateMap) throws DataAccessException{
 		List<OrderVO> myOrderHistList=(List)sqlSession.selectList("mapper.mypage.selectMyOrderHistoryList",dateMap);
 		return myOrderHistList;
 	}
 	
-	//ÁÖ¹®Ãë¼Ò
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public void updateMyOrderCancel(String order_id) throws DataAccessException{
 		sqlSession.update("mapper.mypage.updateMyOrderCancel",order_id);
 	}
 	
-	//¹ÝÇ°
+	//ï¿½ï¿½Ç°
 	public void updateMyOrderReturn(String order_id) throws DataAccessException{
 		sqlSession.update("mapper.mypage.updateMyOrderReturn",order_id);
 	}
 	
-	//±³È¯
+	//ï¿½ï¿½È¯
 	public void updateMyOrderExchange(String order_id) throws DataAccessException{
 		sqlSession.update("mapper.mypage.updateMyOrderExchange",order_id);
 	}
 	
-	//³»Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public MemberVO selectMyDetailInfo(String member_id) throws DataAccessException{
 		MemberVO memberVO=(MemberVO)sqlSession.selectOne("mapper.mypage.selectMyDetailInfo",member_id);
 		return memberVO;
 		
 	}
 	
-	//³» Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void updateMyInfo(Map memberMap) throws DataAccessException{
 		sqlSession.update("mapper.mypage.updateMyInfo",memberMap);
 	}
 	
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	public void deleteMember(String member_id) throws DataAccessException{
 		sqlSession.update("mapper.mypage.deleteMember",member_id);
 	}

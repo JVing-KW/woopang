@@ -11,25 +11,26 @@ import com.standout.sopang.order.vo.OrderVO;
 
 public interface MyPageService{
 
-	//ÁÖ¹®¸ñ·Ï
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public List<OrderDTO> listMyOrderHistory(Map dateMap) throws Exception;
+	public List<OrderDTO> listMyOrderGoods(String member_id) throws Exception;
 
-	//ÁÖ¹®Ãë¼Ò
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public void cancelOrder(String order_id) throws Exception;
 
-	//¹ÝÇ°
+	//ï¿½ï¿½Ç°
 	public void returnOrder(String order_id) throws Exception;
 	
-	//±³È¯
+	//ï¿½ï¿½È¯
 	public void exchangeOrder(String order_id) throws Exception;
 
-	//³»Á¤º¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public MemberDTO myDetailInfo(String member_id) throws Exception;
 	
-	//³» Á¤º¸ ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public MemberDTO modifyMyInfo(Map memberMap) throws Exception;
 	
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	public void  deleteMember(String member_id) throws Exception;
 	
 	

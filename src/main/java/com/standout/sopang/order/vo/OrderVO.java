@@ -39,10 +39,5 @@ public class OrderVO {
 	
 	private String birthday;
 	private String cardPw;
-	
-	
-
-
-
 
 }
