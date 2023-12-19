@@ -4,6 +4,7 @@ package com.standout.sopang.mypage.dao;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.standout.sopang.member.vo.MemberVO;
 import com.standout.sopang.order.vo.OrderVO;
-
+@Log4j2
 @Repository("myPageDAO")
 public class MyPageDAOImpl implements MyPageDAO{
 	@Autowired
@@ -21,9 +22,9 @@ public class MyPageDAOImpl implements MyPageDAO{
 		return orderGoodsList;
 	}
 
-	//�ֹ����
 	public List<OrderVO> selectMyOrderHistoryList(Map dateMap) throws DataAccessException{
 		List<OrderVO> myOrderHistList=(List)sqlSession.selectList("mapper.mypage.selectMyOrderHistoryList",dateMap);
+		log.info("MyPageDAO"+myOrderHistList);
 		return myOrderHistList;
 	}
 	

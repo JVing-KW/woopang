@@ -64,7 +64,7 @@
             #{pay_method},
             #{card_com_name},
             #{card_pay_month},
-            #{pay_order_time},
+            NOW(),
             #{pay_orderer_hp_num},
             NOW()
         )

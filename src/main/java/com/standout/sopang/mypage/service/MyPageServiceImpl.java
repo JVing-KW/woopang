@@ -8,6 +8,7 @@ import java.util.Map;
 import com.standout.sopang.member.dto.MemberDTO;
 import com.standout.sopang.order.config.OrderConvert;
 import com.standout.sopang.order.dto.OrderDTO;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.standout.sopang.member.vo.MemberVO;
 import com.standout.sopang.mypage.dao.MyPageDAO;
 import com.standout.sopang.order.vo.OrderVO;
-
+@Log4j2
 @Service("myPageService")
 @Transactional(propagation=Propagation.REQUIRED)
 public class MyPageServiceImpl  implements MyPageService{
@@ -38,6 +39,7 @@ public class MyPageServiceImpl  implements MyPageService{
 	public List<OrderDTO> listMyOrderHistory(Map dateMap) throws Exception{
 		List<OrderVO> myOrderHistoryList = myPageDAO.selectMyOrderHistoryList(dateMap);
 		List<OrderDTO>  myOrderHistoryDTOList	= convertDTO.convertList(myOrderHistoryList);
+		log.info("MyPageService"+myOrderHistoryDTOList.toString());
 		return myOrderHistoryDTOList;
 	}
 
