@@ -13,19 +13,19 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public interface AdminGoodsController {
-	//»óÇ°°ü¸®
+	//ìƒí’ˆê´€ë¦¬
 	public String adminGoodsMain(@RequestParam Map<String, String> dateMap, HttpServletRequest request
 			, Model model, HttpServletResponse response) throws Exception;
 
-	//»óÇ°Ãß°¡
+	//ìƒí’ˆì¶”ê°€
 	public ResponseEntity addNewGoods(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception;
 
-	//»óÇ°»èÁ¦
+	//ìƒí’ˆì‚­ì œ
 	public String deleteGoods(@RequestParam("goods_id") String goods_id, HttpServletRequest request
 			, Model model, HttpServletResponse response, RedirectAttributes redirectAttributes) throws Exception;
 
-	//»óÇ°¼öÁ¤
+	//ìƒí’ˆìˆ˜ì •
 	public ResponseEntity modifyGoods(@RequestParam("goods_id") String goods_id,
 			MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception;
 }

@@ -2,14 +2,12 @@ package com.standout.sopang.springex.mapper;
 
 import com.standout.sopang.springex.domain.TodoVO;
 import com.standout.sopang.springex.dto.PageRequestDTO;
-import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Log4j2
 @Repository
 public class TodoMapperlmpl implements TodoMapper {
 
@@ -18,8 +16,6 @@ public class TodoMapperlmpl implements TodoMapper {
 
         @Override
         public void insert(TodoVO todoVO) {
-            log.info("register"+todoVO);
-            log.info("register"+todoVO.getContent());
           sqlSession.insert("mapper.TodoMapper.insert",todoVO);
 
         }

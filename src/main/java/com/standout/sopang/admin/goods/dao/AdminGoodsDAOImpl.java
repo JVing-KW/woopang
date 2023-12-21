@@ -20,7 +20,7 @@ public class AdminGoodsDAOImpl  implements AdminGoodsDAO{
 	private SqlSession sqlSession;
 
 	
-	//»óÇ°°ü¸® - »óÇ°¸®½ºÆ®
+	//ìƒí’ˆê´€ë¦¬ - ìƒí’ˆë¦¬ìŠ¤íŠ¸
 	@Override
 	public List<GoodsVO>selectNewGoodsList(Map condMap) throws DataAccessException {
 		ArrayList<GoodsVO>  goodsList=(ArrayList)sqlSession.selectList("mapper.admin.goods.selectNewGoodsList",condMap);
@@ -28,7 +28,7 @@ public class AdminGoodsDAOImpl  implements AdminGoodsDAO{
 	}
 	
 	
-	//»óÇ°Ãß°¡ - »óÇ°Á¤º¸
+	//ìƒí’ˆì¶”ê°€ - ìƒí’ˆì •ë³´
 	@Override
 	public int insertNewGoods(Map newGoodsMap) throws DataAccessException {
 		sqlSession.insert("mapper.admin.goods.insertNewGoods",newGoodsMap);
@@ -37,10 +37,10 @@ public class AdminGoodsDAOImpl  implements AdminGoodsDAO{
 	
 	
 	
-	//»óÇ°Ãß°¡ - ÀÌ¹ÌÁö
+	//ìƒí’ˆì¶”ê°€ - ì´ë¯¸ì§€
 	@Override
 	public void insertGoodsImageFile(List fileList)  throws DataAccessException {
-		//fileList ¸®½ºÆ®¸¦ µ¹·Á ÇÏ³ª¾¿ sqlÀ» ½ÇÇàÇØ insertÇÑ´Ù.
+		//fileList ë¦¬ìŠ¤íŠ¸ë¥¼ ëŒë ¤ í•˜ë‚˜ì”© sqlì„ ì‹¤í–‰í•´ insertí•œë‹¤.
 		for(int i=0; i<fileList.size();i++){
 			ImageFileVO imageFileVO=(ImageFileVO)fileList.get(i);
 			sqlSession.insert("mapper.admin.goods.insertGoodsImageFile",imageFileVO);
@@ -49,31 +49,31 @@ public class AdminGoodsDAOImpl  implements AdminGoodsDAO{
 		
 	
 	
-	//»óÇ°»èÁ¦
+	//ìƒí’ˆì‚­ì œ
 	@Override
 	public void deleteGoods(String goods_id) throws Exception {
-		//»óÇ°Á¤º¸ »èÁ¦
+		//ìƒí’ˆì •ë³´ ì‚­ì œ
 		sqlSession.insert("mapper.admin.goods.deleteGoods",goods_id);
-		//»óÇ°ÀÌ¹ÌÁö »èÁ¦
+		//ìƒí’ˆì´ë¯¸ì§€ ì‚­ì œ
 		sqlSession.insert("mapper.admin.goods.deleteimages",goods_id);
 	}
 
 	
 	
-	//»óÇ°¼öÁ¤ - »óÇ°Á¤º¸
+	//ìƒí’ˆìˆ˜ì • - ìƒí’ˆì •ë³´
 	@Override
 	public void modifyGoods(String goods_id, Map newGoodsMap) throws Exception {
-		sqlSession.insert("mapper.admin.goods.modifyGoods",newGoodsMap);
+		sqlSession.update("mapper.admin.goods.modifyGoods",newGoodsMap);
 	}
 
 	
-	//»óÇ°¼öÁ¤ - ÀÌ¹ÌÁö
+	//ìƒí’ˆìˆ˜ì • - ì´ë¯¸ì§€
 	@Override
-	public void modifyImages(List imageFileList) throws Exception {
-		//fileList ¸®½ºÆ®¸¦ µ¹·Á ÇÏ³ª¾¿ sqlÀ» ½ÇÇàÇØ ¼öÁ¤ÇÑ´Ù.
+	public void modifyImages(List<ImageFileDTO> imageFileList) throws Exception {
+		//fileList ë¦¬ìŠ¤íŠ¸ë¥¼ ëŒë ¤ í•˜ë‚˜ì”© sqlì„ ì‹¤í–‰í•´ ìˆ˜ì •í•œë‹¤.
 		for(int i=0; i<imageFileList.size();i++){
-			ImageFileVO imageFileVO=(ImageFileVO)imageFileList.get(i);
-			sqlSession.insert("mapper.admin.goods.modifyimages",imageFileVO);
+			ImageFileDTO imageFileDTO = imageFileList.get(i);
+			sqlSession.update("mapper.admin.goods.modifyimages",imageFileDTO);
 		}
 		
 	}

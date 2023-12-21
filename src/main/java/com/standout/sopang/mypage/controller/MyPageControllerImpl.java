@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import com.standout.sopang.member.dto.MemberDTO;
 import com.standout.sopang.order.dto.OrderDTO;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,6 @@ import com.standout.sopang.mypage.service.MyPageService;
 import com.standout.sopang.order.vo.OrderVO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-@Log4j2
 @Controller("myPageController")
 @RequestMapping(value="/mypage")
 public class MyPageControllerImpl extends BaseController  implements MyPageController{
@@ -38,25 +36,7 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 	
 	@Autowired
 	private MemberDTO memberDTO;
-
-	@Override
-	@RequestMapping(value="/myPageMain" ,method = RequestMethod.GET)
-	public String myPageMain(String message, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		HttpSession session=request.getSession();
-		session=request.getSession();
-		session.setAttribute("side_menu", "my_page"); //마이페이지 사이드 메뉴로 설정한다.
-
-		memberDTO=(MemberDTO) session.getAttribute("memberInfo");
-		String member_id=memberDTO.getMember_id();
-
-		List<OrderDTO> myOrderList=myPageService.listMyOrderGoods(member_id);
-
-		model.addAttribute("message", message);
-		model.addAttribute("myOrderList", myOrderList);
-		log.info("myOrderList"+myOrderList.toString());
-		return "/mypage/myPageMain";
-	}
-
+	
 	//주문목록
 	@Override
 	@RequestMapping(value="/listMyOrderHistory" ,method = RequestMethod.GET)
@@ -64,11 +44,8 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 										   HttpServletRequest request, HttpServletResponse response)  throws Exception {
 		HttpSession session=request.getSession();
 
-
 		//memberInfo의 member_id get
-
 		memberDTO=(MemberDTO)session.getAttribute("memberInfo");
-		log.info("memberDTO : " + memberDTO);
 			if(memberDTO != null) {
 			String  member_id=memberDTO.getMember_id();
 
@@ -84,7 +61,6 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 			dateMap.put("endDate", endDate);
 			dateMap.put("member_id", member_id);
 			List<OrderDTO> myOrderHistList=myPageService.listMyOrderHistory(dateMap);
-			log.info(dateMap.toString());
 			//검색일자를 년,월,일로 분리해서 화면에 전달
 			String beginDate1[]=beginDate.split("-");
 			String endDate1[]=endDate.split("-");
@@ -97,7 +73,6 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 				model.addAttribute("endYear",endDate1[2]);
 				model.addAttribute("myOrderHistList", myOrderHistList);
 
-				log.info("myOrderHistList"+myOrderHistList);
 			return "/mypage/listMyOrderHistory";
 		}
 		else {
@@ -111,8 +86,11 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 	@RequestMapping(value="/cancelMyOrder" ,method = RequestMethod.POST)
 	public String cancelMyOrder(@RequestParam("order_id")  String order_id,Model model,RedirectAttributes redirectAttributes,
 			                         HttpServletRequest request, HttpServletResponse response)  throws Exception {
+//		ModelAndView mav = new ModelAndView();
+		//주문 id order_id로 db삭제 후 cancel_order message 리턴
 		myPageService.cancelOrder(order_id);
 		model.addAttribute("message", "cancel_order");
+//		mav.setViewName("redirect:/mypage/listMyOrderHistory.do");
 		return "redirect:/mypage/listMyOrderHistory";
 	}
 

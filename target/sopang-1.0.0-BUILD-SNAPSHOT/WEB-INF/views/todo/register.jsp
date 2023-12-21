@@ -13,30 +13,29 @@
     <title>Hello, world!</title>
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <!-- 기존의 <h1>Header</h1> -->
-        <div class="row">
-            <div class="col">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                <a class="nav-link" id="register">연</a>
-                                <a class="nav-link" href="#">습</a>
-                                <a class="nav-link disabled">용</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
+<%--        <div class="row">--%>
+<%--            <div class="col">--%>
+<%--                <nav class="navbar navbar-expand-lg navbar-light bg-light">--%>
+<%--                    <div class="container-fluid">--%>
+<%--                        <a class="navbar-brand" href="#">Navbar</a>--%>
+<%--                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
+<%--                            <span class="navbar-toggler-icon"></span>--%>
+<%--                        </button>--%>
+<%--                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">--%>
+<%--                            <div class="navbar-nav">--%>
+<%--                                <a class="nav-link active" aria-current="page" href="#">Home</a>--%>
+<%--                                <a class="nav-link" id="register">연</a>--%>
+<%--                                <a class="nav-link" href="#">습</a>--%>
+<%--                                <a class="nav-link disabled">용</a>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </nav>--%>
+<%--            </div>--%>
+<%--        </div>--%>
         <!-- header end -->
         <!-- 기존의 <h1>Header</h1>끝 -->
 
@@ -44,33 +43,36 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        Featured
+                        등록하기
                     </div>
                     <div class="card-body">
-                        <form action="/todo/register" method="post">
+                        <form id="registForm">
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Title</span>
-                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                <span class="input-group-text">글 제목</span>
+                                <input type="text" name="title" class="form-control" placeholder="글 제목을 입력하세요">
                             </div>
 
                             <div class="input-group mb-3">
-                                <span class="input-group-text">content</span>
-                                <input type="text" name="content" class="form-control" placeholder="content">
+                                <span class="input-group-text">글 내용</span>
+                                <input type="text" name="content" class="form-control" placeholder="글 내용을 입력하세요">
                             </div>
 
 
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Writer</span>
-                                <input type="text" name="writer" class="form-control" placeholder="Writer">
-                            </div>
+<%--                            <div class="input-group mb-3">--%>
+<%--                                <span class="input-group-text">글쓴이</span>--%>
+<%--                                <input type="text" name="writer" class="form-control" value="${}" readonly>--%>
+<%--                            </div>--%>
 
                             <div class="my-4">
                                 <div class="float-end">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="result" class="btn btn-secondary">Reset</button>
+                                    <button type="submit" class="btn btn-primary" id="regist">등록하기</button>
+                                    <button type="result" class="btn btn-secondary">초기화</button>
+                                    <button type="button" class="btn btn-secondary" onclick="boardNumData()">목록으로</button>
                                 </div>
                             </div>
-<%--                            <input type="hidden" name="goods_id" value="${goods_id}">--%>
+                            <%--외래키로 연결된 세션 정보를 form으로 전송--%>
+                            <input type="hidden" name="goods_id_t_shopping_goods" value="${goods_id}">
+                            <input type="hidden" name="writer" value="${memberInfo.member_id}">
                         </form>
 
                         <script>

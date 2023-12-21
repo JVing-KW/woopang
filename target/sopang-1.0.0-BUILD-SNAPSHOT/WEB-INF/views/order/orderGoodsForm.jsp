@@ -9,12 +9,12 @@
 
 </head>
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
-      action="/order/orderResult" >
+      action="${contextPath}/order/orderResult" >
 
-<div class="container">
-    <div class="row ms-5 ps-5">
-        <div class="mt-5 p-0 ps-5 align-items-center">
-            <form name="form_order">
+    <div class="container">
+        <div class="row ms-5 ps-5">
+            <div class="mt-5 p-0 ps-5 align-items-center">
+                <form name="form_order">
                     <p class="fs-5 fw-bold mb-3">주문하기</p>
                     <div class="border-top border-main border-2 mt-2">
                         <div class="shadow-sm p-4 pt-2 mt-3 rounded border border-light">
@@ -55,12 +55,12 @@
                                                         <p class="mb-0 text-secondary">
                                                             <!-- 상품 낱개가격 -->
                                                             <span>
-															<fmt:formatNumber value="${item.goods_sales_price}"
-                                                                              pattern="#,###"/>
-															</span> 원 <span> ·
-															</span> <input type="hidden" id="h_each_goods_price"
-                                                                           name="h_each_goods_price"
-                                                                           value="${item.goods_sales_price * item.order_goods_qty}"/>
+                                             <fmt:formatNumber value="${item.goods_sales_price}"
+                                                               pattern="#,###"/>
+                                             </span> 원 <span> ·
+                                             </span> <input type="hidden" id="h_each_goods_price"
+                                                            name="h_each_goods_price"
+                                                            value="${item.goods_sales_price * item.order_goods_qty}"/>
                                                             <!-- 상품 낱개가격 -->
 
                                                             <!-- 상품수량 -->
@@ -100,25 +100,25 @@
                             <!-- 주문상품 총 금액 계산 -->
                             <p
                                     class="bg-light border text-end p-3 text-secondary d-flex justify-content-end align-items-center mt-4">
-								<span>
+                        <span>
 
-								<!-- 총 상품가격 -->
-								<span>총 상품가격 <span id="p_totalPrice">
-								<fmt:formatNumber value="${total_order_price}" pattern="#,###"/>
-								</span>원</span>
-								<input id="h_totalPrice" name="total_order_price" type="hidden" value="${total_order_price}"/>
-                                    <!-- 총 상품가격 -->
+                        <!-- 총 상품가격 -->
+                        <span>총 상품가격 <span id="p_totalPrice">
+                        <fmt:formatNumber value="${total_order_price}" pattern="#,###"/>
+                        </span>원</span>
+                        <input id="h_totalPrice" name="total_order_price" type="hidden" value="${total_order_price}"/>
+                            <!-- 총 상품가격 -->
 
-                                    <!-- 총 배송비 -->
-									<span>+</span> <span>총 배송비 0원</span>
-                                    <!-- 총 배송비 -->
+                            <!-- 총 배송비 -->
+                           <span>+</span> <span>총 배송비 0원</span>
+                            <!-- 총 배송비 -->
 
-                                    <!-- 총 주문금액 -->
-									<span>=</span> 총 주문금액</span> <span class="text-black fw-bold fs-5 ms-3">
-									<span id="p_final_totalPrice" >
-									<fmt:formatNumber value="${final_total_order_price}" pattern="#,###"/>
+                            <!-- 총 주문금액 -->
+                           <span>=</span> 총 주문금액</span> <span class="text-black fw-bold fs-5 ms-3">
+                           <span id="p_final_totalPrice" >
+                           <fmt:formatNumber value="${final_total_order_price}" pattern="#,###"/>
 
-									</span>원</span>
+                           </span>원</span>
                                 <input id="h_final_total_Price" name="h_final_total_Price" type="hidden" value="${final_total_order_price}"/>
                                 <!-- 총 주문금액 -->
 
@@ -143,9 +143,9 @@
                                                         value="${orderer.member_name}" style="width: 300px;">
                                     <input type="hidden" id="h_orderer_name" name="h_orderer_name"
                                            value="${receiver_name}"/> <input type="hidden"
-                                                                                   id="h_receiver_name"
-                                                                                   name="h_receiver_name"
-                                                                                   value="${receiver_name}"/></td>
+                                                                             id="h_receiver_name"
+                                                                             name="h_receiver_name"
+                                                                             value="${receiver_name}"/></td>
                             </tr>
                             <!-- 이름 -->
 
@@ -393,8 +393,8 @@
 
                     <!-- 결제하기-->
                     <input class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2" value="결제하기" onclick="fn_process_pay_order()"/>
-<%--                    <a name="btn_process_pay_order" onclick="fn_process_pay_order()"--%>
-<%--                       class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>--%>
+                    <%--                    <a name="btn_process_pay_order" onclick="fn_process_pay_order()"--%>
+                    <%--                       class="btn btn-lg btn-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-5 mb-2">결제하기</a>--%>
 
                     <!-- 결제하기-->
 
@@ -402,10 +402,10 @@
                     <a href="${contextPath}/main/main"
                        class="btn btn-lg border-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mt-0 mb-3 fs-6">취소하기</a>
                     <!-- 취소하기, 메인페이지로 돌아간다.-->
-                </div>
-            </form>
-        </div>
-    </div>
+            </div>
+</form>
+</div>
+</div>
 </div>
 
 
@@ -420,36 +420,36 @@
 <%--    <input type="hidden" name="good_mny" value="${ good_mny }"/>--%>
 <%--    <input type="hidden" name="buyr_name" value="${ buyr_name }"/>--%>
 <%--    <input type="hidden" name="site_cd" value="${ site_cd }"/>--%>
-    <!-- 고정값 -->
-    <input type="hidden" name="req_tx" value="pay"/>
-    <input type="hidden" name="pay_method" value="100"/>
-    <input type="hidden" name="currency" value="410"/>
+<!-- 고정값 -->
+<input type="hidden" name="req_tx" value="pay"/>
+<input type="hidden" name="pay_method" value="100"/>
+<input type="hidden" name="currency" value="410"/>
 
-    <!-- 결제수단 값  -->
-    <input type="hidden" name="kakaopay_direct" value="" class="easyPayment_method"/>
-    <input type="hidden" name="naverpay_direct" value="" class="easyPayment_method"/>
-    <input type="hidden" name="naverpay_point_direct" value="" class="easyPayment_method"/>
-    <!-- 결제수단 값  -->
+<!-- 결제수단 값  -->
+<input type="hidden" name="kakaopay_direct" value="" class="easyPayment_method"/>
+<input type="hidden" name="naverpay_direct" value="" class="easyPayment_method"/>
+<input type="hidden" name="naverpay_point_direct" value="" class="easyPayment_method"/>
+<!-- 결제수단 값  -->
 
-    <input type="hidden" name="module_type" value="01"/>
-    <!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다 -->
-    <input type="hidden" name="ordr_chk" value=""/>
-    <!-- 추가파라미터(가맹점에서 별도의 값 전달시 param_opt를 사용하여 값 전달 -->
-    <input type="hidden" name="param_opt_1" value=""/>
-    <input type="hidden" name="param_opt_2" value=""/>
-    <input type="hidden" name="param_opt_3" value=""/>
+<input type="hidden" name="module_type" value="01"/>
+<!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다 -->
+<input type="hidden" name="ordr_chk" value=""/>
+<!-- 추가파라미터(가맹점에서 별도의 값 전달시 param_opt를 사용하여 값 전달 -->
+<input type="hidden" name="param_opt_1" value=""/>
+<input type="hidden" name="param_opt_2" value=""/>
+<input type="hidden" name="param_opt_3" value=""/>
 
-    <!-- ※ 필 수
-    필수 항목 : 표준웹에서 값을 설정하는 부분으로 반드시 포함되어야 합니다
-    값을 설정하지 마십시오 -->
-    <input type="hidden" name="res_cd" value=""/>
-    <input type="hidden" name="res_msg" value=""/>
-    <input type="hidden" name="enc_info" value=""/>
-    <input type="hidden" name="enc_data" value=""/>
-    <input type="hidden" name="ret_pay_method" value=""/>
-    <input type="hidden" name="tran_cd" value=""/>
-    <input type="hidden" name="use_pay_method" value=""/>
-    <input type="hidden" name="card_pay_method" value="active"/>
+<!-- ※ 필 수
+필수 항목 : 표준웹에서 값을 설정하는 부분으로 반드시 포함되어야 합니다
+값을 설정하지 마십시오 -->
+<input type="hidden" name="res_cd" value=""/>
+<input type="hidden" name="res_msg" value=""/>
+<input type="hidden" name="enc_info" value=""/>
+<input type="hidden" name="enc_data" value=""/>
+<input type="hidden" name="ret_pay_method" value=""/>
+<input type="hidden" name="tran_cd" value=""/>
+<input type="hidden" name="use_pay_method" value=""/>
+<input type="hidden" name="card_pay_method" value="active"/>
 
 </form>
 <script type="text/javascript" src="https://pay.kcp.co.kr/plugin/payplus_web.jsp"></script>
@@ -461,12 +461,11 @@
         // let confirm_result = confirm("결제 하시겠습니까?");
         confirm("결제 하시겠습니까?");
         document.getElementById('active').submit();
-        }
+    }
 
-            // if (confirm_result) {
-            // }
-            // else {
-            //     document.getElementById('active').submit()// }
+    // if (confirm_result) {
+    // }
+    // else {
+    //     document.getElementById('active').submit()// }
 
 </script>
-

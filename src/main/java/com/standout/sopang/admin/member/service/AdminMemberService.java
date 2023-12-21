@@ -13,6 +13,6 @@ import com.standout.sopang.member.vo.MemberVO;
 import com.standout.sopang.order.vo.OrderVO;
 
 public interface AdminMemberService {
-	// È¸¿ø°ü¸®
+	// íšŒì›ê´€ë¦¬
 	public ArrayList<MemberDTO> listMember(HashMap condMap) throws Exception;
 }

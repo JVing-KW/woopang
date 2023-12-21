@@ -17,16 +17,16 @@ import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 public class FileDownloadController {
-	//���ϰ��
-	private static String CURR_IMAGE_REPO_PATH = "C:\\sopang\\file_repo";
-	
-	//���ε�/�μ�Ʈ �� ���� �ҷ�����, goods_id�� fileName���� �޾� Ǯ���Ѵ�.
+	//파일 경로
+	private static String CURR_IMAGE_REPO_PATH = "/sopang/file_repo";
+
+	//업로드&인서트 된 파일 불러오기, goods_id와 fileName값을 받아 출력한다.
 	@RequestMapping("/download")
 	protected void download(@RequestParam("fileName") String fileName,
 		                 	@RequestParam("goods_id") String goods_id,
 			                 HttpServletResponse response) throws Exception {
 		OutputStream out = response.getOutputStream();
-		String filePath=CURR_IMAGE_REPO_PATH+"\\"+goods_id+"\\"+fileName;
+		String filePath=CURR_IMAGE_REPO_PATH+"/"+goods_id+"/"+fileName;
 		File image=new File(filePath);
 
 		response.setHeader("Cache-Control","no-cache");
@@ -34,28 +34,29 @@ public class FileDownloadController {
 		FileInputStream in=new FileInputStream(image); 
 		byte[] buffer=new byte[1024*8];
 		while(true){
-			int count=in.read(buffer); //���ۿ� �о���� ���ڰ���
-			if(count==-1)  //������ �������� �����ߴ��� üũ
+			int count=in.read(buffer); //버퍼에 읽어들인 문자개수
+			if(count==-1)  //버퍼의 마지막에 도달했는지 체크
 				break;
 			out.write(buffer,0,count);
 		}
 		in.close();
 		out.close();
 	}
-	
+
+	//업로드&인서트 된 파일 썸네일로 불러오기, goods_id와 fileName값을 받아 출력한다.
 	@RequestMapping("/thumbnails")
 	protected void thumbnails(@RequestParam("fileName") String fileName,
                             	@RequestParam("goods_id") String goods_id,
 			                 HttpServletResponse response) throws Exception {
 		OutputStream out = response.getOutputStream();
-		String filePath=CURR_IMAGE_REPO_PATH+"\\"+goods_id+"\\"+fileName;
+		String filePath=CURR_IMAGE_REPO_PATH+"/"+goods_id+"/"+fileName;
 		File image=new File(filePath);
 		
 		if (image.exists()) { 
 			Thumbnails.of(image).size(121,154).outputFormat("png").toOutputStream(out);
 		}
-		
-		//����ũ�� ����
+
+		//파일크기 설정
 		byte[] buffer = new byte[1024 * 8];
 		out.write(buffer);
 		out.close();

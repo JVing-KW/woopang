@@ -12,25 +12,25 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public interface MyPageController {
-	public String myPageMain(@RequestParam(required = false,value="message")  String message,HttpServletRequest request, HttpServletResponse response,Model model)  throws Exception ;
-	//�ֹ����
+
+
 	public String listMyOrderHistory(@RequestParam Map<String, String> dateMap, Model model, RedirectAttributes redirectAttributes,
 									 HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//�ֹ����
+
 	public String cancelMyOrder(@RequestParam("order_id")  String order_id,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//��ǰ
+
 	public String returnMyOrder(@RequestParam("order_id")  String order_id,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//��ȯ
+
 	public String exchangeMyOrder(@RequestParam("order_id")  String order_id,
 								  Model model,RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//������
+
 	public String myDetailInfo(HttpServletRequest request, Model model,HttpServletResponse response)  throws Exception;
 	
-	//�� ���� ����
+
 	public ResponseEntity modifyMyInfo(@RequestParam("member_pw")  String member_pw,
 			@RequestParam("hp1")  String hp1,
 			@RequestParam("zipcode")  String zipcode,
@@ -38,6 +38,6 @@ public interface MyPageController {
 			@RequestParam("subaddress")  String subaddress,
 					            HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
-	//ȸ��Ż��
+
 	public ResponseEntity deleteMember(@RequestParam("member_id")  String member_id,  HttpServletRequest request, HttpServletResponse response)  throws Exception;
 }

@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 public interface GoodsController {
+
 	public String menuGoods(@RequestParam("menuGoods") String menuGoods, Model model
 							, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+
 	public @ResponseBody String keywordSearch(@RequestParam("keyword") String keyword,Model model,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+
 	public String searchGoods(@RequestParam("searchWord") String searchWord,Model model,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+
 	public String goodsDetail(@RequestParam("goods_id") String goods_id,Model model,HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

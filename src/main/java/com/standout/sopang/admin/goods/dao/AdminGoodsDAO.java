@@ -3,6 +3,7 @@ package com.standout.sopang.admin.goods.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.standout.sopang.goods.dto.ImageFileDTO;
 import org.springframework.dao.DataAccessException;
 
 import com.standout.sopang.goods.vo.GoodsVO;
@@ -10,18 +11,18 @@ import com.standout.sopang.goods.vo.ImageFileVO;
 import com.standout.sopang.order.vo.OrderVO;
 
 public interface AdminGoodsDAO {
-	//»óÇ°°ü¸®
+	//ìƒí’ˆê´€ë¦¬
 	public List<GoodsVO>selectNewGoodsList(Map condMap) throws DataAccessException;
 
-	//»óÇ°Ãß°¡
+	//ìƒí’ˆì¶”ê°€
 	public int insertNewGoods(Map newGoodsMap) throws DataAccessException;
 	public void insertGoodsImageFile(List<ImageFileVO> fileList)  throws DataAccessException;
 	
-	//»óÇ°»èÁ¦
+	//ìƒí’ˆì‚­ì œ
 	public void deleteGoods(String goods_id) throws Exception;
 	
-	//»óÇ°¼öÁ¤
+	//ìƒí’ˆìˆ˜ì •
 	public void  modifyGoods(String goods_id, Map newGoodsMap) throws Exception;
-	public void  modifyImages(List imageFileList) throws Exception;
+	public void  modifyImages(List<ImageFileDTO> imageFileList) throws Exception;
 	
 }

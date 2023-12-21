@@ -10,18 +10,18 @@ import com.standout.sopang.goods.vo.GoodsVO;
 
 
 public interface GoodsService {
-	//¸ŞÀÎÆäÀÌÁö - ÁöÁ¤ statusº°
+	//ë©”ì¸í˜ì´ì§€ - ì§€ì • statusë³„
 	public Map<String, List <GoodsDTO>>  listGoods() throws Exception;
 	
-	//header Ä«Å×°í¸®º°
+	//header ì¹´í…Œê³ ë¦¬ë³„
 	public List<GoodsDTO> menuGoods(String menuGoods) throws Exception;
 
-	//ÃßÃµÅ°¿öµå
+	//ì¶”ì²œí‚¤ì›Œë“œ
 	public List<String> keywordSearch(String keyword) throws Exception;
 
-	//°Ë»ö
+	//ê²€ìƒ‰
 	public List<GoodsDTO> searchGoods(String searchWord) throws Exception;
 	
-	//»óÇ°»ó¼¼
+	//ìƒí’ˆìƒì„¸
 	public Map goodsDetail(String _goods_id) throws Exception;
 }

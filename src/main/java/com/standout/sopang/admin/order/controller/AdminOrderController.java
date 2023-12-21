@@ -12,11 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminOrderController {
 
-	//ÁÖ¹®¸ñ·Ï
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	public String adminOrderMain(@RequestParam Map<String, String> dateMap, Model model,
 								 HttpServletRequest request, HttpServletResponse response)  throws Exception;
 	
-	//ÁÖ¹®¼öÁ¤ - ¹è¼Û¼öÁ¤
+	//ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Û¼ï¿½ï¿½ï¿½
 	public ResponseEntity modifyDeliveryState(@RequestParam Map<String, String> deliveryMap, 
             HttpServletRequest request, HttpServletResponse response)  throws Exception;
 }

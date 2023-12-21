@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.standout.sopang.member.dto.MemberDTO;
+import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,26 +12,27 @@ import org.springframework.stereotype.Repository;
 import com.standout.sopang.member.vo.MemberVO;
 
 @Repository("memberDAO")
+@Log4j2
 public class MemberDAOImpl  implements MemberDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	@Autowired
 	MemberDTO memberDTO;
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	@Override
-	public MemberVO login(Map loginMap) throws DataAccessException{
-		MemberVO member=sqlSession.selectOne("mapper.member.login",loginMap);
-
+	public MemberVO login(Map<String,String> loginMap) throws DataAccessException{
+		MemberVO member = sqlSession.selectOne("mapper.member.login",loginMap);
+		log.info(member);
 	   return member;
 	}
 	
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	@Override
 	public void insertNewMember(MemberDTO memberDTO) throws DataAccessException{
 		sqlSession.insert("mapper.member.insertNewMember",memberDTO);
 	}
 
-	//¾ÆÀÌµğ Áßº¹È®ÀÎ
+	//ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	@Override
 	public String selectOverlappedID(String id) throws DataAccessException {
 		String result =  sqlSession.selectOne("mapper.member.selectOverlappedID",id);

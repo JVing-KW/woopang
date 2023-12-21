@@ -3,16 +3,17 @@ package com.standout.sopang.order.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.standout.sopang.order.dto.OrderDTO;
 import org.springframework.dao.DataAccessException;
 
 import com.standout.sopang.order.vo.OrderVO;
 
 public interface OrderDAO {
 	
-	//ÁÖ¹®ÇÏ±â
+	//ì£¼ë¬¸í•˜ê¸°
 	public void insertNewOrder(List<OrderVO> myOrderList) throws DataAccessException;
 
-	//ÁÖ¹®¿Ï·á½Ã Àå¹Ù±¸´Ï¿¡¼­ »óÇ° Á¦°Å
+	//ì£¼ë¬¸ì™„ë£Œì‹œ ì¥ë°”êµ¬ë‹ˆì—ì„œ ìƒí’ˆ ì œê±°
 	public void removeGoodsFromCart(List<OrderVO> myOrderList)throws DataAccessException;
 
 

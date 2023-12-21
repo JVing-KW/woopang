@@ -29,15 +29,14 @@ import com.standout.sopang.goods.vo.ImageFileVO;
 
 
 public abstract class BaseController  {
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\sopang\\file_repo";
+	private static final String CURR_IMAGE_REPO_PATH = "/sopang/file_repo";
 	
-	//"/*.do"로 요청시 view네임 return
 	@RequestMapping(value="/" ,method={RequestMethod.POST,RequestMethod.GET})
 	protected  String viewForm(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		return "/";
 	}
 	
-	// 관리자, 마이페이지에서 공통으로 사용될 버튼식조회 기간설정 메소드
+
 	protected String calcSearchPeriod(String fixedSearchPeriod){
 		String beginDate=null;
 		String endDate=null;
@@ -55,7 +54,6 @@ public abstract class BaseController  {
 		endDay   = df.format(cal.get(Calendar.DATE));
 		endDate = endYear +"-"+ endMonth +"-"+endDay;
 		
-		//별다른 지정이 없을경우, 1개월
 		if(fixedSearchPeriod == null) {
 			cal.add(cal.MONTH, -1);
 		}else if(fixedSearchPeriod.equals("today")) {
@@ -78,7 +76,6 @@ public abstract class BaseController  {
 		return beginDate+","+endDate;
 	}
 	
-	//상품추가/수정시 사용될 파일 upload메소드, fileList return
 	protected List<ImageFileDTO> upload(MultipartHttpServletRequest multipartRequest) throws Exception{
 		List<ImageFileDTO> fileList= new ArrayList<ImageFileDTO>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
@@ -91,14 +88,14 @@ public abstract class BaseController  {
 			imageFileDTO.setFileName(originalFileName);
 			fileList.add(imageFileDTO);
 			
-			File file = new File(CURR_IMAGE_REPO_PATH +"\\"+ fileName);
-			if(mFile.getSize()!=0){ //File Null Check
-				if(! file.exists()){ //경로상에 파일이 존재하지 않을 경우
-					if(file.getParentFile().mkdirs()){ //경로에 해당하는 디렉토리들을 생성
-							file.createNewFile(); //이후 파일 생성
+			File file = new File(CURR_IMAGE_REPO_PATH +"/"+ fileName);
+			if(mFile.getSize()!=0){
+				if(! file.exists()){
+					if(file.getParentFile().mkdirs()){
+							file.createNewFile();
 					}
 				}
-				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"\\"+"temp"+ "\\"+originalFileName)); //임시로 저장된 multipartFile을 실제 파일로 전송
+				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH +"/"+"temp"+ "/"+originalFileName)); //占쌈시뤄옙 占쏙옙占쏙옙占� multipartFile占쏙옙 占쏙옙占쏙옙 占쏙옙占싹뤄옙 占쏙옙占쏙옙
 			}
 		}
 		return fileList;

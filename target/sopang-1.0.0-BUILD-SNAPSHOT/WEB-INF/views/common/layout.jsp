@@ -50,7 +50,9 @@
 
 
 
-<a href="#" class="back-to-top text-decoration-none d-inline-block text-center lh-lg pt-2 fw-bold btn border-main" title="Back to top"><i class="fa-solid fa-arrow-up lh-base"></i></a>
+<a href="#" class="back-to-top text-decoration-none d-inline-block text-center lh-lg pt-2 fw-bold btn border-main" title="Back to top">
+	<i class="fa-solid fa-arrow-up lh-base"></i>
+</a>
 
 
 

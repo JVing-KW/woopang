@@ -6,12 +6,12 @@ import com.standout.sopang.member.dto.MemberDTO;
 import com.standout.sopang.member.vo.MemberVO;
 
 public interface MemberService {
-	//·Î±×ÀÎ
-	public MemberDTO login(Map  loginMap) throws Exception;
+	//ë¡œê·¸ì¸
+	public MemberDTO login(Map<String,String> loginMap) throws Exception;
 	
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	public void addMember(MemberDTO memberDTO) throws Exception;
 	
-	//¾ÆÀÌµğ Áßº¹È®ÀÎ
+	//ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	public String overlapped(String id) throws Exception;
 }

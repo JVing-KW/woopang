@@ -2,14 +2,13 @@ package com.standout.sopang.goods.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.util.ArrayList;
 
 
-@ToString
+
 @Getter
 @Setter
 @Component("goodsDTO")

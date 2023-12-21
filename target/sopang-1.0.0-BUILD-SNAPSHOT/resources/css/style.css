@@ -131,6 +131,9 @@ html {scroll-behavior: smooth;}
 	    border-color: #8dc9ff;
 	    box-shadow: 7px 7px 7px #00000018!important;
     }
+
+
+    
     .list-group-item{border-top-width: 1px!important; color: var(--mainColor)!important;}
     .nav-tabs .nav-link {
         background: var(--light);

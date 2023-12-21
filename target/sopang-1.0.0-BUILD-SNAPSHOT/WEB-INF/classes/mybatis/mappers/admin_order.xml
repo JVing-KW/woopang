@@ -6,7 +6,7 @@
 <mapper namespace="mapper.admin.order">
     <resultMap id="orderResult" type="OrderVO">
 
-<!--        <result property="order_seq_num" column="order_seq_num"/>-->
+        <result property="order_seq_num" column="order_seq_num"/>
         <result property="order_id" column="order_id"/>
         <result property="goods_id" column="goods_id"/>
 

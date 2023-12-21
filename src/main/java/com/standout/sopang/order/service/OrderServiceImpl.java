@@ -17,6 +17,7 @@ import com.standout.sopang.order.dao.OrderDAO;
 import com.standout.sopang.order.vo.OrderVO;
 import org.springframework.ui.ModelMap;
 
+
 @Log4j2
 @Service("orderService")
 @Transactional(propagation=Propagation.REQUIRED)
@@ -29,18 +30,21 @@ public class OrderServiceImpl implements OrderService {
 	ModelMapper modelMapper;
 
 
-	//ÁÖ¹®ÇÏ±â
+	//ì£¼ë¬¸í•˜ê¸°
 	public void addNewOrder(List<OrderDTO> myOrderList) throws Exception{
-
-		log.info("insert addnewOrder");
-		//ÁÖ¹®ÇÏ±â
+		//ì£¼ë¬¸í•˜ê¸°
 		List<OrderVO> orderVOList =myOrderList.stream().map
 						((order)->modelMapper.map(order,OrderVO.class))
 				.collect(Collectors.toList());
 
+
+
 		orderDAO.insertNewOrder(orderVOList);
-		//Ä«Æ®¿¡¼­ ÁÖ¹® »óÇ° Á¦°ÅÇÑ´Ù.
+
+
+		//ì¹´íŠ¸ì—ì„œ ì£¼ë¬¸ ìƒí’ˆ ì œê±°í•œë‹¤.
 		orderDAO.removeGoodsFromCart(orderVOList);
+
 	}
 
 }

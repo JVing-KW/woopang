@@ -3,44 +3,39 @@ package com.standout.sopang.order.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.extern.log4j.Log4j2;
+import com.standout.sopang.order.dto.OrderDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.standout.sopang.order.vo.OrderVO;
-@Log4j2
+
 @Repository("orderDAO")
 public class OrderDAOImpl implements OrderDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//¡÷πÆ«œ±‚
+	//Ï£ºÎ¨∏ÌïòÍ∏∞
 	public void insertNewOrder(List<OrderVO> myOrderList) throws DataAccessException{
-		//∏Æ≈œµ» ¡÷πÆπ¯»£øÕ «‘≤≤ ¡÷πÆ tableø° ¡÷πÆ¡§∫∏∏¶ insert«—¥Ÿ.
-
-		log.info(myOrderList.toString());
 		for(int i=0; i<myOrderList.size();i++){
 			OrderVO orderVO =(OrderVO)myOrderList.get(i);
 			sqlSession.insert("mapper.order.insertNewOrder",orderVO);
 		}
 	}
-
-
 	
 	public int selectOrderID() throws DataAccessException{
-		//¡÷πÆπ¯»£ Ω√ƒˆΩ∫∏¶ ª˝º∫«œø© ∞·∞˙∞™¿ª π›»Ø«—¥Ÿ.
+		//Ï£ºÎ¨∏Î≤àÌò∏ ÏãúÌÄÄÏä§Î•º ÏÉùÏÑ±ÌïòÏó¨ Í≤∞Í≥ºÍ∞íÏùÑ Î∞òÌôòÌïúÎã§.
 		int result = sqlSession.selectOne("mapper.order.selectOrderID");
 		return result;
 	}
 
-	//¡÷πÆøœ∑·Ω√ ¿ÂπŸ±∏¥œø°º≠ ªÛ«∞ ¡¶∞≈
+	//Ï£ºÎ¨∏ÏôÑÎ£åÏãú Ïû•Î∞îÍµ¨ÎãàÏóêÏÑú ÏÉÅÌíà Ï†úÍ±∞
 	public void removeGoodsFromCart(List<OrderVO> myOrderList)throws DataAccessException{
 		for(int i=0; i<myOrderList.size();i++){
-			//¡÷πÆªÛ«∞∏ÆΩ∫∆Æ¿« ¡§∫∏∏¶ ∞°¡ˆ∞Ì deleteπÆ¿ª myOrderList∏∏≈≠, forπÆ¿ª µπ∑¡ Ω««‡«—¥Ÿ.
+			//Ï£ºÎ¨∏ÏÉÅÌíàÎ¶¨Ïä§Ìä∏Ïùò Ï†ïÎ≥¥Î•º Í∞ÄÏßÄÍ≥† deleteÎ¨∏ÏùÑ myOrderListÎßåÌÅº, forÎ¨∏ÏùÑ ÎèåÎ†§ Ïã§ÌñâÌïúÎã§.
 			OrderVO orderVO =(OrderVO)myOrderList.get(i);
-			sqlSession.delete("mapper.order.deleteGoodsFromCart",orderVO);	
+			sqlSession.delete("mapper.order.deleteGoodsFromCart",orderVO);
 		}
 	}	
 }

@@ -6,19 +6,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="goods" value="${goodsMap.goodsDTO}"/>
-<%--model.addAttribute("goodsMap", goodsMap);--%>
 <c:set var="imageList" value="${goodsMap.imageList }"/>
-<%--<c:set var="dto" value="${TodoDTO.dto}"/>--%>
+<%--<meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8090/favicon.ico;">--%>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
 <div class="container">
     <div class="row">
         <div class="p-0 align-items-center gap-3 mt-5">
-            <!-- <p class="fs-6 mb-1">HOT! TREND</p>
-                <p class="fs-3 fw-bold">카테고리</p> -->
         </div>
     </div>
 
@@ -71,9 +69,9 @@
                 <hr>
                 <!-- 가격 및 수량, 수량은 고정 -->
                 <p class="fs-6 mb-1">
-					<span class="fs-4 text-danger fw-bold">
-					<fmt:formatNumber value="${goods.goods_sales_price }" pattern="#,###"/>
-					</span>원
+               <span class="fs-4 text-danger fw-bold">
+               <fmt:formatNumber value="${goods.goods_sales_price }" pattern="#,###"/>
+               </span>원
                     · 1개
                 </p>
 
@@ -95,6 +93,7 @@
 
         </div>
 
+
         <!-- 하단 상품상세정보 -->
         <div class="mt-5 border-top border-secondary border-3 p-0">
             <!-- tab Caller -->
@@ -113,7 +112,7 @@
                         class="nav-link rounded-0 py-3 text-center fw-bold"
                         id="detailInfo3" data-bs-toggle="list" href="#detailInfo03"
                         role="tab" aria-controls="detailInfo03" style="width: 250px">
-                    QnA 및 문의사항</a></li>
+                    한줄 평가</a></li>
             </ul>
             <!-- tab Caller -->
 
@@ -153,42 +152,52 @@
 
         </div>
     </div>
-    <%--<script src="${contextPath}/resources/js/goodsboard.js"></script>--%>
+
+        <%
+        String goods_id = request.getParameter("goods_id");
+        session.setAttribute("goods_id", goods_id);
+    %>
 
     <script>
-        $(document).ready(function () {
 
-        })
         document.getElementById("detailInfo3").addEventListener("click", boardNumData);
 
-        // let elements = document.getElementsByClassName("viewRead");
-        // for (let i = 0; i < elements.length; i++) {
-        //     elements[i].addEventListener("click", viewread);
-        // }
-
+        var contextPath = '<%= request.getContextPath() %>'
+        console.log("contextPath : " + contextPath);
         function boardNumData() {
+            urlData = window.location.href;
+            let url = new URL(urlData);
+            let goods_id = url.searchParams.get("goods_id");
+
+            console.log("goods_id : " + goods_id);
+
             // div를 클릭했을 때의 이벤트 핸들러
             console.log('html클릭함');
+
             // Ajax를 사용하여 서버에 데이터 요청
             $.ajax({
                 type: "GET",
-                url: "${contextPath}/todo/list", //  URL을 지정
+                url: contextPath + "/todo/list", //  URL을 지정
+                data: {"goods_id": goods_id},
                 dataType: "HTML",
                 success: function (data) {
+                    console.log("data")
                     let htmlLocation = document.getElementById("detailInfo03");
                     htmlLocation.innerHTML = data;
                     boardList();
                     document.getElementById("boardDataNum").addEventListener("click", function (event) {
                         movePageing(event);
                     });
-                    document.getElementById("viewReg_Mod").addEventListener("click", function (event) {
-                        viewReg_Mod(event);
+                    document.getElementById("register").addEventListener("click", function (event) {
+                        register(event);
                     });
-
+                    document.getElementById("search").addEventListener("click", function (event) {
+                        boardList(event);
+                    });
                 },
 
-                error: function e(xhr, status, error) {
-                    console.error("Error loading data. Status: " + status + ", Error: " + error);
+                error: function e(err) {
+                    console.error("err : " + err.toString());
                 }
             });
         }
@@ -199,9 +208,11 @@
             // Ajax를 사용하여 서버에 데이터 요청
             $.ajax({
                 type: "POST",
-                url: "${contextPath}/todo/list", //  URL을 지정
+                url: contextPath + "/todo/list", //  URL을 지정
                 dataType: "JSON",
                 success: function (data) {
+                    console.log("data : "+ data);
+                    console.log("boardList 진입");
                     updatePage(data);
                     error: function e(xhr, status, error) {
                         console.error("Error loading data. Status: " + status + ", Error: " + error);
@@ -218,11 +229,14 @@
             // Ajax를 사용하여 서버에 데이터 요청
             $.ajax({
                 type: "GET",
-                url: "${contextPath}/todo/read?tno=" + tno, //  URL을 지정
+                url: contextPath + "/todo/read?tno=" + tno, //  URL을 지정
                 dataType: "html",
                 success: function (data) {
                     let htmlLocation = document.getElementById("detailInfo03");
                     htmlLocation.innerHTML = data;
+                    document.getElementById("modify").addEventListener("click", function (event) {
+                        modify(event);
+                    });
                     error: function e(xhr, status, error) {
                         console.error("Error loading data. Status: " + status + ", Error: " + error);
                     }
@@ -266,7 +280,6 @@
             }
         }
 
-        // 중복코드 처네!!!!!!!!!!!!!!!!!!!!!!!!!
         function updatePage(data) {
             //<======게시판 목록 부분======>
             console.log('new data 받음 :' + data);
@@ -281,12 +294,11 @@
                 let row = document.createElement("tr");
                 //번호
                 let tnoCell = document.createElement("td");
-                tnoCell.textContent = dto.tno;
+                tnoCell.textContent = dto.tnoNumber;
                 row.appendChild(tnoCell);
                 //제목
                 let titleCell = document.createElement("td");
                 let titleLink = document.createElement("a");
-                // titleLink.href = "/todo/read?tno=" + dto.tno;
                 titleLink.textContent = dto.title;
                 titleLink.setAttribute("onclick", "viewread(event)");
                 titleLink.setAttribute("name", dto.tno);
@@ -305,21 +317,33 @@
                 dueDateCell.textContent = dto.dueDate;
                 row.appendChild(dueDateCell);
                 //확인여부
-                let finishedCell = document.createElement("td");
-                finishedCell.textContent = dto.finished;
-                row.appendChild(finishedCell);
+                // let finishedCell = document.createElement("td");
+                // finishedCell.textContent = dto.finished;
+                // row.appendChild(finishedCell);
 
                 boardData.appendChild(row);
-
                 //<======게시판 목록 부분======>
             })
             //<======게시판 페이징 부분======>
             let responseDTO = data; //햇갈리니까 responseDTO 그대로 사용함
+            // let pageResponseDTO = data
             let boardDataNum = document.getElementById("boardDataNum");
             boardDataNum.innerHTML = ""; // 혹시 모를 기존 데이터 초기화
             // 페이징 처리 로직 추가
             // responseDTO에서 start, end, page 등을 활용하여 페이지 번호를 동적으로 생성
+            // 10페이지 초과시 11페이지
+            if (responseDTO.prev) {
+                let li = document.createElement("li");
+                li.className = "page-item"; // 이전 버튼을 감싸는 li의 클래스
+                let a = document.createElement("a");
+                a.className = "page-link";
+                a.textContent = "Previous";
+                a.setAttribute("data-num", responseDTO.start - 1); // 이전 페이지 번호를 속성에 추가
+                li.appendChild(a);
+                boardDataNum.appendChild(li); // boardDataNum에 이전 페이지 링크를 추가
+            }
             for (let num = responseDTO.start; num <= responseDTO.end; num++) {
+                // var paginationUl = $("#boardDataNum");
                 let li = document.createElement("li");
                 li.className = "page-item " + (responseDTO.page == num ? "active" : "");
                 //셀 생성하고 페이지 번호에 맞는 칸 추가
@@ -330,54 +354,88 @@
                 li.appendChild(a);
                 //번호부여
                 boardDataNum.appendChild(li);
-                //<======게시판 페이징 부분======>
-                // history.pushState({ page: url }, "", url);
+            }
+            //10페이지 초과시 11페이지로 이동
+            if (responseDTO.next) {
+                let li = document.createElement("li");
+                li.className = "page-item"; // 이전 버튼을 감싸는 li의 클래스
+                let a = document.createElement("a");
+                a.className = "page-link";
+                a.textContent = "Next";
+                a.setAttribute("data-num", responseDTO.end + 1); // 이전 페이지 번호를 속성에 추가
+                li.appendChild(a);
+                boardDataNum.appendChild(li); // boardDataNum에 다음 페이지 링크를 추가
             }
         }
-
-        function viewReg_Mod(event) {
-            console.log("viewReg_Mod 진입");
-            urlData = window.location.href;
-            let url = new URL(urlData);
-            let goods_id = url.searchParams.get("goods_id");
-            console.log("goods_id : " + goods_id);
-            let select = event.target.getAttribute('name');
-            console.log("select :" +select);
-            if (select === "register") {
-                console.log("register 진입")
-                $.ajax({
-                    type: "post",
-                    url: "${contextPath}/todo/register",
-                    data: {"goods_id": goods_id},
-                    dataType: "html",
-                    success: function (data) {
-                        console.log("register 로딩 성공");
-                        detailInfo03.innerHTML = data;
-                    },
-                    error: function e(xhr, status, error) {
-                        console.error("Error loading data. Status: " + status + ", Error: " + error);
-                    }
-                })
-            }
-        }
-
-        function modify() {
-
-            console.log("modify 진입 : tno :");
-
-            let tno = url.searchParams.get("tno");
+        function register(event) {
+            console.log("register 진입");
+            console.log("contextPath : " + contextPath);
 
             $.ajax({
-                type: "get",
-                url: "${contextPath}/todo/modify ",
-                // data: {"data": data},
+                type: "POST",
+                url:  contextPath + "/todo/register",
                 dataType: "html",
                 success: function (data) {
-                    console.log("성공 : " + data);
+                    console.log("register 로딩 성공");
                     detailInfo03.innerHTML = data;
+                            console.log("등록 작동")
+                    const registForm = document.getElementById("registForm")
+                    console.log("registForm :" + registForm);
+                    document.getElementById("regist").addEventListener("click", function (e) {
+                        console.log("등록 작동")
+                        e.preventDefault()
+                        e.stopPropagation()
+                        registForm.action =  contextPath + "/todo/register"
+                        registForm.method = "post"
+
+                        registForm.submit()
+
+                    }, false);
                 },
-                error: function e(xhr, status, error) {
-                    console.error("Error loading data. Status: " + status + ", Error: " + error);
+                error: function e(data, textStatus) {
+                    console.error("오류발생!");
+                    alert("로그인 후 등록해주세요!");
+                    window.location.assign(contextPath + "/member/login");
+                }
+            })
+        }
+        function modify(event) {
+            console.log("modify 진입");
+            let dto = event.target.getAttribute('value');
+            console.log("tno : " + dto);
+            $.ajax({
+                type: "post",
+                url: contextPath + "/todo/modify?tno=" + dto,
+                dataType: "html",
+                success: function (data) {
+                    console.log("성공");
+                    detailInfo03.innerHTML = data;
+                    const formObj = document.getElementById("modForm")
+                    console.log("formObj :" + formObj);
+                    document.getElementById("mo1").addEventListener("click", function (e) {
+                        console.log("등록 작동")
+                        e.preventDefault()
+                        e.stopPropagation()
+                        formObj.action = contextPath + "/todo/modify"
+                        formObj.method = "post"
+
+                        formObj.submit()
+
+                    }, false);
+                    document.querySelector(".btn-danger").addEventListener("click", function (e) {
+
+                        e.preventDefault()
+                        e.stopPropagation()
+                        console.log("contextPath : "+ contextPath);
+                        formObj.action = contextPath + "/todo/remove?tno=" + dto;
+                        formObj.method = "post"
+
+                        formObj.submit()
+                    }, false);
+                },
+                error: function e(data, textStatus) {
+                    console.log("작성자가 아님");
+                    alert("작성자만 수정할수 있습니다!");
                 }
             })
         }
@@ -387,7 +445,7 @@
             $.ajax({
                 type: "post",
                 async: true,
-                url: "${contextPath}/cart/addGoodsInCart",
+                url: contextPath + "/cart/addGoodsInCart",
                 data: {goods_id: goods_id},
                 success: function (data, textStatus) {
                     if (data.trim() == 'add_success') {
@@ -441,12 +499,8 @@
                 document.body.appendChild(formObj);
 
                 formObj.method = "post";
-                formObj.action = "${contextPath}/order/orderEachGoods";
+                formObj.action = contextPath + "/order/orderEachGoods";
                 formObj.submit();
             }
         }
-
     </script>
-
-
-

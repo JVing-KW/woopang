@@ -8,12 +8,12 @@ import org.springframework.dao.DataAccessException;
 import com.standout.sopang.member.vo.MemberVO;
 
 public interface MemberDAO {
-	//·Î±×ÀÎ
-	public MemberVO login(Map loginMap) throws DataAccessException;
+	//ë¡œê·¸ì¸
+	public MemberVO login(Map<String,String> loginMap) throws DataAccessException;
 
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	public void insertNewMember(MemberDTO memberDTO) throws DataAccessException;
 	
-	//¾ÆÀÌµğ Áßº¹È®ÀÎ
+	//ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	public String selectOverlappedID(String id) throws DataAccessException;
 }

@@ -9,22 +9,22 @@ import com.standout.sopang.goods.vo.GoodsVO;
 import com.standout.sopang.goods.vo.ImageFileVO;
 
 public interface GoodsDAO {
-	//¸ŞÀÎÆäÀÌÁö - ÁöÁ¤ statusº°
+	//ë©”ì¸í˜ì´ì§€ - ì§€ì • statusë³„
 	public List<GoodsVO> selectGoodsList(String goodsStatus ) throws DataAccessException;
 	
-	//header Ä«Å×°í¸®º°
-	public List<GoodsVO> selectMenusList(String goodsStatus ) throws DataAccessException;
+	//header ì¹´í…Œê³ ë¦¬ë³„
+	public List<GoodsVO> selectMenusList(String goodsSort ) throws DataAccessException;
 	
-	//¸®½ºÆ®ÆäÀÌÁö
+	//ë¦¬ìŠ¤íŠ¸í˜ì´ì§€
 	public List<GoodsVO> selectGoodsByMenuGoods(String menuGoods) throws DataAccessException;
 	
-	//ÃßÃµÅ°¿öµå
+	//ì¶”ì²œí‚¤ì›Œë“œ
 	public List<String> selectKeywordSearch(String keyword) throws DataAccessException;
 	
-	//°Ë»ö
+	//ê²€ìƒ‰
 	public List<GoodsVO> selectGoodsBySearchWord(String searchWord) throws DataAccessException;
 	
-	//»óÇ°»ó¼¼
+	//ìƒí’ˆìƒì„¸
 	public GoodsVO selectGoodsDetail(String goods_id) throws DataAccessException;
 	public List<ImageFileVO> selectGoodsDetailImage(String goods_id) throws DataAccessException;
 }

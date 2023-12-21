@@ -30,7 +30,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 	
 	
-	//»óÇ°°ü¸® - »óÇ°¸®½ºÆ®
+	//ìƒí’ˆê´€ë¦¬ - ìƒí’ˆë¦¬ìŠ¤íŠ¸
 	@Override
 	public List<GoodsDTO> listNewGoods(Map condMap) throws Exception {
 //		convertList.GoodsConvertDTO(adminGoodsDAO.selectNewGoodsList(condMap));
@@ -41,14 +41,14 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 	
 	
-	//»óÇ°Ãß°¡ - »óÇ°Á¤º¸
+	//ìƒí’ˆì¶”ê°€ - ìƒí’ˆì •ë³´
 	@Override
 	public int addNewGoods(Map newGoodsMap) throws Exception {
 		
-		//»óÇ°Á¤º¸Ãß°¡, ½ÃÄö½º°¡ ½ÇÇàµÇ¸ç »óÇ° id°¡ ¹ß±ŞµÇ¸ç ±× ¸®ÅÏ°ªÀ» goods_id¿¡ ÀúÀåÇÑ´Ù.
+		//ìƒí’ˆì •ë³´ì¶”ê°€, ì‹œí€€ìŠ¤ê°€ ì‹¤í–‰ë˜ë©° ìƒí’ˆ idê°€ ë°œê¸‰ë˜ë©° ê·¸ ë¦¬í„´ê°’ì„ goods_idì— ì €ì¥í•œë‹¤.
 		int goods_id = adminGoodsDAO.insertNewGoods(newGoodsMap);
 		
-		//ÇØ´ç goods_id°ªÀ» img¿¡ ´ëÀÔÇØ insertÇÑ´Ù.
+		//í•´ë‹¹ goods_idê°’ì„ imgì— ëŒ€ì…í•´ insertí•œë‹¤.
 		ArrayList<ImageFileDTO> imageFileList = (ArrayList) newGoodsMap.get("imageFileList");
 		for (ImageFileDTO imageFileDTO : imageFileList) {imageFileDTO.setGoods_id(goods_id);}
 		List<ImageFileVO> imageListVO=convertList.imageConvertVO(imageFileList);
@@ -59,7 +59,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	}
 
 	
-	//»óÇ°Ãß°¡ - ÀÌ¹ÌÁö
+	//ìƒí’ˆì¶”ê°€ - ì´ë¯¸ì§€
 	@Override
 	public void addNewGoodsImage(List<ImageFileDTO> imageFileList) throws Exception {
 
@@ -70,7 +70,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 	
 	
-	//»óÇ°»èÁ¦
+	//ìƒí’ˆì‚­ì œ
 	@Override
 	public void deleteGoods(String goods_id) throws Exception {
 		adminGoodsDAO.deleteGoods(goods_id);
@@ -79,24 +79,24 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 	
 	
-	//»óÇ°¼öÁ¤
+	//ìƒí’ˆìˆ˜ì •
 	@Override
 	public void modifyGoods(String goods_id, Map newGoodsMap) throws Exception {
-		//Àü´Ş¹ŞÀº goods_id¸¦ Á¤¼öÈ­, goods_id_toInt
+		//ì „ë‹¬ë°›ì€ goods_idë¥¼ ì •ìˆ˜í™”, goods_id_toInt
 		int goods_id_toInt = Integer.parseInt(goods_id);
 
-		//goods_id°ª°ú ÇÔ²² »óÇ°Á¤º¸ ¼öÁ¤
+		//goods_idê°’ê³¼ í•¨ê»˜ ìƒí’ˆì •ë³´ ìˆ˜ì •
 		adminGoodsDAO.modifyGoods(goods_id, newGoodsMap);
 		
-		//Á¤¼öÈ­ÇÑ »óÇ°id goods_id_toInt¸¦ img¿¡ ´ëÀÔÇÑ´Ù.
-		ArrayList<ImageFileDTO> imageFileList = (ArrayList) newGoodsMap.get("imageFileList");
+		//ì •ìˆ˜í™”í•œ ìƒí’ˆid goods_id_toIntë¥¼ imgì— ëŒ€ì…í•œë‹¤.
+		List<ImageFileDTO> imageFileList = (List<ImageFileDTO>) newGoodsMap.get("imageFileList");
 		for (ImageFileDTO imageFileDTO : imageFileList) {
 			imageFileDTO.setGoods_id(goods_id_toInt);
 		}
 		
-		//ÀÌ¹ÌÁö ¼öÁ¤
-		//ÀÌ¹ÌÁö°¡ ¾øÀ»°æ¿ìÀÇ submit¿¡ null¿¹¿Ü¸¦ ¿¹¹æÇÏ°í, ¸Ş¼Òµå¸¦ ºĞ¸®ÇÏÁö¾Ê±âÀ§ÇØ if¹®À» »ç¿ë.
-		// ÆÄÀÏÀº ¼öÁ¤ÇÏÁö¾ÊÀ» °æ¿ì¿£ modifyImages¸¦ »ç¿ëÇÏÁö¾Ê´Â´Ù.
+		//ì´ë¯¸ì§€ ìˆ˜ì •
+		//ì´ë¯¸ì§€ê°€ ì—†ì„ê²½ìš°ì˜ submitì— nullì˜ˆì™¸ë¥¼ ì˜ˆë°©í•˜ê³ , ë©”ì†Œë“œë¥¼ ë¶„ë¦¬í•˜ì§€ì•Šê¸°ìœ„í•´ ifë¬¸ì„ ì‚¬ìš©.
+		// íŒŒì¼ì€ ìˆ˜ì •í•˜ì§€ì•Šì„ ê²½ìš°ì—” modifyImagesë¥¼ ì‚¬ìš©í•˜ì§€ì•ŠëŠ”ë‹¤.
 		for (ImageFileDTO imageFileDTO : imageFileList) {
 			if (imageFileDTO.getFileName() == "" || imageFileDTO.getFileName() == null) {}
 			else {adminGoodsDAO.modifyImages(imageFileList);}

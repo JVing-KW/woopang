@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -13,6 +14,7 @@ import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.util.Arrays;
 
+@Log4j2
 @Builder
 @Data
 @AllArgsConstructor
@@ -34,6 +36,8 @@ public class PageRequestDTO {
 
     private String[] types;
 
+    private int goods_id_t_shopping_goods;
+
     private String keyword;
 
     private boolean finished;
@@ -48,18 +52,6 @@ public class PageRequestDTO {
         return (page -1) * 10;
     }
 
-//    public String getLink() {
-//        if(link == null){
-//            StringBuilder builder = new StringBuilder();
-//
-//            builder.append("page=" + this.page);
-//
-//            builder.append("&size=" + this.size);
-//            link = builder.toString();
-//        }
-//        return link;
-//    }
-
     public String getLink() {
         StringBuilder builder = new StringBuilder();
 
@@ -70,7 +62,8 @@ public class PageRequestDTO {
         if(finished){
             builder.append("&finished=on");
         }
-
+//
+//        log.info("types.length :" + types.length, "types : " + types);
         if(types != null && types.length > 0){
             for (int i = 0; i < types.length ; i++) {
                 builder.append("&types=" + types[i]);
@@ -92,10 +85,9 @@ public class PageRequestDTO {
         if(to != null){
             builder.append("&to=" + to.toString());
         }
-
+//
         return builder.toString();
     }
-
 
     public boolean checkType(String type){
 

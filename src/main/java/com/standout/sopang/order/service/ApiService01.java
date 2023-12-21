@@ -39,15 +39,15 @@ public class ApiService01 {
     	ObjectMapper mapper = new ObjectMapper();
     	param = mapper.writeValueAsString(map);
 
-    	//¿©±â´Â °íÁ¤ °ª
-    	//OkHttp »ç¿ë
-    	//OkHttp = REST API , HTTP Åë½ÅÀ» °£ÆíÇÏ°Ô »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ¸¸µé¾îÁø ¶óÀÌºê·¯¸®
+    	//ì—¬ê¸°ëŠ” ê³ ì • ê°’
+    	//OkHttp ì‚¬ìš©
+    	//OkHttp = REST API , HTTP í†µì‹ ì„ ê°„í¸í•˜ê²Œ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ë§Œë“¤ì–´ì§„ ë¼ì´ë¸ŒëŸ¬ë¦¬
     	OkHttpClient client = new OkHttpClient();
-    	MediaType mediaType = MediaType.parse("application/json"); //application/json ÀÌ°Ô Áß¿ä
+    	MediaType mediaType = MediaType.parse("application/json"); //application/json ì´ê²Œ ì¤‘ìš”
     	RequestBody body = RequestBody.create(mediaType,param);
     	Request request = new Request.Builder().url(url)
     	.post(body).addHeader("cache-control", "no-cache").build();
-    	//°á°ú°ª ¹Ş±â
+    	//ê²°ê³¼ê°’ ë°›ê¸°
     	Response response = client.newCall(request).execute();
     	String result = response.body().string();
 

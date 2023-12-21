@@ -35,8 +35,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	private OrderService orderService;
 	@Autowired
 	private OrderDTO orderDTO;
-	@Autowired
-	private ApiService01 apiService01;
+
 
 	// 개별주문
 	@RequestMapping(value = "/orderEachGoods", method = RequestMethod.POST)
@@ -179,7 +178,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			String quota = receiverMap.get("card_pay_month");
 			String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
 			String timestamp = "2023020400000000";
-			String signature = apiService01.encrypt(merchantId + "|" + orderNumber + "|" + amount + "|" + apiCertKey + "|" + timestamp);
+
 
 
 			String url = "https://api.testpayup.co.kr/v2/api/payment/" + merchantId + "/keyin2";
@@ -196,10 +195,10 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			map.put("userName", userName);
 			map.put("cardNo", cardNo);
 			map.put("quota", quota);
-			map.put("signature", signature);
+
 			map.put("timestamp", timestamp);
 
-			returnMap = apiService01.restApi(map, url);
+
 
 
 			return "redirect:/mypage/listMyOrderHistory";

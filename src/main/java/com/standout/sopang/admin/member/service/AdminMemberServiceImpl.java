@@ -24,7 +24,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 	@Autowired
 	ConvertList convertList;
 	
-	//È¸¿ø°ü¸®
+	//íšŒì›ê´€ë¦¬
 	public ArrayList<MemberDTO> listMember(HashMap condMap) throws Exception{
 
 		ArrayList<MemberDTO> memberDTOList	 =convertList.memberConvertDTO(adminMemberDAO.listMember(condMap));

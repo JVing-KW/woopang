@@ -30,7 +30,7 @@ public class MainController extends BaseController {
 
 	@RequestMapping(value = "/main/main", method = {RequestMethod.POST, RequestMethod.GET})
 	public String main(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		log.info("메인컨트롤러 진입");
+		log.info("메인 컨트롤러 진입");
 		HttpSession session;
 		session = request.getSession();
 		session.setAttribute("side_menu", "user");

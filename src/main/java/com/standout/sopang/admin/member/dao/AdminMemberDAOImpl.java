@@ -18,7 +18,7 @@ public class AdminMemberDAOImpl  implements AdminMemberDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//È¸¿ø°ü¸®
+	//íšŒì›ê´€ë¦¬
 	public ArrayList<MemberVO> listMember(HashMap condMap) throws DataAccessException{
 		log.info(condMap);
 		ArrayList<MemberVO> memberList=(ArrayList)sqlSession.selectList("mapper.admin.member.listMember",condMap);

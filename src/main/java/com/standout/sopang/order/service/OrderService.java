@@ -8,6 +8,6 @@ import com.standout.sopang.order.vo.OrderVO;
 
 public interface OrderService {
 
-	//ÁÖ¹®ÇÏ±â - °áÁ¦¿Ï·áÈÄ ÁÖ¹® table¿¡ insert µÈ´Ù
+	//ì£¼ë¬¸í•˜ê¸° - ê²°ì œì™„ë£Œí›„ ì£¼ë¬¸ tableì— insert ëœë‹¤
 	public void addNewOrder(List<OrderDTO> myOrderList) throws Exception;
 }

@@ -3,6 +3,8 @@ package com.standout.sopang.member.service;
 import java.util.Map;
 
 import com.standout.sopang.member.dto.MemberDTO;
+import com.standout.sopang.member.vo.MemberVO;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.standout.sopang.member.dao.MemberDAO;
 
+@Log4j2
 @Service("memberService")
 @Transactional(propagation=Propagation.REQUIRED)
 public class MemberServiceImpl implements MemberService {
@@ -19,20 +22,30 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private ModelMapper modelMapper;
 	
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	@Override
-	public MemberDTO login(Map loginMap) throws Exception{
+	public MemberDTO login(Map<String,String> loginMap) throws Exception{
 
-		return modelMapper.map(memberDAO.login(loginMap),MemberDTO.class);
+		MemberVO memberVO = memberDAO.login(loginMap);
+		log.info("memberVO : " + memberVO);
+
+		if(memberVO == null){
+			return null;
+		} else {
+			MemberDTO memberDTO = modelMapper.map(memberVO,MemberDTO.class);
+			log.info(memberDTO);
+			return memberDTO;
+		}
+
 	}
 	
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	@Override
 	public void addMember(MemberDTO memberDTO) throws Exception{
 		memberDAO.insertNewMember(memberDTO);
 	}
 	
-	//¾ÆÀÌµğ Áßº¹È®ÀÎ
+	//ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	@Override
 	public String overlapped(String id) throws Exception{
 		return memberDAO.selectOverlappedID(id);

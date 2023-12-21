@@ -3,11 +3,11 @@ package com.standout.sopang.order.dto;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
-@ToString
 @Component
 @Getter
 @Setter
 public class OrderDTO {
+    private int order_seq_num;
     private int order_id;
     private int goods_id;
 

@@ -74,7 +74,7 @@ document.addEventListener('scroll', function() {
 									
 									<a href="${contextPath}/goods/goodsDetail?goods_id=${item.goods_id}" class="back_eee d-block mb-2"> <img
 										src="${contextPath}/thumbnails?goods_id=${item.goods_id}&fileName=${item.goods_fileName}"
-										class="" style="width: 112px; height: 112">
+										class="" style="width: 112px; height: 112px">
 										<%-- <p>${item.goods_id}</p> --%>
 									</a>
 

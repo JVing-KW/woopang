@@ -27,19 +27,19 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	ConvertList convertList;
 
+
 	public Map<String, List> myCartList(CartDTO cartDTO) throws Exception {
 		Map<String, List> cartMap = new HashMap<String, List>();
 
 
 
-		//��ٱ��� ���� ������ list�� ����
+
 		List<CartVO> myCartList = cartDAO.selectCartList(cartDTO);
 		List<CartDTO>	myCartDTOList	 = carConvertDTO.convertDTO(myCartList);
 
-		//����Ʈ�� ���� ��� return null
+
 		if (myCartList.size() == 0) {return null;}
-		
-		//��ٱ��� ����Ʈ�� �´� goodList�� cartMap�� put �� ����. 
+
 		List<GoodsVO> myGoodsList = cartDAO.selectGoodsList(myCartDTOList);
 		List<GoodsDTO> myGoodsDTOList=convertList.goodsConvertDTO(myGoodsList);
 		try {
@@ -50,7 +50,7 @@ public class CartServiceImpl implements CartService {
 		return cartMap;
 	}
 
-	// ��ٱ��� �߰�, �ߺ����� Ȯ�� �� �߰��Ѵ�.
+
 	public boolean findCartGoods(CartDTO cartDTO) throws Exception {
 		return cartDAO.selectCountInCart(cartDTO);
 	}
@@ -58,12 +58,12 @@ public class CartServiceImpl implements CartService {
 		cartDAO.insertGoodsInCart(cartDTO);
 	}
 
-	// ��ٱ��� ����
+
 	public void removeCartGoods(int cart_id) throws Exception {
 		cartDAO.deleteCartGoods(cart_id);
 	}
 
-	// ��ٱ��� ����
+
 	public boolean modifyCartQty(CartDTO cartDTO) throws Exception {
 		boolean result = true;
 		cartDAO.updateCartGoodsQty(cartDTO);

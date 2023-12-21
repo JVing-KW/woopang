@@ -15,31 +15,31 @@
 		<!-- tabCaller 버튼영역 -->
 		<a class="tab-pane show active d-block" id="hero01" role="tabpanel"
 			aria-labelledby="hero1"
-			href="${contextPath}/goods/goodsDetail?goods_id=150"> <img
+			href="${contextPath}/goods/goodsDetail?goods_id=2"> <img
 			src="${contextPath}/resources/img/main/hero1.jpg" class="today-image"
 			data-log-props="" data-adsplatform=""
 			style="display: block; z-index: 1; position: absolute;">
 		</a> <a class="tab-pane" id="hero02" role="tabpanel"
 			aria-labelledby="hero2"
-			href="${contextPath}/goods/goodsDetail?goods_id=410"> <img
+			href="${contextPath}/goods/goodsDetail?goods_id=3"> <img
 			src="${contextPath}/resources/img/main/hero2.jpg" class="today-image"
 			data-log-props="" data-adsplatform=""
 			style="display: block; z-index: 1; position: absolute;">
 		</a> <a class="tab-pane" id="hero03" role="tabpanel"
 			aria-labelledby="hero3"
-			href="${contextPath}/goods/goodsDetail?goods_id=330"> <img
+			href="${contextPath}/goods/goodsDetail?goods_id=4"> <img
 			src="${contextPath}/resources/img/main/hero3.jpg" class="today-image"
 			data-log-props="" data-adsplatform=""
 			style="display: block; z-index: 1; position: absolute;">
 		</a> <a class="tab-pane" id="hero04" role="tabpanel"
 			aria-labelledby="hero4"
-			href="${contextPath}/goods/goodsDetail?goods_id=270"> <img
+			href="${contextPath}/goods/goodsDetail?goods_id=5"> <img
 			src="${contextPath}/resources/img/main/hero4.jpg" class="today-image"
 			data-log-props="" data-adsplatform=""
 			style="display: block; z-index: 1; position: absolute;">
 		</a> <a class="tab-pane" id="hero05" role="tabpanel"
 			aria-labelledby="hero5"
-			href="${contextPath}/goods/goodsDetail?goods_id=420"> <img
+			href="${contextPath}/goods/goodsDetail?goods_id=6"> <img
 			src="${contextPath}/resources/img/main/hero5.jpg" class="today-image"
 			data-log-props="" data-adsplatform=""
 			style="display: block; z-index: 1; position: absolute;">

@@ -16,19 +16,19 @@ import com.standout.sopang.member.vo.MemberVO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public interface MemberController {
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	public String login(@RequestParam Map<String, String> loginMap, HttpServletRequest request,
 							  HttpServletResponse response, Model model) throws Exception;
 
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	public ResponseEntity addMember(@ModelAttribute("member") MemberDTO member, HttpServletRequest request,
 									HttpServletResponse response) throws Exception;
 
-	//¾ÆÀÌµğ Áßº¹È®ÀÎ
+	//ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	public ResponseEntity overlapped(@RequestParam("id") String id, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 
-	//·Î±×¾Æ¿ô
+	//ë¡œê·¸ì•„ì›ƒ
 	public String logout(Model model, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response)
 			throws Exception;
 }

@@ -34,7 +34,7 @@
 								href="${contextPath}/goods/goodsDetail?goods_id=${item.goods_id}"
 								class="text-decoration-none d-block"> <img
 								src="${contextPath}/download?goods_id=${item.goods_id}&fileName=${item.goods_fileName}"
-								style="width: 250px">
+								style="width: 250px; height: 370px">
 								<p class="mt-4 mb-0 text-truncate fw-bold fs-6">${item.goods_title}</p>
 								<p><span class="text-danger fw-bold fs-4 me-1">
 								<fmt:formatNumber value="${item.goods_sales_price}" pattern="#,###" />
