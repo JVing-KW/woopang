@@ -6,7 +6,6 @@
 
 <head>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 </head>
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
       action="${contextPath}/order/orderResult" >

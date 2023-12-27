@@ -20,7 +20,7 @@ public interface GoodsService {
 	public List<String> keywordSearch(String keyword) throws Exception;
 
 	//검색
-	public List<GoodsDTO> searchGoods(String searchWord) throws Exception;
+	public List<GoodsDTO> searchGoods(Map<String,String> map) throws Exception;
 	
 	//상품상세
 	public Map goodsDetail(String _goods_id) throws Exception;
