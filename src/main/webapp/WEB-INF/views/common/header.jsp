@@ -159,16 +159,18 @@
 					<div class="search d-flex align-items-center flex-grow-1">
 						<div
 							class="input-group border border-main border-2 position-relative">
-							<select name="" id=""
+							<form name="frmSearch"
+								  action="${contextPath}/goods/searchGoods"
+								  class="form-control mb-0 border-0 d-flex p-0">
+							<select name="menuGoods" id="menuGoods"
 								class="form-select rounded-0 flex-inherit text-start small border border-end">
 								<option value="">전체</option>
-								<option value="">생활용품</option>
-								<option value="">디지털</option>
-								<option value="">건강기능식품</option>
+								<option value="생활용품">생활용품</option>
+								<option value="도서">도서</option>
+								<option value="디지털">디지털</option>
+								<option value="건강기능식품">건강기능식품</option>
 							</select>
-							<form name="frmSearch"
-								action="${contextPath}/goods/searchGoods"
-								class="form-control mb-0 border-0 d-flex p-0">
+
 
 								<input type="text small" name="searchWord" id="searchWord"
 									class="form-control border-0" placeholder="찾고 싶은 상품을 검색해보세요!"

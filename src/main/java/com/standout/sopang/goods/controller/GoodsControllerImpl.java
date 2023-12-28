@@ -41,9 +41,9 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 							HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		List<GoodsDTO> goodsList=goodsService.menuGoods(menuGoods);
-		//추출한 데이터와 카테고리명을 매핑하여 return.
 		model.addAttribute("goodsList", goodsList);
 		model.addAttribute("menuGoods", menuGoods);
+		log.info("menuGoods"+menuGoods);
 		return "/goods/menuGoods";
 	}
 
@@ -77,11 +77,11 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 
 	@Override
 	@RequestMapping(value="/searchGoods" ,method = RequestMethod.GET)
-	public String searchGoods(String searchWord,Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<GoodsDTO> goodsList=goodsService.searchGoods(searchWord);
+	public String searchGoods(@RequestParam Map<String, String> map,Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List<GoodsDTO> goodsList=goodsService.searchGoods(map);
+		log.info("map"+ map.toString());
+		log.info("map"+map);
 		model.addAttribute("goodsList",goodsList);
-		log.info(searchWord);
-		log.info(goodsList);
 		return "/goods/searchGoods";
 	}
 

@@ -9,5 +9,15 @@
       <working-dir>$ProjectFileDir$</working-dir>
       <time-zone>Asia/Seoul</time-zone>
     </data-source>
+    <data-source source="LOCAL" name="scott@localhost" uuid="68e6796a-eb4a-49f8-8f4f-a96a88efa799">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/scott</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

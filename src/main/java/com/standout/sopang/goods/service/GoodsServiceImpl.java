@@ -88,8 +88,9 @@ public class GoodsServiceImpl implements GoodsService {
 
 	//검색
 	@Override
-	public List<GoodsDTO> searchGoods(String searchWord) throws Exception {
-		List goodsList = goodsDAO.selectGoodsBySearchWord(searchWord);
+	public List<GoodsDTO> searchGoods(Map<String,String> map) throws Exception {
+		List goodsList = goodsDAO.selectGoodsBySearchWord(map);
+
 		dtoList =convertList.goodsConvertDTO(goodsList);
 
 		return dtoList;
