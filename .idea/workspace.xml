@@ -5,282 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a575506c-5a9d-4827-bf7f-2fc560d00432" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Green_Team_Project_Sopang.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.springframework.ide.eclipse.beans.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.springframework.ide.eclipse.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.springBeans" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/admin/goods/service/AdminGoodsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/admin/member/controller/AdminMemberControllerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/cart/config/CartConvert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/cart/controller/CartController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/cart/controller/CartControllerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/cart/dto/CartDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/cart/vo/CartVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/config/ConvertList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/config/ModelMapperConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/goods/dao/GoodsDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/goods/dto/ImageFileDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/goods/vo/GoodsVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/goods/vo/ImageFileVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/mypage/dto/MyPageDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/order/config/OrderConvert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/order/controller/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/controller/exception/CommonExceptionAdvice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/controller/formatter/CheckboxFormatter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/controller/formatter/LocalDateFormatter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/dto/PageResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/mapper/TodoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/sopang/springex/service/TodoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/count.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/models/modelConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_admin_order.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/erd/sopang.exerd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/layout.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/member/adminMemberMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/order/adminOrderMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cart/myCartList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods/searchGoods.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/join.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage/myDetailInfo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/back1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/goods/detailInfo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hero1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hero2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hero3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hero4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hero5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hot1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hot2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hot3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/hot4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/tab1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/tab2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/tab3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/tab4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/main/tab5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/goodsboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/log4j.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/goods/controller/AdminGoodsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/goods/service/AdminGoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/controller/AdminMemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/controller/AdminMemberControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/dao/AdminMemberDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/dao/AdminMemberDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/service/AdminMemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/member/service/AdminMemberServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/order/controller/AdminOrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/order/dao/AdminOrderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/order/dao/AdminOrderDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/order/service/AdminOrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/admin/order/service/AdminOrderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/config/CartConvert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/controller/CartController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/controller/CartControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/dao/CartDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/dto/CartDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/service/CartService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/cart/vo/CartVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/config/ConvertList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/config/ModelMapperConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/controller/GoodsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/dao/GoodsDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/dao/GoodsDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/dto/ImageFileDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/service/GoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/vo/GoodsVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/goods/vo/ImageFileVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/member/controller/MemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/mypage/dto/MyPageDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/order/config/OrderConvert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/order/controller/OrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/order/dao/OrderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/order/service/ApiService01.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/order/service/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/controller/exception/CommonExceptionAdvice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/controller/formatter/CheckboxFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/dto/PageResponseDTO$PageResponseDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/dto/PageResponseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/mapper/TodoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/standout/sopang/springex/service/TodoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/count.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mappers/member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/models/modelConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_admin_order.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tiles/tiles_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/goods/controller/AdminGoodsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/goods/service/AdminGoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/controller/AdminMemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/controller/AdminMemberControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/dao/AdminMemberDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/dao/AdminMemberDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/service/AdminMemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/member/service/AdminMemberServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/order/controller/AdminOrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/order/dao/AdminOrderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/order/dao/AdminOrderDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/order/service/AdminOrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/admin/order/service/AdminOrderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/config/CartConvert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/controller/CartController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/controller/CartControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/dao/CartDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/dto/CartDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/service/CartService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/cart/vo/CartVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/config/ConvertList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/config/ModelMapperConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/controller/GoodsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/dao/GoodsDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/dao/GoodsDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/dto/ImageFileDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/service/GoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/vo/GoodsVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/goods/vo/ImageFileVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/member/controller/MemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/mypage/dto/MyPageDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/order/config/OrderConvert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/order/controller/OrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/order/dao/OrderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/order/service/ApiService01.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/order/service/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/controller/exception/CommonExceptionAdvice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/controller/formatter/CheckboxFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/dto/PageResponseDTO$PageResponseDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/dto/PageResponseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/mapper/TodoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/standout/sopang/springex/service/TodoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/count.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/mappers/member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis/models/modelConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_admin_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_admin_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_admin_order.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_cart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_goods.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/tiles/tiles_member.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/erd/sopang.exerd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/HikariCP-3.4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjrt-1.6.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjtools-1.6.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.6.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/cglib-nodep-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/classmate-1.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-collections-3.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-digester-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-io-2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-lang-2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-logging-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/commons-pool-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/ezmorph-1.0.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/hibernate-validator-6.2.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.13.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-core-2.13.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jackson-databind-2.13.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jakarta.validation-api-2.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/javax.inject-1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jboss-logging-3.4.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jquery-2.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/json-lib-2.4-jdk15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-api-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/log4j-core-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/modelmapper-3.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/okhttp-3.10.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/okio-1.14.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/protobuf-java-3.11.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-context-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-core-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-jdbc-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-web-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.30.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/thumbnailator-0.4.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-api-2.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-core-2.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-jsp-2.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-servlet-2.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib/tiles-template-2.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/admin/layout.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/admin/member/adminMemberMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/admin/order/adminOrderMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/cart/myCartList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/goods/searchGoods.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/member/join.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/member/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/mypage/myDetailInfo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/back1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/goods/detailInfo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hero1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hero2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hero3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hero4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hero5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hot1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hot2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hot3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/hot4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/tab1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/tab2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/tab3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/tab4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/img/main/tab5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/js/goodsboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sopang-1.0.0-BUILD-SNAPSHOT/resources/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/log4j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/mybatis-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/mybatis-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,24 +18,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2Zt1iECty34rSjmUMeCh0E2jpna" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -317,6 +54,10 @@
       <option name="presentableId" value="Default" />
       <updated>1703226686873</updated>
       <workItem from="1703226690009" duration="70000" />
+      <workItem from="1703734377285" duration="1259000" />
+      <workItem from="1703738766432" duration="752000" />
+      <workItem from="1703739574486" duration="6986000" />
+      <workItem from="1704188251889" duration="638000" />
     </task>
     <servers />
   </component>

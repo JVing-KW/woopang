@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-232.10203.10">
-    <data-source name="scott@woopang.cjgy0wq8qrl1.us-east-2.rds.amazonaws.com" uuid="065e1e7b-d1b7-4e1b-80ea-c14c82e92a21">
+    <data-source name="scott@localhost" uuid="68e6796a-eb4a-49f8-8f4f-a96a88efa799">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <schema-mapping />
+    </data-source>
+    <data-source name="@woopang-mac.cvomc0gc2wvu.us-east-2.rds.amazonaws.com" uuid="4b7d9242-d045-4fc2-bc67-30915fe8794e">
+      <database-info product="MySQL" version="8.0.35" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.35" exact-driver-version="8.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="@" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>
