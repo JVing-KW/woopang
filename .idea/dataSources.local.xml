@@ -5,7 +5,7 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <schema-mapping />
     </data-source>
-    <data-source name="woopang-mac.cvomc0gc2wvu.us-east-2.rds.amazonaws.com" uuid="3379064b-9c05-4e8a-b14a-f62e2bad3821">
+    <data-source name="scott@woopang-mac.cvomc0gc2wvu.us-east-2.rds.amazonaws.com" uuid="3379064b-9c05-4e8a-b14a-f62e2bad3821">
       <database-info product="MySQL" version="8.0.35" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.35" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
