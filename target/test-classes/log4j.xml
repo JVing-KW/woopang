@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.standout.sopang">
+	<logger name="com.standout.woopang">
 		<level value="info" />
 	</logger>
 	
