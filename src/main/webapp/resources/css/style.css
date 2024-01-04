@@ -118,7 +118,7 @@ html {scroll-behavior: smooth;}
     /* header */
     .menu_btn i{font-size: 30px;}
     .header .search .input-group i{font-size: 18px;}
-    .mySopang i, .cart i{font-size: 23px;}
+    .mywoopang i, .cart i{font-size: 23px;}
 
     .menu_btn{width:110px!important;}
     .menu_btn, .mypageLayout .mypageBox{height: 115px;}

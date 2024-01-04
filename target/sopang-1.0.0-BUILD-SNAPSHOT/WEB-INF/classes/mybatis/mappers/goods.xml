@@ -40,7 +40,7 @@ FROM (
     FROM t_shopping_goods g
     JOIN t_goods_detail_image d ON g.goods_id = d.goods_id
     WHERE d.filetype = 'main_image'
-	  AND g.goods_sort LIKE CONCAT('%', #{menuGoods}, '%')
+      AND g.goods_status = #{goodsStatus}
     ORDER BY creDate DESC
 ) t;	
 	    ]]>

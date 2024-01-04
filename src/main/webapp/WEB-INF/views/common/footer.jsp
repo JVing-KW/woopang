@@ -7,6 +7,6 @@
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 
 
-       ©Sopang Corp. All rights reserved.
+       ©woopang Corp. All rights reserved.
  
 

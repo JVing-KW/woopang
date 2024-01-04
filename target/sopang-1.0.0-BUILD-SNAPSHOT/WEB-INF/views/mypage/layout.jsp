@@ -48,19 +48,19 @@
 				</p>
 			</div>
 
-			<div
-				class="bg-mainColorLight mypageBox fw-light d-flex flex-fill flex-column align-items-center pe-4 pt-4 border-end border-primary-subtle text-end"
-				style="width: 150px">
-				<p class="w-100 mb-2 small">소팡머니</p>
-				<p class="w-100 mb-0">
-				
-				<!-- 소팡머니 count -->
-					<span class="fw-light me-2 lh-1" style="font-size: 2.2rem;">
-					<fmt:formatNumber value="${sopang_money}" pattern="#,###" /></span>원
-				<!-- 소팡머니 count -->
-					
-				</p>
-			</div>
+<%--			<div--%>
+<%--				class="bg-mainColorLight mypageBox fw-light d-flex flex-fill flex-column align-items-center pe-4 pt-4 border-end border-primary-subtle text-end"--%>
+<%--				style="width: 150px">--%>
+<%--				<p class="w-100 mb-2 small">소팡머니</p>--%>
+<%--				<p class="w-100 mb-0">--%>
+<%--				--%>
+<%--				<!-- 소팡머니 count -->--%>
+<%--					<span class="fw-light me-2 lh-1" style="font-size: 2.2rem;">--%>
+<%--					<fmt:formatNumber value="${sopang_money}" pattern="#,###" /></span>원--%>
+<%--				<!-- 소팡머니 count -->--%>
+<%--					--%>
+<%--				</p>--%>
+<%--			</div>--%>
 
 
 			<!-- left 메뉴 -->

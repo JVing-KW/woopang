@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.standout</groupId>
-    <artifactId>sopang</artifactId>
-    <name>sopang</name>
+    <artifactId>woopang</artifactId>
+    <name>woopang</name>
     <packaging>war</packaging>
     <version>1.0.0-BUILD-SNAPSHOT</version>
     <properties>

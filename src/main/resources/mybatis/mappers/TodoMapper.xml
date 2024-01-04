@@ -40,13 +40,13 @@
         insert into tbl_todo (goods_id_t_shopping_goods, title, content, dueDate, writer, finished) values  (#{goods_id_t_shopping_goods}, #{title}, #{content}, NOW(), #{writer}, 0)
     </insert>
 
-    <select id="selectAll" resultType="com.standout.sopang.springex.domain.TodoVO">
+    <select id="selectAll" resultType="com.standout.woopang.springex.domain.TodoVO">
         select *
         from tbl_todo
         order by tno desc
     </select>
 
-    <select id="selectOne" resultType="com.standout.sopang.springex.domain.TodoVO">
+    <select id="selectOne" resultType="com.standout.woopang.springex.domain.TodoVO">
         select * from tbl_todo where tno  = #{tno}
     </select>
 
@@ -58,7 +58,7 @@
         update tbl_todo set title = #{title} ,content = #{content}, dueDate = NOW(), finished= #{finished} where tno = #{tno}
     </update>
 
-    <select id="selectList" resultType="com.standout.sopang.springex.domain.TodoVO">
+    <select id="selectList" resultType="com.standout.woopang.springex.domain.TodoVO">
         SELECT
         ROW_NUMBER() OVER (ORDER BY tno) AS tnoNumber,
         goods_id_t_shopping_goods,

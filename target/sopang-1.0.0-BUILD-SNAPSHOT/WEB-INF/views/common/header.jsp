@@ -162,27 +162,27 @@
 							<form name="frmSearch"
 								  action="${contextPath}/goods/searchGoods"
 								  class="form-control mb-0 border-0 d-flex p-0">
-							<select name="menuGoods" id="menuGoods"
-								class="form-select rounded-0 flex-inherit text-start small border border-end">
-								<option value="">전체</option>
-								<option value="생활용품">생활용품</option>
-								<option value="도서">도서</option>
-								<option value="디지털">디지털</option>
-								<option value="건강기능식품">건강기능식품</option>
-							</select>
+								<select name="menuGoods" id="menuGoods"
+										class="form-select rounded-0 flex-inherit text-start small border border-end">
+									<option value="">전체</option>
+									<option value="생활용품">생활용품</option>
+									<option value="도서">도서</option>
+									<option value="디지털">디지털</option>
+									<option value="건강기능식품">건강기능식품</option>
+								</select>
 
 
 								<input type="text small" name="searchWord" id="searchWord"
-									class="form-control border-0" placeholder="찾고 싶은 상품을 검색해보세요!"
-									onKeyUp="keywordSearch()"> <input name="search"
-									type="submit" id="searchInputWithLabel" class="d-none">
+									   class="form-control border-0" placeholder="찾고 싶은 상품을 검색해보세요!"
+									   onKeyUp="keywordSearch()"> <input name="search"
+																		 type="submit" id="searchInputWithLabel" class="d-none">
 								<label for="searchInputWithLabel"
-									class="samll d-flex align-items-center px-2 pe-2" style="cursor: pointer;"><i
-									class="fa-solid fa-magnifying-glass d-block color-main"></i></label> </a>
+									   class="samll d-flex align-items-center px-2 pe-2" style="cursor: pointer;"><i
+										class="fa-solid fa-magnifying-glass d-block color-main"></i></label> </a>
 							</form>
 							<!-- 추천키워드 -->
 							<div id="suggest" class="d-none">
-								<ul id="suggestList"
+								<ul id="suggestList1"
 									class="keywordSearchList dropdown-menu rounded-0 shadow border-0 px-2 pb-3 show position-absolute top-100"
 									style="left: 120px; width: calc(100% - 120px);">
 									<div id="innerDivForSuggestList"></div>

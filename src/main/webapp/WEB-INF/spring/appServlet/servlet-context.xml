@@ -35,13 +35,13 @@
 		<beans:property name="suffix" value=".jsp"></beans:property>
 	</beans:bean>
 
-	<context:component-scan base-package="com.standout.sopang" />
+	<context:component-scan base-package="com.standout.woopang" />
 
 <mvc:interceptors>
 	  <mvc:interceptor>
 			<mvc:mapping path="/*/*"/>
 			<mvc:mapping path="/*/*/*"/>
-		  	<beans:bean class="com.standout.sopang.common.interceptor.ViewNameInterceptor" />
+		  	<beans:bean class="com.standout.woopang.common.interceptor.ViewNameInterceptor" />
 		<!--인터셉터 이름바꾸고 -->
 	  </mvc:interceptor>
  </mvc:interceptors>

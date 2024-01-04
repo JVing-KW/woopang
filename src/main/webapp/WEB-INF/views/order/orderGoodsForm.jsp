@@ -6,6 +6,7 @@
 
 <head>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 </head>
 <form id="active" name="order_info" method="post" accept-charset="UTF-8"
       action="${contextPath}/order/orderResult" >
@@ -198,7 +199,7 @@
                             </tr>
                             <!-- 배송지 -->
                         </table>
-                        <!-- 기본 회원정보를 valuㄷ로 지정한다. -->
+                        <!-- 기본 회원정보를 value로 지정한다. -->
 
                     </div>
 
@@ -413,7 +414,7 @@
 <%--    <input type="hidden" name="receiver_name" value="${orderer.member_name}"/>--%>
 <%--    <input type="hidden" name="receiver_hp1" value="${receiver_hp1}"/>--%>
 <%--    <input type="hidden" name="order_goods_qty" value="${order_goods_qty }"/>--%>
-<%--    <input type="hidden" name="delivery_state" value="${delivery_state }"/>--%>
+    <input type="hidden" name="delivery_state" value="delivering"/>
 <%--    <input type="hidden" name="good_id" value="${item.goods_id}"/>--%>
 <%--    <input type="hidden" name="good_name" value="${good_name }"/>--%>
 <%--    <input type="hidden" name="good_mny" value="${ good_mny }"/>--%>
@@ -461,10 +462,4 @@
         confirm("결제 하시겠습니까?");
         document.getElementById('active').submit();
     }
-
-    // if (confirm_result) {
-    // }
-    // else {
-    //     document.getElementById('active').submit()// }
-
 </script>

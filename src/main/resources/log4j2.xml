@@ -16,7 +16,7 @@
 
     <Loggers>
         <!-- Application Logger -->
-        <Logger name="com.standout.sopang" level="info" additivity="false">
+        <Logger name="com.standout.woopang" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
 

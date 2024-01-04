@@ -7,13 +7,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="goods" value="${goodsMap.goodsDTO}"/>
 <c:set var="imageList" value="${goodsMap.imageList }"/>
-<%--<meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8090/favicon.ico;">--%>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 <div class="container">
     <div class="row">
         <div class="p-0 align-items-center gap-3 mt-5">
@@ -164,6 +159,7 @@
 
         var contextPath = '<%= request.getContextPath() %>'
         console.log("contextPath : " + contextPath);
+
         function boardNumData() {
             urlData = window.location.href;
             let url = new URL(urlData);
@@ -191,9 +187,9 @@
                     document.getElementById("register").addEventListener("click", function (event) {
                         register(event);
                     });
-                    document.getElementById("search").addEventListener("click", function (event) {
-                        boardList(event);
-                    });
+                    // document.getElementById("search").addEventListener("click", function (event) {
+                    //     boardList(event);
+                    // });
                 },
 
                 error: function e(err) {
@@ -211,7 +207,7 @@
                 url: contextPath + "/todo/list", //  URL을 지정
                 dataType: "JSON",
                 success: function (data) {
-                    console.log("data : "+ data);
+                    console.log("data : " + data);
                     console.log("boardList 진입");
                     updatePage(data);
                     error: function e(xhr, status, error) {
@@ -367,25 +363,26 @@
                 boardDataNum.appendChild(li); // boardDataNum에 다음 페이지 링크를 추가
             }
         }
+
         function register(event) {
             console.log("register 진입");
             console.log("contextPath : " + contextPath);
 
             $.ajax({
                 type: "POST",
-                url:  contextPath + "/todo/register",
+                url: contextPath + "/todo/register",
                 dataType: "html",
                 success: function (data) {
                     console.log("register 로딩 성공");
                     detailInfo03.innerHTML = data;
-                            console.log("등록 작동")
+                    console.log("등록 작동")
                     const registForm = document.getElementById("registForm")
                     console.log("registForm :" + registForm);
                     document.getElementById("regist").addEventListener("click", function (e) {
                         console.log("등록 작동")
                         e.preventDefault()
                         e.stopPropagation()
-                        registForm.action =  contextPath + "/todo/register"
+                        registForm.action = contextPath + "/todo/register"
                         registForm.method = "post"
 
                         registForm.submit()
@@ -399,6 +396,7 @@
                 }
             })
         }
+
         function modify(event) {
             console.log("modify 진입");
             let dto = event.target.getAttribute('value');
@@ -426,7 +424,7 @@
 
                         e.preventDefault()
                         e.stopPropagation()
-                        console.log("contextPath : "+ contextPath);
+                        console.log("contextPath : " + contextPath);
                         formObj.action = contextPath + "/todo/remove?tno=" + dto;
                         formObj.method = "post"
 

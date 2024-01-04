@@ -45,7 +45,7 @@
         <result property="zipcode" column="zipcode"/>
         <result property="address" column="address"/>
         <result property="subaddress" column="subaddress"/>
-        <result property="sopang_money" column="sopang_money"/>
+        <result property="woopang_money" column="woopang_money"/>
         <result property="joinDate" column="joinDate"/>
         <result property="del_yn" column="del_yn"/>
     </resultMap>
@@ -69,7 +69,7 @@
                delivery_address
         FROM t_shopping_order
         WHERE DATE_FORMAT(pay_order_time, '%Y-%m-%d') BETWEEN #{beginDate} AND #{endDate}
-        ORDER BY pay_order_time DESC LIMIT #{startRow}, #{pageSize}
+        ORDER BY pay_order_time DESC LIMIT 0, 10
     </select>
 
     <!-- 주문수정 - 배송수정 -->

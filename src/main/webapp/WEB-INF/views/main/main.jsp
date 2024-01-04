@@ -82,7 +82,7 @@
 
 
 
-<!-- sopang추천 광고영역 -->
+<!-- woopang추천 광고영역 -->
 <div class="container">
 	<div class="row">
 		<div class="d-flex p-0 align-items-center gap-3 mt-5">
@@ -106,11 +106,11 @@
 		</div>
 	</div>
 </div>
-<!-- sopang추천 광고영역 -->
+<!-- woopang추천 광고영역 -->
 
 
 
-<!-- sopang 카테고리 광고영역 -->
+<!-- woopang 카테고리 광고영역 -->
 <div class="container">
 	<div class="row">
 		<div class="p-0 align-items-center gap-3 mt-5">
@@ -166,7 +166,7 @@
 							href="${contextPath}/goods/menuGoods?menuGoods=디지털"
 							class="btn btn-main rounded-0 position-absolute bottom-0 start-50 translate-middle z-2 rounded-0 py-3 w100 d-block"
 							style="width: 80%">
-							<p class="mb-0 fw-bold">디지털</p> <span class="small">sopang이
+							<p class="mb-0 fw-bold">디지털</p> <span class="small">woopang이
 								필요한것들만 모아놨다!</span>
 						</a>
 					</div>
@@ -220,7 +220,7 @@
 							href="${contextPath}/goods/menuGoods?menuGoods=도서"
 							class="btn btn-main rounded-0 position-absolute bottom-0 start-50 translate-middle z-2 rounded-0 py-3 w100 d-block"
 							style="width: 80%">
-							<p class="mb-0 fw-bold">도서</p> <span class="small">sopang이
+							<p class="mb-0 fw-bold">도서</p> <span class="small">woopang이
 								필요한것들만 모아놨다!</span>
 						</a>
 					</div>
@@ -275,7 +275,7 @@
 							href="${contextPath}/goods/menuGoods?menuGoods=건강기능식품"
 							class="btn btn-main rounded-0 position-absolute bottom-0 start-50 translate-middle z-2 rounded-0 py-3 w100 d-block"
 							style="width: 80%">
-							<p class="mb-0 fw-bold">건강기능식품</p> <span class="small">sopang이
+							<p class="mb-0 fw-bold">건강기능식품</p> <span class="small">woopang이
 								필요한것들만 모아놨다!</span>
 						</a>
 					</div>
@@ -330,7 +330,7 @@
 							href="${contextPath}/goods/menuGoods?menuGoods=생활용품"
 							class="btn btn-main rounded-0 position-absolute bottom-0 start-50 translate-middle z-2 rounded-0 py-3 w100 d-block"
 							style="width: 80%">
-							<p class="mb-0 fw-bold">생활용품</p> <span class="small">sopang이
+							<p class="mb-0 fw-bold">생활용품</p> <span class="small">woopang이
 								필요한것들만 모아놨다!</span>
 						</a>
 					</div>
@@ -371,7 +371,7 @@
 
 
 </div>
-<!-- sopang 카테고리 광고영역 -->
+<!-- woopang 카테고리 광고영역 -->
 
 
 
