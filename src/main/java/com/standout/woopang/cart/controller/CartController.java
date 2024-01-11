@@ -18,7 +18,7 @@ public interface CartController {
 			HttpServletResponse response) throws Exception;
 
 	public String removeCartGoods(@RequestParam("cart_id") int cart_id, HttpServletRequest request,
-			HttpServletResponse response,Model model,RedirectAttributes redirectAttributes) throws Exception;
+			HttpServletResponse response,Model modHel,RedirectAttributes redirectAttributes) throws Exception;
 
 	public @ResponseBody String modifyCartQty(@RequestParam("goods_id") int goods_id,
 			@RequestParam("cart_goods_qty") int cart_goods_qty, HttpServletRequest request,
