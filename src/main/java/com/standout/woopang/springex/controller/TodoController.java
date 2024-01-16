@@ -66,13 +66,7 @@ public class TodoController {
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
             return "redirect:/todo/register";
         }
-        //101번 반복 등록
-//        if(true) {
-//            for(int i = 0; i < 101; i++ ) {
-//                log.info("todoDTO : " + todoDTO);
-//                todoService.register(todoDTO);
-//            }
-//        }
+
         log.info("todoDTO : " + todoDTO);
         todoService.register(todoDTO);
 

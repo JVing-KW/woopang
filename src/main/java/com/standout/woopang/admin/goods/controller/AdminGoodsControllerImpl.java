@@ -196,6 +196,7 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 					folder.delete();
 				}
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

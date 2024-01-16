@@ -10,11 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc0d8771-6c27-4fd2-aa60-b3312d86dba1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/cart/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/cart/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/common/base/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/common/base/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/mypage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/mypage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/woopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/mybatis-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/woopang-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/mybatis-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/admin/goods/controller/AdminGoodsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/admin/goods/controller/AdminGoodsControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/controller/TodoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/controller/TodoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/service/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/service/TodoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tiles/tiles_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/erd/sopang.exerd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/erd/woopang.exerd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,25 +46,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img/goods" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.58" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.58" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/main/main" />
@@ -162,7 +170,9 @@
       <updated>1704341716205</updated>
       <workItem from="1704341728410" duration="247000" />
       <workItem from="1704341984773" duration="48000" />
-      <workItem from="1704342052488" duration="14149000" />
+      <workItem from="1704342052488" duration="15155000" />
+      <workItem from="1705391421963" duration="57000" />
+      <workItem from="1705393252281" duration="1084000" />
     </task>
     <servers />
   </component>
