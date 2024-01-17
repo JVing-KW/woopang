@@ -9,16 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc0d8771-6c27-4fd2-aa60-b3312d86dba1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/admin/goods/controller/AdminGoodsControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/admin/goods/controller/AdminGoodsControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/controller/TodoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/controller/TodoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/service/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/standout/woopang/springex/service/TodoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tiles/tiles_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tiles/tiles_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/erd/sopang.exerd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/erd/woopang.exerd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/register.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="cc0d8771-6c27-4fd2-aa60-b3312d86dba1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +58,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img/main" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/img/goods" />
     </key>
   </component>
@@ -173,6 +165,7 @@
       <workItem from="1704342052488" duration="15155000" />
       <workItem from="1705391421963" duration="57000" />
       <workItem from="1705393252281" duration="1084000" />
+      <workItem from="1705394644328" duration="786000" />
     </task>
     <servers />
   </component>

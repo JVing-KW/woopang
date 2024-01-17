@@ -24,7 +24,7 @@
 
 	<!-- 메인 -->
 	<definition name="/main/main" extends="baseLayout">
-		<put-attribute name="title" value="소팡!" />
+		<put-attribute name="title" value="우팡!" />
 		<put-attribute name="body" value="/WEB-INF/views/main/main.jsp" />
 	</definition>
 
