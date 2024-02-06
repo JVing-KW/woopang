@@ -48,8 +48,8 @@
 			class="btn border-main rounded-0 w-100 d-block fw-bold p-2 lh-lg mb-3"
 			href="${contextPath}/member/join">회원가입</a>
 		<%
-			String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
-			String redirectURI = URLEncoder.encode("YOUR_CALLBACK_URL", "UTF-8");
+			String clientId = "zgZxB9u91uBYdyiEmro_";//애플리케이션 클라이언트 아이디값";
+			String redirectURI = URLEncoder.encode("http://3.21.82.151:8080/woopang-1.0.0-BUILD-SNAPSHOT/main/main", "UTF-8");
 			SecureRandom random = new SecureRandom();
 			String state = new BigInteger(130, random).toString();
 			String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
