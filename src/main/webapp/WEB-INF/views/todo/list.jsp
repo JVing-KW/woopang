@@ -18,24 +18,7 @@
         <!-- 기존의 <h1>Header</h1> -->
         <div class="row">
             <div class="col">
-<%--                <nav class="navbar navbar-expand-lg navbar-light bg-light">--%>
-<%--                    <div class="container-fluid">--%>
-<%--                        <a class="navbar-brand" href="#">Navbar</a>--%>
-<%--                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"--%>
-<%--                                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"--%>
-<%--                                aria-expanded="false" aria-label="Toggle navigation">--%>
-<%--                            <span class="navbar-toggler-icon"></span>--%>
-<%--                        </button>--%>
-<%--                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">--%>
-<%--                            <div class="navbar-nav">--%>
-<%--                                <a class="nav-link active" aria-current="page" href="#">Home</a>--%>
-<%--                                <a class="nav-link" href="#">Features</a>--%>
-<%--                                <a class="nav-link" href="#">Pricing</a>--%>
-<%--                                <a class="nav-link disabled">Disabled</a>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </nav>--%>
+
             </div>
         </div>
         <!-- header end -->
@@ -43,33 +26,7 @@
         <div class="row content">
             <div class="col">
                 <div class="card">
-<%--                    <div class="card-body">--%>
-<%--                        <h5 class="card-title">Search </h5>--%>
-<%--                        <form action="/todo/list" method="post">--%>
-<%--                            <input type="hidden" name="size" value="${pageRequestDTO.size}">--%>
-<%--&lt;%&ndash;                            <div class="mb-3">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <input type="checkbox" name="finished" ${pageRequestDTO.finished?"checked":""} >완료여부&ndash;%&gt;--%>
-<%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
-<%--                            <div class="mb-3">--%>
-<%--                                <input type="checkbox" name="types"--%>
-<%--                                       value="searchTitle" ${pageRequestDTO.checkType("searchTitle")?"checked":""}>제목--%>
-<%--                                <input type="checkbox" name="types"--%>
-<%--                                       value="searchWriter"  ${pageRequestDTO.checkType("searchWriter")?"checked":""}>작성자--%>
-<%--                                <input type="text" name="keyword" class="form-control"--%>
-<%--                                       value='<c:out value="${pageRequestDTO.keyword}"/>'>--%>
-<%--                            </div>--%>
-<%--                            <div class="input-group mb-3 dueDateDiv">--%>
-<%--                                <input type="date" name="from" class="form-control" value="${pageRequestDTO.from}">--%>
-<%--                                <input type="date" name="to" class="form-control" value="${pageRequestDTO.to}">--%>
-<%--                            </div>--%>
-<%--                            <div class="input-group mb-3">--%>
-<%--                                <div class="float-end">--%>
-<%--                                    <button class="btn btn-primary" id="search">Search</button>--%>
-<%--                                    <button class="btn btn-info clearBtn" type="reset">Clear</button>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </form>--%>
-<%--                    </div>--%>
+
                 </div>
 
             </div>
@@ -121,51 +78,8 @@
 
                         <div class="float-end">
                             <ul class="pagination flex-wrap" id="boardDataNum">
-<%--                                <c:if test="${pageResponseDTO.prev}">--%>
-<%--                                    <li class="page-item">--%>
-<%--                                        <a class="page-link" data-num="${pageResponseDTO.start -1}">Previous</a>--%>
-<%--                                    </li>--%>
-<%--                                </c:if>--%>
 
-<%--                                <c:forEach begin="${pageResponseDTO.start}" end="${pageResponseDTO.end}" var="num">--%>
-<%--                                    <li class="page-item ${pageResponseDTO.page == num? "active":""} ">--%>
-<%--                                        <a class="page-link" data-num="${num}">${num}</a></li>--%>
-<%--                                </c:forEach>--%>
 
-<%--                                <c:if test="${pageResponseDTO.next}">--%>
-<%--                                    <li class="page-item">--%>
-<%--                                        <a class="page-link" data-num="${pageResponseDTO.end + 1}">Next</a>--%>
-<%--                                    </li>--%>
-<%--                                </c:if>--%>
-                            </ul>
-                        </div>
-<%--                    <script>--%>
-<%--                            document.querySelector(".pagination").addEventListener("click", function (e) {--%>
-<%--                                e.preventDefault()--%>
-<%--                                e.stopPropagation()--%>
-
-<%--                                const target = e.target--%>
-
-<%--                                if (target.tagName !== 'A') {--%>
-<%--                                    return--%>
-<%--                                }--%>
-<%--                                const num = target.getAttribute("data-num")--%>
-
-<%--                                const formObj = document.querySelector("form")--%>
-
-<%--                                formObj.innerHTML += `<input type='hidden' name='page' value='\${num}'>`--%>
-
-<%--                                formObj.submit();--%>
-
-<%--                            }, false)--%>
-<%--                            document.querySelector(".clearBtn").addEventListener("click", function (e) {--%>
-<%--                                e.preventDefault()--%>
-<%--                                e.stopPropagation()--%>
-
-<%--                                self.location = '/todo/list'--%>
-
-<%--                            }, false)--%>
-<%--                        </script>--%>
                     </div>
                 </div>
             </div>

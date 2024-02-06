@@ -384,7 +384,6 @@
                         e.stopPropagation()
                         registForm.action = contextPath + "/todo/register"
                         registForm.method = "post"
-
                         registForm.submit()
 
                     }, false);

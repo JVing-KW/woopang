@@ -93,6 +93,7 @@ public class MemberControllerImpl extends BaseController implements MemberContro
 			e.printStackTrace();
 		}
 		resEntity = new ResponseEntity(message, responseHeaders, HttpStatus.OK);
+//		ResponseEntity.ok().header(responseHeaders).body(message);
 
 		//각 케이스에 따른 위 설정값 return
 		return resEntity;

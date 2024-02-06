@@ -141,10 +141,7 @@ public class TodoController {
 
         log.info("list post 호출");
 
-//        if (bindingResult.hasErrors()) {
-//            log.info("에러가 발생함");
-//            pageRequestDTO = PageRequestDTO.builder().build();
-//        }
+
         pageRequestDTO.setGoods_id_t_shopping_goods(goods_id_t_shopping_goods);
 
         model.addAttribute("responseDTO", todoService.getList(pageRequestDTO));

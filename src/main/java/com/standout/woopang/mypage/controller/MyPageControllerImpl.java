@@ -90,7 +90,6 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 		//주문 id order_id로 db삭제 후 cancel_order message 리턴
 		myPageService.cancelOrder(order_id);
 		model.addAttribute("message", "cancel_order");
-//		mav.setViewName("redirect:/mypage/listMyOrderHistory.do");
 		return "redirect:/mypage/listMyOrderHistory";
 	}
 
@@ -141,25 +140,27 @@ public class MyPageControllerImpl extends BaseController  implements MyPageContr
 	//내 정보 수정
 	@Override
 	@RequestMapping(value="/modifyMyInfo" ,method = RequestMethod.POST)
-	public ResponseEntity modifyMyInfo(
-			@RequestParam("member_pw")  String member_pw,
-			@RequestParam("hp1")  String hp1,
-			@RequestParam("zipcode")  String zipcode,
-			@RequestParam("address")  String address,
-			@RequestParam("subaddress")  String subaddress,
+	public ResponseEntity modifyMyInfo(@RequestParam Map<String,String> memberMap,
+
+
+//			@RequestParam("member_pw")  String member_pw,
+//			@RequestParam("hp1")  String hp1,
+//			@RequestParam("zipcode")  String zipcode,
+//			@RequestParam("address")  String address,
+//			@RequestParam("subaddress")  String subaddress,
 			               HttpServletRequest request, HttpServletResponse response)  throws Exception {
-		Map<String,String> memberMap=new HashMap<String,String>();
+//		Map<String,String> memberMap=new HashMap<String,String>();
 		
 		HttpSession session=request.getSession();
 		memberDTO=(MemberDTO)session.getAttribute("memberInfo");
-		String  member_id=memberDTO.getMember_id();
+		String  member_id = memberDTO.getMember_id();
 		
 		//받아온 정보 memberMap에 put
-		memberMap.put("member_pw",member_pw);
-		memberMap.put("hp1",hp1);
-		memberMap.put("zipcode",zipcode);
-		memberMap.put("address",address);
-		memberMap.put("subaddress",subaddress);
+//		memberMap.put("member_pw",member_pw);
+//		memberMap.put("hp1",hp1);
+//		memberMap.put("zipcode",zipcode);
+//		memberMap.put("address",address);
+//		memberMap.put("subaddress",subaddress);
 		memberMap.put("member_id", member_id);
 		
 		//memberMap을 가지고 db수정

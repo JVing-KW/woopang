@@ -31,11 +31,12 @@ public interface MyPageController {
 	public String myDetailInfo(HttpServletRequest request, Model model,HttpServletResponse response)  throws Exception;
 	
 
-	public ResponseEntity modifyMyInfo(@RequestParam("member_pw")  String member_pw,
-			@RequestParam("hp1")  String hp1,
-			@RequestParam("zipcode")  String zipcode,
-			@RequestParam("address")  String address,
-			@RequestParam("subaddress")  String subaddress,
+	public ResponseEntity modifyMyInfo(@RequestParam Map<String,String> memberMap,
+//									   String member_pw,
+//			@RequestParam("hp1")  String hp1,
+//			@RequestParam("zipcode")  String zipcode,
+//			@RequestParam("address")  String address,
+//			@RequestParam("subaddress")  String subaddress,
 					            HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
 
