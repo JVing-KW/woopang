@@ -37,7 +37,7 @@
 
                             <div class="my-4">
                                 <div class="float-end">
-                                    <button type="submit" class="btn btn-primary" id="regist">등록하기</button>
+xit" class="btn btn-primary" id="regist">등록하기</button>
                                     <button type="button" class="btn btn-secondary" onclick="boardNumData()">목록으로</button>
                                 </div>
                             </div>
