@@ -91,7 +91,7 @@
 <div class="container">
 	<div class="row">
 		<div class="d-flex p-0 align-items-center gap-3 mt-5">
-			<p class="fs-3 fw-bold">오늘의 발견</p>
+			<p class="fs-3 fw-bold">오늘의 발견 안녕하세요</p>
 			<p class="fs-6">| 오늘 소팡이 엄선한 가장 HOT한 상품!</p>
 		</div>
 	</div>
