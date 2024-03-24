@@ -9,7 +9,7 @@
 <!-- intercepter에서 set한 회원정보에 따른 조회값  get -->
 <c:set var="cartCount" value="${sessionScope.cartCount}" />
 <c:set var="deliveringCount" value="${sessionScope.deliveringCount}" />
-<c:set var="woopang_money" value="${sessionScope.woopang_money}" />
+<%--<c:set var="woopang_money" value="${sessionScope.woopang_money}" />--%>
 <!-- intercepter에서 set한 회원정보에 따른 조회값  get -->
 
 <div class="container">
