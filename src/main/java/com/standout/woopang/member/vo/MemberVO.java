@@ -21,7 +21,7 @@ public class MemberVO {
 	private String zipcode;
 	private String address;
 	private String subaddress;
-	private String woopang_money;
+//	private String woopang_money;
 	private String joinDate;
 	private String del_yn;
 	

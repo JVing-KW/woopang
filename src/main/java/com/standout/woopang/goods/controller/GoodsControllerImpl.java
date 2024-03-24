@@ -81,9 +81,8 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 		List<GoodsDTO> goodsList=goodsService.searchGoods(map);
 		log.info("map : "+map.toString());
 		model.addAttribute("goodsList",goodsList);
-//		log.info(map);
-//		log.info(goodsList);
-		return "/goods/searchGoods";
+
+ return "/goods/searchGoods";
 	}
 
 	//검색

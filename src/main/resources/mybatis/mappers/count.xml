@@ -21,11 +21,11 @@
 	</select>
 	
 	<!-- 배송중 갯수 카운트 -->
-	<select id="woopang_money" parameterType="String" resultType="java.lang.Long">
-        <![CDATA[
-        select woopang_money from t_shopping_member where member_id = #{member_id}
-	    ]]>
-	</select>
+<!--	<select id="woopang_money" parameterType="String" resultType="java.lang.Long">-->
+<!--        <![CDATA[-->
+<!--        select woopang_money from t_shopping_member where member_id = #{member_id}-->
+<!--	    ]]>-->
+<!--	</select>-->
 	
 	<!-- 싱픔 갯수 카운트 -->
 	<select id="goodsLen" resultType="int">

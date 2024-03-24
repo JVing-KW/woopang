@@ -12,7 +12,7 @@
         <result property="zipcode" column="zipcode"/>
         <result property="address" column="address"/>
         <result property="subaddress" column="subaddress"/>
-        <result property="woopang_money" column="woopang_money"/>
+<!--        <result property="woopang_money" column="woopang_money"/>-->
         <result property="joinDate" column="joinDate"/>
         <result property="del_yn" column="del_yn"/>
     </resultMap>
@@ -30,7 +30,7 @@
                zipcode,
                address,
                subaddress,
-               woopang_money,
+#                woopang_money,
                del_yn,
                DATE_FORMAT(joindate, '%Y-%m-%d') AS joindate
         FROM t_shopping_member

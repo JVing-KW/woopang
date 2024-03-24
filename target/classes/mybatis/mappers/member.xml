@@ -13,7 +13,7 @@
 		<result property="zipcode" column="zipcode" />
 		<result property="address" column="address" />
 		<result property="subaddress" column="subaddress" />
-		<result property="woopang_money" column="woopang_money" />
+<!--		<result property="woopang_money" column="woopang_money" />-->
 		<result property="joinDate" column="joinDate" />
 		<result property="del_yn" column="del_yn" />
 	</resultMap>
