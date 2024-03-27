@@ -1,7 +1,5 @@
 
-https://github.com/JVing-KW/woopang/assets/143769927/7a684540-6c09-4657-9ef5-82660652e39f
 
-https://github.com/JVing-KW/woopang/assets/143769927/94c6eace-e8ba-4f1c-848e-b4754866238a
 회원가입 성공 
 
 https://github.com/JVing-KW/woopang/assets/143769927/4daf5502-4500-48a3-812e-551fd646450a
